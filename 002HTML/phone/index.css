@@ -1,0 +1,66 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.phone{
+	width: 470px;
+	height: 850px;
+	border: 2px #000 solid;
+	margin-top: 50px;
+	margin-left: 80px;
+	border-radius: 50px;
+	background-image: url("http://pic74.nipic.com/file/20150811/21546829_103501666000_2.jpg");
+	background-size: 470px 120%;
+}
+.top{
+	width: 240px;
+	height: 60px;
+	margin: 10px auto;
+}
+.camera{
+	width: 25px;
+	height: 25px;
+	background-color: white;
+	border-radius: 17px;
+	float: left;
+	margin-right: 15px;
+	margin-top: 18px;
+	border: 2px solid #000;
+	background-color: black;
+}
+.licence{
+	width: 130px;
+	height: 10px;
+	margin-left: 5px;
+	background-color: white;
+	border: 1px solid #000;
+	border-radius: 13px;
+	float: left;
+	margin-top: 25px;
+	border: 2px solid #000;
+	background-color: black;
+
+}
+.breathlight{
+	width: 17px;
+	height: 10px;
+	background-color: white;
+	border-radius: 10px;
+	float: left;
+	margin-left: 15px;
+	margin-top: 23px;
+	border: 2px solid #000;
+}
+.screen{
+	width: 440px;
+	height: 670px;
+	margin: 0 auto;
+	border-radius: 10px;
+	background-image: url("http://pic15.nipic.com/20110629/7088727_162651262161_2.jpg");
+	border: 3px solid #000;
+}
+.home{
+	width: 400px;
+	height: 50px;
+	margin: 7px auto;
+}
