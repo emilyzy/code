@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #top{
+            width: 500px;
+            height: 50px;
+        }
+        .button{
+            float: left;
+        }
+        #bottom{
+            width: 500px;
+            height: 100px;
+        }
+        .box{
+            width: 90px;
+            height: 100px;
+            margin-left: 10px;
+            float: left;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+            <input type="button" value="click" class="button">
+            <input type="button" value="click" class="button">
+            <input type="button" value="click" class="button">
+            <input type="button" value="click" class="button">
+            <input type="button" value="click" class="button">
+    </div>
+    <div id="bottom">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <script>
+        let buttons=document.querySelectorAll("input");
+        let boxs=document.querySelectorAll(".box");
+        for (let i=0;i<buttons.length;i++){
+            buttons[i].onclick=function () {
+                for(let j=0;j<buttons.length;j++){
+                    boxs[j].style.background="";
+                }
+                boxs[i].style.background="blue";
+            }
+        }
+    </script>
+</body>
+</html>

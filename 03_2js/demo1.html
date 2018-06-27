@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #button {
+        width: 100px;
+        height: 30px;
+        background-color: red;
+        border-radius: 5px;
+        margin: auto;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        transition: all 0.5s;
+    }
+</style>
+<body>
+<div id="button">开始</div>
+<script>
+    let button = document.querySelector("#button");
+    let state = true;
+    button.onclick = function () {
+        if (state) {
+
+            this.style.backgroundColor = "#33f"; /*this和button都行*/
+            button.innerHTML = "暂停";
+
+        } else {
+
+            button.style.backgroundColor = "";
+            button.innerHTML = "开始";
+
+        }
+        state = !state;
+    };
+
+
+</script>
+</body>
+</html>

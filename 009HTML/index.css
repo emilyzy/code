@@ -1,0 +1,11 @@
+.test{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    transition: all 3s linear 1s;
+}
+.test:hover{
+    width: 500px;
+    height: 500px;
+    background-color: orangered;
+}

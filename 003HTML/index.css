@@ -1,0 +1,25 @@
+.big-box{
+	width: 500px;
+	height: 500px;
+	border: 2px solid #000;
+	margin: 5px 5px 5px 5px;
+	background-color: #6f006f;
+	position: relative;
+	overflow: hidden;
+}
+.small-box{
+	width: 100px;
+	height: 100px;
+	border: 1px solid #000;
+	background-color: #001f00;
+	float: left;
+	margin: 20px;
+}
+.mid-box{
+	width: 400px;
+	height: 400px;
+	border: 1px solid #000;
+	background-color: white;
+	position: absolute;
+	margin: 200px 0px 150px 200px;
+}
