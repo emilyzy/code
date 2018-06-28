@@ -16,6 +16,7 @@
 .images:nth-child(1){
     background-size: cover;
     background-image: url("img1.jpg");
+    z-index: 9;
 }
 .images:nth-child(2){
     background-size: cover;

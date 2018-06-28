@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        let arr=[2,3,1,0]
+        {
+            let r=arr.pop();
+            console.log(r);
+        }
+        {
+            console.log(arr);
+            let r=arr.push(4,5,6)
+            console.log(r);
+        }
+        {
+            /*arr.splice(3,1,"x","y");*/
+            console.log(arr)
+        }
+        /*join (eval()可以把字符串转化为js代码)  把数组转化为字符串
+        sort 对数组内容进行排序
+        function(a,b ){} 回调函数*/
+        {
+            console.clear();
+            console.log(arr);
+            let arr1=arr.join("+");
+            let arr2=eval(arr1);
+            console.log(arr2);
+        }
+        /*{
+            console.clear();
+            console.log(arr);
+            let arr2=arr.sort(function (a,b) {
+                if (a>b){
+                    return 1;
+                } else {
+                    return -1;
+                }
+            })
+            console.log(arr2);
+        }*/
+    </script>
+</head>
+<body>
+
+</body>
+</html>

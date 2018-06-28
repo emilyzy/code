@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>年龄</th>
+        <th>姓名</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<script>
+    //模板字符串
+    const tbody=document.querySelector("tbody");
+    let data=[
+        {name:"zhangsan",age:"11"},
+        {name:"zhagsan",age:"11"},
+        {name:"zhangsn",age:"11"}
+    ];
+    let str="";
+    data.forEach(function (obg) {
+        /*console.log(obg); obj就为object数组*/
+        str+=`<tr>
+                    <th>${obg.name}</th>
+                    <th>${obg.age}</th>
+               </tr>`;
+    });
+    tbody.innerHTML=str;
+
+
+    //解构赋值
+    let obg={name:"zhang",age:"12"};
+    let {name,age}=obg;
+    console.log(name,age);
+
+    //箭头函数
+   /* let fn=function (num1,num2) {
+        return num1+num2;
+    };*/
+    let fn=(a,b)=>a+b;
+    console.log(fn(1,12));
+    let fn2=()=>3.14;
+    console.log(fn2);
+    let fn3=(a,b)=>{
+        console.log(a,b);
+        return a+b;
+    };
+    console.log(fn3(1,2));
+    let fn4=(a,b)=>({name:a,age:b});//识别为对象
+
+    //this
+    let obj={
+        name:"zhang",
+        say:function () {
+            /*setTimeout(function () {
+                console.log(this.name)
+            },1000);    this为window*/
+            setTimeout(()=>{
+                console.log(this.name);
+            },1000);
+            /*console.log(this.name)*/
+        }
+    };
+    obj.say();
+</script>
+</body>
+</html>
