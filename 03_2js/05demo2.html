@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #clock{
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            margin: 0 auto;
+            box-shadow: 0 0 5px black;
+            position: relative;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+    <script>
+        let clock=document.querySelector("#clock");
+        for (let i=0;i<60;i++){
+            let newDiv=document.createElement("div");
+            newDiv.style.cssText=`width:2px;height:${i%5===0?8:4}px;background:red;position:absolute;
+            left:99px;top:2px;transform-origin: 2px 98px;transform:rotate(${i*6}deg);`;
+            clock.appendChild(newDiv);
+        }
+        //绘制指针
+        let h=document.createElement("div");
+        h.style.cssText=`width:60px;height:4px;background:#000;
+        position:absolute;top:98px;left:100px;transform-origin:left center`;
+        clock.appendChild(h);
+        let m=document.createElement("div");
+        m.style.cssText=`width:75px;height:2px;background:#000;
+        position:absolute;top:99px;left:100px;transform-origin:left center`;
+        clock.appendChild(m);
+        let s=document.createElement("div");
+        s.style.cssText=`width:95px;height:1px;background:#000;
+        position:absolute;top:100px;left:90px;transform-origin:10px center`;
+        clock.appendChild(s);
+       function setP() {
+            let date=new Date();
+            let h1=date.getHours();
+            let m1=date.getMinutes();
+            let s1=date.getSeconds();
+            h.style.transform=`rotate(${h1*30-90+m1*0.5}deg)`;
+            m.style.transform=`rotate(${m1*6-90}deg)`;
+            s.style.transform=`rotate(${s1*6-90}deg)`;
+        }
+        setP();
+        setInterval(setP,1000);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<script>
+    const data = ["zhang", "ying", "de", "wang", "ye"];
+    let pos = [];
+    data.forEach(function (text) {
+        let newDiv = document.createElement("div");
+        let rLeft;
+        let rTop;
+        do {
+            rLeft = Math.floor(Math.random() * (window.innerWidth - 100));
+            rTop = Math.floor(Math.random() * (window.innerHeight - 30));
+        } while (checkPos(rLeft, rTop));
+        let r = Math.floor(Math.random() * 155) + 100;
+        let g = Math.floor(Math.random() * 155) + 100;
+        let b = Math.floor(Math.random() * 155) + 100;
+        //Math.random()* 范围+最小值
+        newDiv.style.cssText = `width:100px;height:30px;border-radius:15px;color:#000;
+                text-align:center;line-height:30px;background:rgb(${r},${g},${b});position:absolute;left:${rLeft}px;top:${rTop}px;`;
+        //0 window.innerWidth-100
+        newDiv.innerHTML = text;
+        document.body.appendChild(newDiv);
+        pos.push({l: rLeft, t: rTop, e: newDiv});
+    });
+    //
+    <!--round 四舍五入   floor 向下取整   ceil 向上取整-->
+    function checkPos(l, t) {
+        for (let i = 0; i < pos.length; i++) {
+            if (l > pos[i].l - 100 && l < pos[i].l + 100 && t > pos[i].t - 30 && t < pos[i].t + 30) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    const maxLeft = window.innerWidth - 100;
+    pos.forEach(function (obj) {
+        let speed = 1;
+        let left = obj.l;
+        setInterval(function () {
+            left += speed;
+            if (left >= maxLeft || left <= 0) {
+                speed *= -1;
+            }
+            obj.e.style.left = left + "px";
+        }, 20)
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*一般情况下Script不能写在div之前,除非加了window加载事件*/
+    window.onload = function () {
+        let demos = document.querySelectorAll(".demo");
+        demos[0].ondblclick = function () {
+            console.log("这是一个双击事件")
+        };
+        demos[1].onmousemove = function () {
+            console.log("这是一个鼠标移动事件")
+        };
+
+        function clickHandler(e) {
+            console.log(e.type);
+        }
+
+        demos[2].addEventListener("click", clickHandler);
+        demos[2].removeEventListener("click", clickHandler);
+        /*移除了就没了*/
+        /*window.addEventListener("transitionend",function () {
+
+        });*/
+    };
+</script>
+<div class="demo">1</div>
+<div class="demo">2</div>
+<div class="demo">3</div>
+<div class="demo">4</div>
+<div class="demo">5</div>
+</body>
+
+</html>

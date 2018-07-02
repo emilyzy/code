@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .point {
+            width: 1px;
+            height: 1px;
+            background: black;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+        }
+    </style>
+</head>
+<body>
+<!--1deg Math.PI/180-->
+<div class="point"></div>
+<script>
+    let point = document.querySelector(".point");
+    const R = 300;
+
+    for (let i = 0; i < 8; i++) {
+        let newDiv = document.createElement("div");
+        let angle = i * 45;
+        let left = Math.cos(angle * Math.PI / 180) * R;
+        let top = Math.sin(angle * Math.PI / 180) * R;
+        newDiv.style.cssText = `width:10px;height:10px;background:black;position:absolute;left:${left}px;top:${top}px`;
+        setTimeout(function () {
+            point.appendChild(newDiv);
+            /*console.log(i);*/
+        }, i * 1000);
+    }
+</script>
+</body>
+</html>

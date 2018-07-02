@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #retop {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(to bottom, #b0ffde 0, darkred 100%);
+            position: fixed;
+            bottom: 10px;
+            right: 0;
+        }
+
+        .one {
+            width: 100%;
+            height: 100px;
+            background: red;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            right: 20px;
+        }
+        .two{
+            width: 100px;
+            height: 500px;
+            position: fixed;
+            top: 200px;
+            opacity: 0;
+            left: 0;
+            background: linear-gradient(to bottom, #b0ffde 0, darkred 100%);
+        }
+        .action {
+            opacity: 1 !important; /*调高优先级*/
+        }
+    </style>
+</head>
+<body>
+<h1>00001</h1>
+<h1>00002</h1>
+<h1>00003</h1>
+<h1>00004</h1>
+<h1>00005</h1>
+<h1>00006</h1>
+<h1>00007</h1>
+<h1>00008</h1>
+<h1>00009</h1>
+<h1>00010</h1>
+<h1>00011</h1>
+<h1>00012</h1>
+<h1>00013</h1>
+<h1>00014</h1>
+<h1>00015</h1>
+<h1>00016</h1>
+<h1>00017</h1>
+<h1>00018</h1>
+<h1>00019</h1>
+<h1>00020</h1>
+<h1>00021</h1>
+<h1>00022</h1>
+<h1>00023</h1>
+<h1>00024</h1>
+<h1>00025</h1>
+<h1>00026</h1>
+<h1>00027</h1>
+<h1>00028</h1>
+<h1>00029</h1>
+<h1>00030</h1>
+<h1>00031</h1>
+<h1>00032</h1>
+<h1>00033</h1>
+<h1>00034</h1>
+<h1>00035</h1>
+<h1>00036</h1>
+<h1>00037</h1>
+<h1>00038</h1>
+<h1>00039</h1>
+<h1>00040</h1>
+<h1>00041</h1>
+<h1>00042</h1>
+<h1>00043</h1>
+<h1>00044</h1>
+<h1>00045</h1>
+<h1>00046</h1>
+<h1>00047</h1>
+<h1>00048</h1>
+<h1>00049</h1>
+<h1>00050</h1>
+<div id="retop"></div>
+<div class="one"></div>
+<div class="two"></div>
+<script>
+    let retop = document.querySelector("#retop");
+    let one = document.querySelector(".one");
+    let two=document.querySelector(".two");
+    retop.onclick = function () {
+
+        /*document.body.scrollTop=0;
+        * document.documentElement.scrollTop=0 存在兼容性问题*/
+        // alert(123);
+        //document.body.scrollTop=0
+        /*console.log(document.body.scrollTop)*/
+        //增加动画效果
+        let st = document.body.scrollTop;
+        /*console.log(st)*/
+        let speed = 100;
+        let t = setInterval(function () {
+            st -= speed;
+            if (st <= 0) {
+                st = 0;
+                clearInterval(t);
+            }
+            /*console.log(st)*/
+            document.body.scrollTop = st;
+        }, 50)
+    };
+    window.onscroll = function () {
+        let st = document.body.scrollTop;
+        if (st > 500) {
+            one.classList.add("action");
+        } else {
+            one.classList.remove("action")
+        }
+    };
+    //给同一个事件注册多个事件处理程序的方式
+    window.addEventListener("scroll", function () {
+        let st = document.body.scrollTop;
+        if (st > 300) {
+            two.classList.add("action");
+        } else {
+            two.classList.remove("action")
+        }
+    });
+</script>
+</body>
+</html>

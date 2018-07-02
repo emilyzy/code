@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="demo"></div>
+<script>
+    let demo = document.querySelector(".demo");
+    demo.onmousedown=function (e) {
+        const ox=e.offsetX;
+        const oy=e.offsetY;
+        const maxLeft=window.innerWidth-demo.offsetWidth;
+        /*console.log(window.innerWidth);
+        console.log(demo.offsetWidth);
+        console.log(maxLeft);*/
+        const maxTop=window.innerHeight-demo.offsetHeight;
+        document.onmousemove=function (e) {
+            let cx=e.clientX;
+            let cy=e.clientY;
+            let mx=cx-ox;
+            let my=cy-oy;
+            if (mx>maxLeft){
+                mx=maxLeft;
+            }
+            if (my>maxTop){
+                my=maxTop;
+            }
+            if (mx<0){
+                mx=0;
+            }
+            if (my<0){
+                my=0;
+            }
+            demo.style.top=my+"px";
+            demo.style.left=mx+"px";
+        };
+        demo.onmouseup=function () {
+            document.onmousemove=null;
+        }
+    }
+</script>
+</body>
+</html>
