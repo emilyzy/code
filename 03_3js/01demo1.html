@@ -15,42 +15,59 @@
             top: 0;
             left: 0;
         }
+
+        #container {
+            width: 700px;
+            height: 500px;
+            position: relative;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
-<div class="demo"></div>
+<div id="container">
+    <div class="demo"></div>
+</div>
 <script>
+    /*先做的相对于文档拖移,然后做的相对于container的拖移*/
     let demo = document.querySelector(".demo");
-    demo.onmousedown=function (e) {
-        const ox=e.offsetX;
-        const oy=e.offsetY;
-        const maxLeft=window.innerWidth-demo.offsetWidth;
+    let container = document.querySelector("#container");
+    demo.onmousedown = function (e) {
+        e.preventDefault(); /*阻止浏览器默认行为,在onmousedown事件里*/
+        const ot = container.offsetTop;
+        const ol = container.offsetLeft;
+        const ox = e.offsetX;
+        const oy = e.offsetY;
+        const maxLeft = container.offsetWidth - demo.offsetWidth - 2;
+        const maxTop = container.offsetHeight - demo.offsetHeight - 2;
+        /*const maxLeft = window.innerWidth - demo.offsetWidth;*/
         /*console.log(window.innerWidth);
         console.log(demo.offsetWidth);
         console.log(maxLeft);*/
-        const maxTop=window.innerHeight-demo.offsetHeight;
-        document.onmousemove=function (e) {
-            let cx=e.clientX;
-            let cy=e.clientY;
-            let mx=cx-ox;
-            let my=cy-oy;
-            if (mx>maxLeft){
-                mx=maxLeft;
+        /*const maxTop = window.innerHeight - demo.offsetHeight;*/
+        document.onmousemove = function (e) {
+            let cx = e.clientX;
+            let cy = e.clientY;
+            let mx = cx - ox - ol - 1;
+            let my = cy - oy - ot - 1;
+            if (mx > maxLeft) {
+                mx = maxLeft;
             }
-            if (my>maxTop){
-                my=maxTop;
+            if (my > maxTop) {
+                my = maxTop;
             }
-            if (mx<0){
-                mx=0;
+            if (mx < 0) {
+                mx = 0;
             }
-            if (my<0){
-                my=0;
+            if (my < 0) {
+                my = 0;
             }
-            demo.style.top=my+"px";
-            demo.style.left=mx+"px";
+            demo.style.top = my + "px";
+            demo.style.left = mx + "px";
         };
-        demo.onmouseup=function () {
-            document.onmousemove=null;
+        document.onmouseup = function () {
+            document.onmousemove = null;
         }
     }
 </script>

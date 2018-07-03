@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 500px;
+            height: 500px;
+            background: yellow;
+        }
+        .item{
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            background: blue;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="add" id="add">
+    <div id="container">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+        let container=document.querySelector("#container");
+        let items=document.querySelector(".item");
+        let btn=document.querySelector("#add");
+        container.onclick=function (e) {
+            let {target}=e;
+            if (target.className==="item"){
+                target.style.background="#000";
+            }
+        };
+        btn.onclick=function () {
+            let newItem=document.createElement("div");
+            newItem.className="item";
+            container.appendChild(newItem);
+        }
+    </script>
+</body>
+</html>

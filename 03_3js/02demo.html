@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 400px;
+            height: 500px;
+            border: 1px solid black;
+            position: relative;
+        }
+        #img-box{
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+        #img-box img{
+            width: 400px;
+            height: 400px;
+            display: block;
+        }
+        .search-div{
+            width: 200px;
+            height: 200px;
+            background: rgba(64,209,241,0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #thumbs{
+            width: 400px;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .thumbs-container{
+            width: 80px;
+            height: 80px;
+            border: 1px solid transparent;
+        }
+        .thumbs-container img{
+            width: 80px;
+            height: 80px;
+            display: block;
+        }
+        #bigger{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            left: 430px;
+            top: 0;
+            overflow: hidden;
+            display: none;
+        }
+        #big-img{
+            width: 800px;
+            height: 800px;
+        }
+        #big-img img{
+            width: 800px;
+            height: 800px;
+            display: block;
+        }
+        .active{
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="img-box">
+            <img src="1-m.jpg">
+            <div class="search-div"></div>
+        </div>
+        <div id="thumbs">
+            <div class="thumbs-container active"><img src="1-s.jpg"></div>
+            <div class="thumbs-container"><img src="2-s.jpg"></div>
+            <div class="thumbs-container"><img src="3-s.jpg"></div>
+            <div class="thumbs-container"><img src="4-s.jpg"></div>
+        </div>
+        <div id="bigger">
+            <div id="big-img"><img src="1-l.jpg"></div>
+        </div>
+    </div>
+    <script>
+        let thumbs=document.querySelectorAll(".thumbs-container");
+        let Midimg=document.querySelector("#img-box");
+        let Bigimg=document.querySelector("#bigger");
+        let container=document.querySelector("#container");
+        let Search=document.querySelector(".search-div");
+        let midimg=document.querySelector("#img-box>img");
+        let bigimg=document.querySelector("#big-img>img");
+        let activeObj=thumbs[0];
+        thumbs.forEach(function (ele) {
+            ele.onmouseenter=function () {
+                activeObj.classList.remove("active");
+                ele.classList.add("active");
+                activeObj=ele;
+                let img=ele.firstElementChild;
+                /*console.log(img);*/
+                let src=img.src;
+                src=src.replace("-s","-m");
+                /*console.log(src);*/
+                midimg.src=src;
+                src=src.replace("-m","-l");
+                bigimg.src=src;
+            }
+        })
+        Midimg.onmouseenter=function () {
+            Search.style.display="block";
+            Bigimg.style.display="block";
+        }
+        Midimg.onmouseleave=function () {
+            Search.style.display="none";
+            Bigimg.style.display="none";
+        }
+        Midimg.onmousemove=function (e) {
+            let cl=e.clientX-container.offsetLeft-1;
+            let ct=e.clientY-container.offsetTop-1;
+            let rl=cl-100;
+            let rt=ct-100;
+            if (rl<0){
+                rl=0;
+            }
+            if(rl>=200){
+                rl=200;
+            }
+            if(rt<0){
+                rt=0;
+            }
+            if(rt>=200){
+                rt=200;
+            }
+            /*console.log(rt);*/
+            Search.style.top=rt+"px";
+            Search.style.left=rl+"px";
+            bigimg.style.marginLeft=-rl*2+"px";
+            bigimg.style.marginTop=-rt*2+"px";
+        }
+    </script>
+</body>
+</html>
