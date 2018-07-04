@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .item{
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="jQuery.js"></script>
+</head>
+<body>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item"></div>
+<header>
+    <div id="one">
+        <div id="two"></div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="three"></div>
+    <div id="four"></div>
+</header>
+</body>
+<script>
+    $(".item").css("background","red").html("zhang");
+    console.log($("#one"));
+    console.log($("div"));
+    console.log($(".item"));
+    console.log($("*"));
+    console.log($("#one,.item"));
+    /*后代*/
+    console.log($("header div"));
+    /*子元素*/
+    console.log($("header>div"));
+    console.log($("#one+div"));
+    console.log($("#one~div"));
+</script>
+</html>

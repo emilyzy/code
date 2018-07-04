@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            width: 600px;
+            height: auto;
+            border: 1px solid #7e7e7e;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        tr,td{
+            height: 40px;
+            border: solid 1px #7e7e7e;
+            text-align: center;
+        }
+        .op{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<table id="table">
+    <thead id="thead">
+    <tr>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+    <tfoot >
+        <tr>
+            <td colspan="4" id="tfoot">+</td>
+        </tr>
+    </tfoot>
+</table>
+<script>
+    let tbody=document.querySelector("#tbody");
+    let thead=document.querySelector("#thead");
+    let tfoot=document.querySelector("#tfoot");
+    let ops=document.querySelectorAll(".op");
+    let data=[
+        {name:"zhangsan",sex:"nan",age:"11"},
+        {name:"lisi",sex:"nan",age:"12"},
+        {name:"wangwu",sex:"nan",age:"16"}
+    ];
+    function rander() {
+        let str="";
+        data.forEach(function (obj,index) {
+            console.log(index);
+            str+=`<tr id="${index}">
+                <th>${obj.name}</th>
+                <th>${obj.sex}</th>
+                <th>${obj.age}</th>
+                <th class="op">删除</th>
+</tr>`;
+        });
+        tbody.innerHTML=str;
+    }
+    rander();
+    tfoot.onclick=function () {
+        data.push({name:"",age:"",sex:""});
+        rander();
+    };
+    tbody.onclick=function (e) {
+        /*alert(1)*/
+        let {target}=e;
+        if (target.className==="op"){
+            /*alert(1);*/
+            if(confirm("确定删除吗?")){
+                let pos=target.parentNode.id;
+                data.splice(pos,1);
+                rander();
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>
