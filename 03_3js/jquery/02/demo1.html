@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .two{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .active{
+            background: blue;
+        }
+        #three{
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background: yellow;
+        }
+        #four{
+            height: 100px;
+            width: 100px;
+            background: blue;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            padding: 10px;
+            border: 10px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="one"></div>
+<input type="checkbox">
+<div class="two"></div>
+<div class="two"></div>
+<div class="two"></div>
+<div id="three">
+    <div id="four"></div>
+</div>
+<script src="../jQuery.js"></script>
+<script>
+    console.log($("#one").attr("id")); //获取属性值
+    $("#one").attr("width","200px"); //设置属性 属性值
+    $("#one").attr({
+        width:"300px",
+        height:"100px"
+    }); //设置多个属性 属性值
+    $("#one").attr("width",function () {
+        return "500px";
+    }); //把500设置为属性width的值
+    $("#one").removeAttr("height"); //移除属性 属性值
+
+    $(":checkbox").prop("checked",true); //选中选项状态
+
+    $(".two").click(function () {
+        $(".two").toggleClass("active");
+    }); //给元素设置切换属性
+
+    $(":checkbox").val("true"); //设置value为true
+
+    $(".two")
+        .css("width",function (index) {
+            return (index+1)*100;
+        })
+        .css("height",function(index){
+            return (index+1)*100;
+        }); //css可以获取值也可以设定值
+
+    console.log($("#four").offset());  //跟定位没关系,只是相对于文档的left top值
+    console.log($("#four").position()); //position返回的就是定位的top left值
+    console.log($("#four").height());  //元素的height值
+    console.log($("#four").innerHeight());  //元素height+padding的值
+    console.log($("#four").outerHeight());  //元素height+padding+border的值
+</script>
+</body>
+</html>

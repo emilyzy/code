@@ -23,6 +23,17 @@
         <div class="box">第四项</div>
     </div>
 </div>
-<script src="demo4.js"></script>
+<!--<script src="demo4.js"></script>-->
+<script src="jQuery.js"></script>
+<script>
+    $(".btn").click(function () {
+        $(".btn").removeClass("active").filter(this).addClass("active");
+        let index=$(this).index();
+        /*console.log(index);*/
+        $("#bottom").css("marginLeft",-800*index);
+        /*console.dir($(".box"));*/
+    });
+
+</script>
 </body>
 </html>

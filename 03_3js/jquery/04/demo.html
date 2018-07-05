@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #banner-paper{
+            width: 1440px;
+            height: 600px;
+            background: #6f006f;
+            margin: 0 auto;
+            /*overflow: hidden;*/
+            position: relative;
+        }
+        #container{
+            width: 7200px;
+            height: 600px;
+        }
+        .images{
+            width: 1440px;
+            height: 600px;
+            float: left;
+        }
+        .images:nth-child(1){
+            background-size: cover;
+            background-image: url("img1.jpg");
+        }
+        .images:nth-child(2){
+            background-size: cover;
+            background-image: url("img2.jpg");
+        }
+        .images:nth-child(3){
+            background-size: cover;
+            background-image: url("img3.jpg");
+        }
+        .images:nth-child(4){
+            background-size: cover;
+            background-image: url("front_03.jpg");
+        }
+        .images:nth-child(5){
+            background-size: cover;
+            background-image: url("img1.jpg");
+        }
+        #banner-pager{
+            width: 200px;
+            height: 30px;
+            position: absolute;
+            bottom: 50px;
+            left: 600px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 999999;
+        }
+        .active1{
+            z-index: 9;
+        }
+        .pager-item{
+            width: 20px;
+            height: 20px;
+            border-radius: 15px;
+            border: 5px solid black;
+            box-shadow:0 2px white ;
+        }
+        #banner-pager .active {
+            background:yellow;
+        }
+
+    </style>
+</head>
+<body>
+<div id="banner-paper">
+    <div id="container">
+        <div class="images active1"></div>
+        <div class="images"></div>
+        <div class="images"></div>
+        <div class="images"></div>
+        <div class="images"></div>
+    </div>
+    <div id="banner-pager">
+        <div class="pager-item active"></div>
+        <div class="pager-item"></div>
+        <div class="pager-item"></div>
+        <div class="pager-item"></div>
+    </div>
+</div>
+<script src="jQuery.js"></script>
+<script>
+    let btn=$(".pager-item");
+    let img=$(".images");
+    btn.click(function () {
+        btn.removeClass("active").filter(this).addClass("active");
+        let index=$(this).index();
+        /*console.log(index);*/
+        /*img.removeClass("active1").eq(index).addClass("active1");*/
+        $("#container").animate({left:-index*1440},500)
+    });
+    let t=setInterval(move,3000);
+    let n=0;
+    function move() {
+        /*
+        if(n===btn.length){
+            n=0;
+        }
+        img.removeClass("active1").eq(n).addClass("active1");*/
+        n++;
+        btn.removeClass("active").eq(n).addClass("active");
+        $("#container").animate({left:-index*1440},500,function () {
+            if (n===btn.length){
+                alert(1);
+            }
+        })
+    }
+</script>
+</body>
+</html>

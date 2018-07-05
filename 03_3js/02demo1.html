@@ -58,9 +58,9 @@
         data.forEach(function (obj,index) {
             console.log(index);
             str+=`<tr id="${index}">
-                <th>${obj.name}</th>
-                <th>${obj.sex}</th>
-                <th>${obj.age}</th>
+                <th class="name">${obj.name}</th>
+                <th class="sex">${obj.sex}</th>
+                <th class="age">${obj.age}</th>
                 <th class="op">删除</th>
 </tr>`;
         });
@@ -83,8 +83,25 @@
             }
         }
 
+    };
+tbody.ondblclick=function (e) {
+    let {target}=e;
+    if(target.className!=="op"){
+        let text=target.innerHTML;
+        target.innerHTML="";
+        let input=document.createElement("input");
+        input.value=text;
+        target.appendChild(input);
+        input.forEach();//表单元素自动获得焦点
+        input.onblur=function () {
+            let pos=target.parentNode.id;
+            let attr=target.className;
+            let val=input.value;
+            data[pos][attr]=val;
+            rander();
+        }
     }
-
+}
 </script>
 </body>
 </html>
