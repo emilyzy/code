@@ -6,90 +6,33 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        #box{
-            height: 500px;
-            width: 500px;
-            margin: 0 auto;
-            border-top: 1px solid #000;
-            border-left: 1px solid #000;
-        }
-        .landmine{
-            width: 49px;
-            height: 49px;
-            border-right: 1px solid #000;
-            border-bottom: 1px solid #000;
-            background: #7e7e7e;
-            float: left;
-        }
-        .landmine1{
-
-        }
-        .show{
-            background-color: red;
-        }
-        .number{
-            background: #fff;
-            text-align: center;
-            line-height: 59px;
-        }
-    </style>
+    <link rel="stylesheet" href="use.css">
 </head>
 <body>
     <div id="box"></div>
+    <div id="mask">
+        <img src="landmine.jpg">
+        <div id="start">Start</div>
+        <div id="mode">
+            <div class="easy">Easy</div>
+            <div class="mid">Middle</div>
+            <div class="dif">Difficult</div>
+        </div>
+        <div id="end">
+            <div class="message"></div>
+            <div class="restart">restart</div>
+            <div class="rechoose">re-Choose</div>
+        </div>
+    </div>
+    <div id="board">
+        <div class="words">模式选择:</div>
+        <div class="modeChoose"></div>
+        <div class="words">所用时间:</div>
+        <div class="time">0</div>
+        <div class="words">地雷个数:</div>
+        <div class="flagtag"></div>
+    </div>
     <script src="jQuery.js"></script>
-    <script>
-        do {
-            $("#box").empty();
-            for (let i = 0; i < 10; i++) {
-                for (let j = 0; j < 10; j++) {
-                    let isLandmine = Math.random() > 0.9;
-                    $("<div>")
-                        .addClass(function () {
-                            return "landmine " + (isLandmine ? "landmine1" : "");
-                        })
-                        .appendTo($("#box"))
-                        .attr("id",i+"-"+j);
-                }
-            }
-        }while ($(".landmine1").length!==10);
-        $("#box").on("click",".landmine",clickHandler);
-        function clickHandler() {
-            if($(this).hasClass("landmine1")){
-                $(".landmine1").addClass("show");
-                alert("游戏结束");
-                return;
-            }
-            $(this).addClass("number");
-            let n=0;
-            let id=$(this).attr("id");
-            let x=parseInt(id.charAt(0));
-            let y=parseInt(id.charAt(2));
-            /*console.log(x,y)
-            return;*/
-            /* if($("#"+"i"+"-"+"j")){}*/
-            for(let i=x-1;i<=x+1;i++){
-                for(let j=y-1;j<=y+1;j++){
-                    if ($("#"+i+"-"+j).hasClass("landmine1")){
-                        n++;
-                    }
-                }
-            }
-            $(this).html(n);
-            /*console.log(n)
-            return;*/
-            if(n===0){
-                for(let i=x-1;i<=x+1;i++){
-                    for(let j=y-1;j<=y+1;j++){
-                        let obj=$("#"+i+"-"+j);
-                        if(!obj.hasClass("number")&&obj.length===1){
-                            clickHandler.call(obj[0]);
-                        }
-                    }
-                }
-            }
-        }
-
-    </script>
+    <script src="one_way.js"></script>
 </body>
 </html>

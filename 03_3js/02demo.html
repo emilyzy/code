@@ -112,15 +112,15 @@
                 src=src.replace("-m","-l");
                 bigimg.src=src;
             }
-        })
+        });
         Midimg.onmouseenter=function () {
             Search.style.display="block";
             Bigimg.style.display="block";
-        }
+        };
         Midimg.onmouseleave=function () {
             Search.style.display="none";
             Bigimg.style.display="none";
-        }
+        };
         Midimg.onmousemove=function (e) {
             let cl=e.clientX-container.offsetLeft-1;
             let ct=e.clientY-container.offsetTop-1;
