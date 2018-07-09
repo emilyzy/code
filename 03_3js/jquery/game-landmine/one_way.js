@@ -99,7 +99,7 @@ $("#box").on("contextmenu",".landmine:not(.number)",function (e) {
     $(".flagtag").html(function (index,oldVal) {
         return flagtag?oldVal-1:parseInt(oldVal)+1;
     });
-    if($(".landmine1").filter(".flag").length==count&&$(".flag").html()==0){
+    if($(".landmine1").filter(".flag").length===count && $(".flagtag").html()==="0"){
         alert("恭喜你,成功啦!");
         gameOver(true);
     }

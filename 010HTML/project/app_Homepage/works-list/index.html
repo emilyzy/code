@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/rem.css">
+</head>
+<body>
+<!--语义化标签，头部布局-->
+<header id="header">
+    <div id="header-top">
+        <div class="wrapper">
+            <div id="header-inner">
+                <div id="header-profile">
+                    <img src="img/header.jpg">
+                </div>
+                <div id="header-search">
+                    <form action="">
+                        <div id="header-point"></div>
+                        <input type="text" id="header-input" title="text">
+                        <input type="button" id="header-submit" title="button">
+                        <div id="header-filter">
+                            <label>
+                                <input type="radio" checked="checked" name="filter" value="all" title="radio"/>
+                                <span>全部</span></label>
+                            <label> <input type="radio" checked="checked" name="filter" value="works" title="radio"/>
+                                <span>工作</span></label>
+                            <label> <input type="radio" checked="checked" name="filter" value="article" title="radio"/>
+                                <span>文章</span></label>
+                            <div id="header-divider"></div>
+                            <label> <input type="radio" checked="checked" name="filter" value="business" title="radio"/>
+                                <span>企业</span></label>
+
+                            <label> <input type="radio" checked="checked" name="filter" value="designer" title="radio"/>
+                                <span>设计师</span></label>
+                        </div>
+                    </form>
+                </div>
+                <div id="header-nav">
+                    <ul id="header-nav-list">
+                        <li>
+                            <div class="nav-title-english">Display of works</div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">作品展示</div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                        <li>
+                            <div class="nav-title-english">Display of works</div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">行业新闻</div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                        <li>
+                            <div class="nav-title-english">Display of works</div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">视频介绍</div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                        <li>
+                            <div class="nav-title-english">Display of works</div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">招聘信息</div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="header-banner">
+        <div id="header-banner-bg"></div>
+        <div id="header-banner-fg"></div>
+        <div id="banner-decoration1"></div>
+        <div id="banner-decoration2"></div>
+        <div id="banner-decoration3"></div>
+        <div id="banner-decoration4">
+            <span>NEXT</span>
+            <div id="decoration-circle"></div>
+        </div>
+        <div id="banner-pager">
+            <div class="banner-pager-item"></div>
+            <div class="banner-pager-item"></div>
+            <div class="banner-pager-item"></div>
+            <div class="banner-pager-item active"></div>
+            <div class="banner-pager-num">01/3</div>
+        </div>
+        <div id="banner-title">
+            <div id="banner-title-left">
+                <div class="left-text"><h6>MODNRN</h6></div>
+                <div class="line"></div>
+                <div class="left-text"><h6>HAND</h6><h5>&PAINTED</h5></div>
+            </div>
+            <div id="banner-title-center"></div>
+            <div id="banner-title-bottom">扁平化商务数据思维逻辑互联网线扁平化商务<br>数据思维逻辑互联网线</div>
+        </div>
+    </div>
+    <div id="header-bottom">
+        <div id="header-bottom-title">
+            <div id="header-bottom-top">
+                <div id="header-point1">人物设计</div>
+                <div id="header-point2">插图</div>
+                <div id="header-point3">打印设计</div>
+                <div id="header-point-text">2016.07.12</div>
+            </div>
+            <div id="header-bottom-text">人物设计的插画，在绘画的世界享受美术带给<br>我们的盛宴，在不不同的产品..</div>
+            <div class="header-bottom-pic-box">
+                <div class="header-bottom-pic1">&nbsp浏览量 2983</div>
+                <div class="header-bottom-pic2"> &nbsp浏览量 1258</div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<div id="banner-box">
+    <div id="banner-box-center">
+        <div class="banner-top-bar">
+            <div id="banner-top-homepage">首页</div>
+            <div id="banner-top-work">推荐作品</div>
+        </div>
+        <div id="banner-bar">
+            <h3>Display of works</h3>
+        </div>
+        <div id="banner-select">
+            <div class="cal-box">
+                <h5>作品分类</h5>
+            </div>
+            <div class="cal-box">
+                <h5>作品分类</h5>
+            </div>
+            <div class="cal-box">
+                <h5>作品分类</h5>
+            </div>
+        </div>
+        <div id="banner-banner-box">
+            <div id="list">
+                <div class="list1">
+                    <div class="list11"></div>
+                    <div class="list12">作品分类一</div>
+                    <div class="list13">共18291</div>
+                </div>
+                <div class="list1">
+                    <div class="list21"></div>
+                    <div class="list12">作品分类二</div>
+                    <div class="list13">共18291</div>
+                </div>
+                <div class="list1">
+                    <div class="list21"></div>
+                    <div class="list12">作品分类三</div>
+                    <div class="list13">共18291</div>
+                </div>
+            </div>
+
+            <div class="banner-banner-top1">
+                <div class="banner-t">
+                    <div class="banner-banner-content">
+                        <div class="banner-banner-dec"></div>
+                        <div class="banner-banner-pic"><img src="img/bt_08.png" alt=""></div>
+                    </div>
+                    <div class="banner-banner-text">
+                        <div class="banner-text1">
+                            Bigd country for ...
+                        </div>
+                        <div class="banner-text2">
+                            <div class="banner-text2-left">
+                                <div class="banner-text-line"></div>
+
+                                <div class="banner-text2-2">像素图库&nbsp让你体<br>会不一样的感觉</div>
+                            </div>
+                            <div class="text2-head"></div>
+                        </div>
+                        <div class="banner-top-box">
+                            <div class="banner-top1">浏览量 2983</div>
+                            <div class="banner-top-2">
+                                <div class="banner-top2-1">评论量 1258</div>
+                                <div class="banner-top2-2"></div>
+                            </div>
+                            <div class="banner-top3">
+                                <div class="banner-top3-1">印刷</div>
+                                <div class="banner-top3-2">人物</div>
+
+                                <div class="banner-top3-3">插图</div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="banner-t">
+                    <div class="banner-banner-content">
+                        <div class="banner-banner-dec"></div>
+                        <div class="banner-banner-pic"><img src="img/bt_05.png" alt=""></div>
+                    </div>
+                    <div class="banner-banner-text">
+                        <div class="banner-text1">
+                            Bigd country for ...
+                        </div>
+                        <div class="banner-text2">
+                            <div class="banner-text2-left">
+                                <div class="banner-text-line"></div>
+
+                                <div class="banner-text2-2">像素图库&nbsp让你体<br>会不一样的感觉</div>
+                            </div>
+                            <div class="text2-head"></div>
+                        </div>
+                        <div class="banner-top-box">
+                            <div class="banner-top1">浏览量 2983</div>
+                            <div class="banner-top-2">
+                                <div class="banner-top2-1">评论量 1258</div>
+                                <div class="banner-top2-2"></div>
+                            </div>
+                            <div class="banner-top3">
+                                <div class="banner-top3-1">印刷</div>
+                                <div class="banner-top3-2">人物</div>
+
+                                <div class="banner-top3-3">插图</div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="banner-banner-top2">
+                <div class="banner-t">
+                    <div class="banner-banner-content">
+                        <div class="banner-banner-dec"></div>
+                        <div class="banner-banner-pic"><img src="img/bt_19.png" alt=""></div>
+                    </div>
+                    <div class="banner-banner-text">
+                        <div class="banner-text1">
+                            Bigd country for ...
+                        </div>
+                        <div class="banner-text2">
+                            <div class="banner-text2-left">
+                                <div class="banner-text-line"></div>
+
+                                <div class="banner-text2-2">像素图库&nbsp让你体<br>会不一样的感觉</div>
+                            </div>
+                            <div class="text2-head"></div>
+                        </div>
+                        <div class="banner-top-box">
+                            <div class="banner-top1">浏览量 2983</div>
+                            <div class="banner-top-2">
+                                <div class="banner-top2-1">评论量 1258</div>
+                                <div class="banner-top2-2"></div>
+                            </div>
+                            <div class="banner-top3">
+                                <div class="banner-top3-1">印刷</div>
+                                <div class="banner-top3-2">人物</div>
+
+                                <div class="banner-top3-3">插图</div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="banner-t">
+                    <div class="banner-banner-content">
+                        <div class="banner-banner-dec"></div>
+                        <div class="banner-banner-pic"><img src="img/bt_21.png" alt=""></div>
+                    </div>
+                    <div class="banner-banner-text">
+                        <div class="banner-text1">
+                            Bigd country for ...
+                        </div>
+                        <div class="banner-text2">
+                            <div class="banner-text2-left">
+                                <div class="banner-text-line"></div>
+
+                                <div class="banner-text2-2">像素图库&nbsp让你体<br>会不一样的感觉</div>
+                            </div>
+                            <div class="text2-head"></div>
+                        </div>
+                        <div class="banner-top-box">
+                            <div class="banner-top1">浏览量 2983</div>
+                            <div class="banner-top-2">
+                                <div class="banner-top2-1">评论量 1258</div>
+                                <div class="banner-top2-2"></div>
+                            </div>
+                            <div class="banner-top3">
+                                <div class="banner-top3-1">印刷</div>
+                                <div class="banner-top3-2">人物</div>
+
+                                <div class="banner-top3-3">插图</div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="banner-banner-top3">
+                <div class="banner-t">
+                    <div class="banner-banner-content">
+                        <div class="banner-banner-dec"></div>
+                        <div class="banner-banner-pic"><img src="img/bt_34.png" alt=""></div>
+                    </div>
+                    <div class="banner-banner-text">
+                        <div class="banner-text1">
+                            Bigd country for ...
+                        </div>
+                        <div class="banner-text2">
+                            <div class="banner-text2-left">
+                                <div class="banner-text-line"></div>
+
+                                <div class="banner-text2-2">像素图库&nbsp让你体<br>会不一样的感觉</div>
+                            </div>
+                            <div class="text2-head"></div>
+                        </div>
+                        <div class="banner-top-box">
+                            <div class="banner-top1">浏览量 2983</div>
+                            <div class="banner-top-2">
+                                <div class="banner-top2-1">评论量 1258</div>
+                                <div class="banner-top2-2"></div>
+                            </div>
+                            <div class="banner-top3">
+                                <div class="banner-top3-1">印刷</div>
+                                <div class="banner-top3-2">人物</div>
+
+                                <div class="banner-top3-3">插图</div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="banner-t">
+                    <div class="banner-banner-content">
+                        <div class="banner-banner-dec"></div>
+                        <div class="banner-banner-pic"><img src="img/bt_36.png" alt=""></div>
+                    </div>
+                    <div class="banner-banner-text">
+                        <div class="banner-text1">
+                            Bigd country for ...
+                        </div>
+                        <div class="banner-text2">
+                            <div class="banner-text2-left">
+                                <div class="banner-text-line"></div>
+
+                                <div class="banner-text2-2">像素图库&nbsp让你体<br>会不一样的感觉</div>
+                            </div>
+                            <div class="text2-head"></div>
+                        </div>
+                        <div class="banner-top-box">
+                            <div class="banner-top1">浏览量 2983</div>
+                            <div class="banner-top-2">
+                                <div class="banner-top2-1">评论量 1258</div>
+                                <div class="banner-top2-2"></div>
+                            </div>
+                            <div class="banner-top3">
+                                <div class="banner-top3-1">印刷</div>
+                                <div class="banner-top3-2">人物</div>
+
+                                <div class="banner-top3-3">插图</div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="banner-bottom-box">
+                <div class="banner-bottom">上一页</div>
+                <div class="banner-bottom">2/7</div>
+                <div class="banner-bottom">下一页</div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<div id="bottom">
+    <div id="bottom-box">
+        <div id="bottom-box1">
+            <div id="bottom-pic1"></div>
+            <div id="bottom-pic2">
+                <div id="bottom-pic-content"></div>
+            </div>
+            <div id="bottom-sentence1">商务合作<br>联系我们</div>
+            <div id="bottom-sentence2">意见反馈<br>版权声明</div>
+            <div id="bottom-sentence3">关于我们<br>隐私保护</div>
+        </div>
+        <div id="bottom-box2"></div>
+        <div id="bottom-box3">ICP备14007358号-1 / 京公网安备11010802014号Powered by @ 2008-2006 UI.CN</div>
+        <div id="bottom-box4"></div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

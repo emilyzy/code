@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #scene {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+        }
+
+        .block {
+            width: 49px;
+            height: 49px;
+            float: left;
+            background: #ccc;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+
+        .show {
+            /*background: url("bomb.png");*/
+            background-size: cover;
+        }
+
+        .number {
+            background: #fff;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .flag {
+            /*background: url("flag.jpg");*/
+            background-size: cover;
+        }
+
+        #mask {
+            width: 100%;
+            height: 100%;
+            background: rgb(0, 0, 0);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        #start {
+            width: 120px;
+            height: 40px;
+            background: #fff;
+            color: #000;
+            border-radius: 20px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        #mode {
+            width: 300px;
+            height: 300px;
+            background: #fff;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            display: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        #mode div {
+            width: 300px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #mode div.active {
+            background: #ccc;
+        }
+
+        #board {
+            width: 200px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: #000;
+        }
+
+        .choosed {
+            width: 200px;
+            height: 50px;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            margin-bottom: 100px;
+            font-size: 20px;
+        }
+
+        .time {
+            width: 200px;
+            height: 50px;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            margin-bottom: 100px;
+            font-size: 20px;
+        }
+
+        .flagnum {
+            width: 200px;
+            height: 50px;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            margin-bottom: 100px;
+            font-size: 20px;
+        }
+
+        #end {
+            width: 300px;
+            height: 300px;
+            background: #fff;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            display: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        #end div {
+            width: 300px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .message .success {
+            color: green;
+        }
+
+        .message .fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="scene"></div>
+<div id="mask">
+    <div id="start">开始</div>
+    <div id="mode">
+        <div class="easy">简单</div>
+        <div class="middle">中等</div>
+        <div class="hard">困难</div>
+    </div>
+    <div id="end">
+        <div class="message"></div>
+        <div class="restart">重新开始</div>
+        <div class="rechoose">重新选择</div>
+    </div>
+</div>
+<div id="board">
+    <div class="choosed">简单</div>
+    <div class="time">0</div>
+    <div class="flagnum">10</div>
+</div>
+<script src="jquery.js"></script>
+<script>
+    /*
+        let count;
+        let choosed = $(".choosed");
+        let t;
+        $("#start").click(function () {
+            $(this).hide();
+            $("#mode").slideDown(300);
+        });
+        $("#mode div").click(function () {
+            if ($(this).hasClass("easy")) {
+                count = 10;
+                choosed.html("简单");
+            } else if ($(this).hasClass("middle")) {
+                count = 15;
+                choosed.html("中等");
+            } else if ($(this).hasClass("hard")) {
+                count = 20;
+                choosed.html("困难");
+            }
+            createScene();
+            $(".flagnum").html(count);
+            $("#mask").hide(500);
+        });
+        $("#mode div").mousedown(function () {
+            $(this).addClass("active")
+        });
+        $("#mode div").mouseup(function () {
+            $(this).removeClass("active")
+        });
+        // document.createElement
+        // jQuery===$
+        function createScene() {
+            do {
+                $("#scene").empty();
+                for (let i = 0; i < 10; i++) {
+                    for (let j = 0; j < 10; j++) {
+                        let isbomb;
+                        if (count === 10) {
+                            isbomb = Math.random() > 0.9;
+                        } else if (count === 15) {
+                            isbomb = Math.random() > 0.85;
+                        } else if (count === 20) {
+                            isbomb = Math.random() > 0.8;
+                        }
+                        $("<div>")
+                            .attr("id", i + "-" + j)
+                            .addClass(function () {
+                                return "block " + (isbomb ? "bomb" : "");
+                            })
+                            .appendTo("#scene");
+                    }
+                }
+            } while ($(".bomb").length !== count);
+        }
+
+        // 事件委派
+        $("#scene").on("click", ".block", clickHandler);
+        $("#scene").one("click", setTime);
+
+        function clickHandler() {
+            if ($(this).hasClass("flag")) {
+                return;
+            }
+            if ($(this).hasClass("bomb")) {
+                $(".bomb").addClass("show");
+                alert("游戏失败");
+                gameover(false);
+                return;
+            }
+            if ($(this).hasClass("number")) {
+                return;
+            }
+            $(this).addClass("number");
+            let id = $(this).attr("id");
+            let x = parseInt(id.charAt(0));
+            let y = parseInt(id.charAt(2));
+            let n = 0;
+            for (let i = x - 1; i <= x + 1; i++) {
+                for (let j = y - 1; j <= y + 1; j++) {
+                    if ($("#" + i + "-" + j).hasClass("bomb")) {
+                        n++;
+                    }
+                }
+            }
+            $(this).html(n);
+            if (n === 0) {
+                for (let i = x - 1; i <= x + 1; i++) {
+                    for (let j = y - 1; j <= y + 1; j++) {
+                        let obj = $("#" + i + "-" + j);
+                        if (!obj.hasClass("number") && obj.length === 1) {
+                            clickHandler.call(obj[0]);
+                        }
+                    }
+                }
+            }
+        }
+
+        //右击事件
+        $("#scene").on("contextmenu", ".block:not(.number)", function (e) {
+            e.preventDefault();
+            $(this).toggleClass("flag");
+            let flag = $(this).hasClass("flag");
+            $(".flagnum").html(function (index, oldVal) {
+                return flag ? oldVal - 1 : parseInt(oldVal) + 1;
+            });
+            if ($(".bomb").filter(".flag").length === count && $(".flagnum").html() === "0") {
+                alert("游戏成功");
+                gameover(true);
+            }
+        });
+
+        // 开始计时
+        function setTime() {
+            let time = 0;
+            t=setInterval(function () {
+                time++;
+                $(".time").html(time);
+            }, 1000);
+        }
+
+        // 游戏结束
+        function gameover(result) {
+           let time=$(".time").html();
+           $("#mask").show();
+           $("#mode").hide();
+           $("#end").show();
+           $(".message").html(function(){
+                return (result?"<span class='success'>游戏成功</span>":"<span class='fail'>游戏失败</span>")+"用时"+time+"秒";
+           });
+        }
+        $(".restart").click(function(){
+            createScene();
+            $(".flagnum").html(count);
+            $("#mask").hide(500);
+            clearInterval(t);
+            $("#scene").one("click", setTime);
+            $(".time").html(0);
+        });
+        $(".rechoose").click(function(){
+            $("#end").hide();
+            $("#mode").show();
+            clearInterval(t);
+            $("#scene").one("click", setTime);
+            $(".time").html(0);
+        });
+        */
+    // 构造对象   class  属性  方法
+    class Game {
+        constructor() {
+            this.t = null;  // 保存定时器的属性
+            this.count = 0;   // 保存当前炸弹的个数的
+            this.choosed = $(".choosed");
+            this.scene = $("#scene");
+            this.start();
+            this.eventHandler();
+            this.run();
+        }
+        start() {
+            $("#start").click(function () {
+                $(this).hide();
+                $("#mode").slideDown(300);
+            });
+            let that = this;
+            $("#mode div").click(function () {
+                if ($(this).hasClass("easy")) {
+                    that.count = 10;
+                    that.choosed.html("简单");
+                } else if ($(this).hasClass("middle")) {
+                    that.count = 15;
+                    that.choosed.html("中等");
+                } else if ($(this).hasClass("hard")) {
+                    that.count = 20;
+                    that.choosed.html("困难");
+                }
+                that.createScene();
+                $("#mask").hide(500);
+            });
+        }
+        createScene() {
+            $(".flagnum").html(this.count);
+            do {
+                this.scene.empty();
+                for (let i = 0; i < 10; i++) {
+                    for (let j = 0; j < 10; j++) {
+                        let isbomb;
+                        if (this.count === 10) {
+                            isbomb = Math.random() > 0.9;
+                        } else if (this.count === 15) {
+                            isbomb = Math.random() > 0.85;
+                        } else if (this.count === 20) {
+                            isbomb = Math.random() > 0.8;
+                        }
+                        $("<div>")
+                            .attr("id", i + "-" + j)
+                            .addClass(function () {
+                                return "block " + (isbomb ? "bomb" : "");
+                            })
+                            .appendTo("#scene");
+                    }
+                }
+            } while ($(".bomb").length !== this.count);
+        }
+        run() {
+            this.scene.on("click", ".block", clickHandler);
+            this.scene.one("click", this.setTime.bind(this));
+            let that = this;
+            function clickHandler() {
+                if ($(this).hasClass("flag")) {
+                    return;
+                }
+                if ($(this).hasClass("bomb")) {
+                    $(".bomb").addClass("show");
+                    alert("游戏失败");
+                    that.end(false);
+                    return;
+                }
+                if ($(this).hasClass("number")) {
+                    return;
+                }
+                $(this).addClass("number");
+                let id = $(this).attr("id");
+                let x = parseInt(id.charAt(0));
+                let y = parseInt(id.charAt(2));
+                let n = 0;
+                for (let i = x - 1; i <= x + 1; i++) {
+                    for (let j = y - 1; j <= y + 1; j++) {
+                        if ($("#" + i + "-" + j).hasClass("bomb")) {
+                            n++;
+                        }
+                    }
+                }
+                $(this).html(n);
+                if (n === 0) {
+                    for (let i = x - 1; i <= x + 1; i++) {
+                        for (let j = y - 1; j <= y + 1; j++) {
+                            let obj = $("#" + i + "-" + j);
+                            if (!obj.hasClass("number") && obj.length === 1) {
+                                clickHandler.call(obj[0]);
+                            }
+                        }
+                    }
+                }
+            }
+            //右击事件
+            this.scene.on("contextmenu", ".block:not(.number)", function (e) {
+                e.preventDefault();
+                $(this).toggleClass("flag");
+                let flag = $(this).hasClass("flag");
+                $(".flagnum").html(function (index, oldVal) {
+                    return flag ? oldVal - 1 : parseInt(oldVal) + 1;
+                });
+                if ($(".bomb").filter(".flag").length === count && $(".flagnum").html() === "0") {
+                    alert("游戏成功");
+                    that.end(true);
+                }
+            });
+        }
+        setTime() {
+            let time = 0;
+            this.t = setInterval(function () {
+                time++;
+                $(".time").html(time);
+            }, 1000);
+        }
+        end(result) {
+            let time = $(".time").html();
+            clearInterval(this.t);
+            $("#mask").show();
+            $("#mode").hide();
+            $("#end").show();
+            $(".message").html(function () {
+                return (result ? "<span class='success'>游戏成功</span>" : "<span class='fail'>游戏失败</span>") + "用时" + time + "秒";
+            });
+        }
+        eventHandler() {
+            let that = this;
+            $(".restart").click(function () {
+                that.scene.one("click", that.setTime.bind(that));
+                that.createScene();
+                $("#mask").hide(500);
+                $(".time").html(0);
+            });
+            $(".rechoose").click(function () {
+                that.scene.one("click", that.setTime.bind(that));
+                $("#end").hide();
+                $("#mode").show();
+                $(".time").html(0);
+            });
+        }
+    }
+     new Game();
+</script>
+</body>
+</html>

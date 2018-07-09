@@ -17,7 +17,7 @@
 
 }
 .show{
-    background-color: red;
+    background: url("landmine.png") no-repeat center /100% auto;
 }
 .number{
     background: #fff;
@@ -25,7 +25,7 @@
     line-height: 59px;
 }
 .flag{
-    background: yellow;
+    background: url("flag.png") no-repeat center /100% auto;
 }
 #mask{
     z-index: 99;

@@ -1,0 +1,101 @@
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,em,textarea,p,th,td,span{margin:0px;padding:0px;}
+html{
+	font-size: 50px;
+}
+@media screen and (min-width: 320px) {
+	html {
+		font-size: calc(320 / 750 * 100px);
+	}
+}
+
+@media screen and (min-width: 360px) {
+	html {
+		font-size: calc(360 / 750 * 100px);
+	}
+}
+
+@media screen and (min-width: 375px) {
+	html {
+		font-size: calc(375 / 750 * 100px);
+	}
+}
+
+@media screen and (min-width: 414px) {
+	html {
+		font-size: calc(414 / 750 * 100px);
+	}
+}
+.boss{
+	width: 100%;
+	height: 12.39rem;
+	box-sizing: border-box;
+	padding: .52rem .49rem;
+	opacity: .8;
+	background: url(../image/b.png);
+	position: relative;
+}
+.top {
+	width: 100%;
+	height: .59rem;
+	font-size: .4rem;
+	color: white;
+}
+
+
+.top p{
+	float: left;
+}
+.top .p2{
+	margin-left: .26rem;
+}
+.top img{
+	width: .59rem;
+	float: right;
+}
+.middle{
+	margin-top: .62rem;
+	font-size: .72rem;
+	color: white;
+	margin-bottom: .97rem;
+}
+.middle img{
+	width: .39rem;
+	position: absolute;
+	right: .49rem;
+	top: 2.05rem;
+	
+}
+.bottom-t{
+	display: flex;
+	justify-content: space-between;
+}
+.bottom-t p ,.bottom-b p{
+	box-sizing: border-box;
+	text-align: center;
+	border-radius: .24rem;
+	
+}
+.bottom-t .p4,.bottom-b .p4{
+	width: 1.15rem;
+	height: .41rem;
+	line-height: .41rem;
+	background: #f0c310;
+	color: #393410;
+	font-size: .24rem;
+}
+.bottom-t .p5,.bottom-b .p5{
+	border: 2px solid #f0c310;
+	color:#f0c310;
+	font-size: .24rem;
+	width: 1.36rem;
+	height: .41rem;
+	padding-bottom: .1rem;
+}
+.bottom-b .p4,.bottom-b .p5{
+	width: 1.06rem;
+}
+.bottom-b{
+	display: flex;
+	justify-content: space-around;
+	margin-top: .49rem;
+}

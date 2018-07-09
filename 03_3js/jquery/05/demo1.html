@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            width: 600px;
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td,th{
+            width: 150px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .del{
+            color: red;
+            font-weight: 500;
+        }
+        #add{
+            color: green;
+            font-size: 30px;
+            font-weight: 500;
+        }
+        input{
+            width: 140px;
+            height: 40px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <tfoot>
+    <tr>
+        <td id="add" colspan="4">+</td>
+    </tr>
+    </tfoot>
+</table>
+<script src="../jQuery.js"></script>
+<script>
+    function getData() {
+        if(localStorage.data){
+            return JSON.parse(localStorage.data);
+        }else {
+            return [];
+        }
+    }
+    function setData(data) {
+        localStorage.data=JSON.stringify(data);
+    }
+    function render() {
+        let data=getData();
+        let str="";
+        data.forEach(function (value,index) {
+            str+=`<tr id="${index}">
+                        <td class="name">${value.name}</td>
+                        <td class="age">${value.age}</td>
+                        <td class="sex">${value.sex}</td>
+                        <td class="del">删除</td>
+                  </tr>`
+        });
+        $("tbody").html(str);
+    }
+    render();
+    $("#add").click(function () {
+        let data=getData();
+        data.push({name:"",age:"",sex:""});
+        setData(data);
+        render();
+    });
+    $("tbody").on("click",".del",function () {
+        let data=getData();
+        let pos=$(this).parent().attr("id");
+        data.splice(pos,1);
+        setData(data);
+        render();
+    })
+        .on("dblclick","td",function () {
+            let text=$(this).html();
+            $(this).html("");
+            let input=$("<input>").val(text).appendTo(this);
+            input[0].focus();
+            input.blur(function () {
+                let pos=$(this).parent().parent().attr("id");
+                let attr=$(this).parent().attr("class");
+                let val=$(this).val();
+                let data=getData();
+                data[pos][attr]=val;
+                setData(data);
+                render();
+            })
+        })
+    //自己写
+    /*function getData() {
+        if(localStorage.data){
+            return JSON.parse(localStorage.data);
+        }else{
+            return [];
+        }
+    }
+    function setData(data) {
+        localStorage.data=JSON.stringify(data);
+    }
+    function render() {
+        let data=getData();
+        let str="";
+        data.forEach(function (val,index) {
+            str+=`<tr id="${index}">
+<td></td>
+<td></td>
+<td></td>
+<td class="del">删除</td>
+</tr>`;
+        });
+        $("tbody").html(str);
+    }
+    $("#add").click(function () {
+        let data=getData();
+        data.push({name:"",age:"",sex:""});
+        setData(data);
+        render();
+    });
+    $("tbody").on("click",".del",function () {
+        let data=getData();
+        pos=$(this).parent().attr("id");
+        data.splice(pos,1);
+        setData(data);
+        render();
+    })*/
+</script>
+</body>
+</html>

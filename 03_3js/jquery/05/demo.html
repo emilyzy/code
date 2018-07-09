@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>0</div>
+    <input type="button" value="add">
+    <script>
+        //本地存储
+        //localStorage  sessionStorage
+        /*localStorage.setItem("name","zhangsan");*///删除数据也还在
+        let div=document.querySelector("div");
+        let input=document.querySelector("input");
+        if(localStorage.number) {
+            div.innerHTML = localStorage.getItem("number");
+        }
+        input.onclick=function () {
+            let n=div.innerHTML;
+            n++;
+            div.innerHTML=n;
+            localStorage.number=n;
+        }
+    </script>
+</body>
+</html>
