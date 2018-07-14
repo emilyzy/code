@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id="app">
+	{{m}}
+	{{reme}}
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data:{
+			m:"hello"
+		},
+		computed:{
+			reme:function(){
+				return this.m.split("").reverse().join("");
+			}
+		},
+		watch:{
+			m:function(){
+				console.log(1);
+			}
+		}
+	})
+</script>
+</body>
+</html>

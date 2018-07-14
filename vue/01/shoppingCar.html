@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title><style type="text/css">
+		th,td{
+			width: 99px;
+			height: 50px;
+			border: 1px solid black;
+			text-align: center;
+			font-size: 20px;
+			line-height: 50px;
+		}
+		table{
+			width: 600px;
+			height: auto;
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+
+</head>
+<body>
+<table>
+	<tr>
+		<th>select</th>
+		<th>name</th>
+		<th>price</th>
+		<th>dec</th>
+		<th>count</th>
+		<th>add</th>
+		<th>wholePrice</th>
+	</tr>
+	<tr v-for="obj in goods">
+		<td><input type="checkbox" name="goods"  :value="obj.name" v-model="yes"></td>
+		<td>{{obj.name}}</td>
+		<td>{{obj.price}}</td>
+		<td @mousedown.prevent="dec(obj)">-</td>
+		<td>{{obj.count}}</td>
+		<td @mousedown.prevent="add(obj)">+</td>
+		<td>{{obj.price*obj.count}}</td>
+	</tr>
+	<tr>
+		<td colspan="7">{{yes.join(" ")}}</td>
+	</tr>
+	<tr>
+		<td colspan="7" style="text-align: right;">
+			<!-- 总价:{{getTotle()}} -->
+			总价:{{total1}}
+			<!-- 总价:{{total}} -->
+		</td>
+	</tr>
+</table>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:"table",
+		data:{
+			goods:[
+			{name:"apple1",price:12,count:0},
+			{name:"apple2",price:12,count:0},
+			{name:"apple3",price:12,count:0},
+			],
+			total:0,
+			yes:[]
+		},
+		methods:{
+			add:function(obj){
+				obj.count++;
+			},
+			dec:function(obj){
+				if(obj.count>0){
+					obj.count--;
+				}
+			},
+			/*getTotle:function(){
+				let totle=0;
+				this.goods.forEach(function(obj){
+					totle+=obj.price*obj.count;
+				});
+				return totle;
+			}*/
+		},
+		computed:{
+			total1:function(){
+				let total=0;
+				this.goods.forEach((obj)=>{
+					if(this.yes.includes(obj.name)){
+						total+=obj.price*obj.count;
+					}
+				});
+				return total;
+			}
+		}
+		/*watch:{
+			goods:{
+				handler:function(){
+					let total2=0;
+					this.goods.forEach((obj)=>{
+						total2+=obj.price*obj.count;
+				});
+					this.total=total2;
+				},
+				deep:true
+			}
+		}*/
+	})
+</script>
+</body>
+</html>

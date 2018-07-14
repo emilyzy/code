@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id="app">
+	<span>{{(str+"world").split("").reverse().join("")}}</span>
+	<!-- <span>{{reverseConcatStr()}}</span> -->
+	<span>{{reverseConcatStr}}</span>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data:{
+			str:"hello"
+		},
+		methods:{
+			/*reverseConcatStr:function(){
+				return (this.str+"world").split("").reverse().join("");
+			}*/
+		},
+		computed:{
+			reverseConcatStr:function(){
+				return (this.str+"world").split("").reverse().join("");
+			}
+		}
+	})
+</script>
+</body>
+</html>

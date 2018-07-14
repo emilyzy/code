@@ -1,0 +1,611 @@
+/************************头部样式***************************/
+#header {
+    height: 7.72rem;
+    width: 100%;
+    background-color: #f4f4f4;
+}
+
+#header-top {
+    height: 1.09rem;
+    width: 100%;
+    background-color: #01486f;
+}
+
+.wrapper {
+    width: 7.02rem;
+    height: auto;
+    margin: 0 auto;
+}
+
+#header-inner {
+    width: 100%;
+    height: 1.09rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header-profile {
+    height: 0.58rem;
+    width: 0.58rem;
+    border-radius: 50%;
+    border: 0.02rem solid #f9cd1e;
+    overflow: hidden;
+}
+
+#header-profile img {
+    height: 0.58rem;
+    width: 0.58rem;
+}
+
+#header-search {
+    width: 4.26rem;
+    height: 0.46rem;
+    border-radius: 0.23rem;
+    border: 0.03rem solid #b3c8d4;
+    background-color: #1c5b7e;
+    position: relative;
+}
+
+/**************************filter悬浮框*************************/
+
+#header-filter {
+    width: 2.55rem;
+    height: 1.28rem;
+    background: #ffffff;
+    position: absolute;
+    left: 0.23rem;
+    top: 0.38rem;
+    box-shadow: 0 0 0 1px #bfac2b;
+    opacity: 0.92;
+    border-radius: 0.04rem;
+    /*display: flex;
+    justify-content: space-between;*/
+    padding-top: 0.27rem;
+    padding-left: 0.07rem;
+    display: none; /*点到搜索框才能看到效果*/
+    z-index: 2;
+    /*display: block;*/
+}
+
+#header-input:focus ~ div { /*也可以用+表示紧邻的div,~表示同一级以下的div*/
+    display: block;
+}
+
+#header-filter:before {
+    content: "";
+    width: 0.08rem;
+    height: 0.08rem;
+    position: absolute;
+    left: 0.16rem;
+    top: -0.04rem;
+    transform: rotate(45deg);
+    box-shadow: -1px -1px 0 0.005rem #bfac2b;
+    background: #ffffff;
+}
+
+#header-filter label {
+    float: left;
+    font-size: 12px;
+    font-family: "AR PL UKai TW";
+}
+
+#header-filter label input {
+    margin-right: 0.05rem;
+    vertical-align: bottom;
+}
+
+#header-divider {
+    width: 2.15rem;
+    height: 1px;
+    background: #d3d3d3;
+    margin: 0.18rem 0 0.1rem 0.12rem;
+    float: left;
+    position: relative;
+}
+
+#header-divider:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -0.02rem;
+    width: 0.05rem;
+    height: 0.05rem;
+    background: #585857;
+    border-radius: 50%;
+}
+
+#header-divider:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -0.02rem;
+    width: 0.05rem;
+    height: 0.05rem;
+    background: #585857;
+    border-radius: 50%;
+}
+
+/**********************悬浮框部分结束*****************************/
+
+#header-point {
+    width: 0.08rem;
+    height: 0.08rem;
+    border-radius: 50%;
+    background-color: #ffd015;
+    float: left;
+    margin-left: 0.09rem;
+    margin-top: 0.16rem;
+}
+
+#header-input {
+    width: 3.12rem;
+    height: 0.46rem;
+    background: transparent;
+    float: left;
+    margin-left: 0.18rem;
+    border: none;
+}
+
+#header-submit {
+    width: 0.67rem;
+    height: .32rem;
+    float: left;
+    margin-top: 0.04rem;
+    border-radius: .16rem;
+    overflow: hidden;
+    background: url(../img/explore.png) no-repeat center/100% auto;
+    border: none;
+}
+
+/**************************搜索下的悬浮框**************************/
+#header-map {
+    width: 0.56rem;
+    height: 1.09rem;
+    position: relative;
+}
+
+#header-map img {
+    width: 0.56rem;
+    height: auto;
+    margin-top: 0.5rem;
+}
+
+#header-map-list {
+    z-index: 2;
+    height: 3.27rem;
+    width: 1.72rem;
+    background: rgba(12, 42, 54, 0.70);
+    position: absolute;
+    top: 0.9rem;
+    right: 0;
+    border-radius: 0.08rem;
+    /*display: none;*/
+}
+
+/*
+#header-map:focus ~ div {
+    display: block;
+}
+*/
+
+#header-map-list:before {
+    content: "";
+    background: rgba(12, 42, 54, 0.70);
+    height: 0.1rem;
+    width: 0.1rem;
+    position: absolute;
+    right: .17rem;
+    top: -0.05rem;
+    transform: rotate(45deg);
+}
+
+#header-map-list li {
+    width: 1.45rem;
+    height: 0.65rem;
+    margin: 0 auto;
+    margin-top: 0.15rem;
+}
+
+.map-title-english {
+    height: 0.25rem;
+    line-height: 0.25rem;
+    font-size: 12px;
+    text-align: right;
+    color: #bdbebe;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.map-divider1 {
+    width: 0.8rem;
+    height: 1px;
+    background: #707577;
+    margin-left: 0.65rem;
+    position: relative;
+}
+
+.map-divider1:after {
+    content: "";
+    width: 0.12rem;
+    height: 1px;
+    float: right;
+    background: #f2c119;
+}
+
+.map-title-ch {
+    height: 0.35rem;
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+    color: #ffffff;
+    font-family: "AR PL UKai CN";
+    line-height: 0.35rem;
+}
+
+.map-divider2 {
+    width: 1.22rem;
+    margin-left: 0.23rem;
+    border-top: 1px dashed #707577;
+}
+
+#header-banner {
+    height: 3.28rem;
+    width: 100%;
+    /*overflow: hidden;*/
+    background: #01486f;
+    position: relative;
+}
+
+#header-banner-bg {
+    height: 3.28rem;
+    width: 100%;
+    background: url("../img/header-img_03.jpg") no-repeat;
+    background-size: 100% auto;
+    opacity: 0.5;
+}
+
+#header-banner-fg {
+    height: 3.04rem;
+    width: 5.89rem;
+    background: url("../img/header-img_03.jpg") no-repeat center/100% auto;
+    position: absolute;
+    left: 0.88rem;
+    top: 0.72rem;
+    z-index: 1;
+
+}
+
+#header-banner-pager {
+    height: 0.95rem;
+    width: 0.49rem;
+    background-image: url("../img/blue-item.png");
+    position: absolute;
+    top: 1.91rem;
+    left: 6.77rem;
+    z-index: 1;
+}
+
+#header-banner-decoration1 {
+    height: 1.98rem;
+    width: 1.71rem;
+    background: #16796a;
+    position: absolute;
+    top: 1.24rem;
+    right: 0.42rem;
+    opacity: 0.32;
+}
+
+#header-banner-decoration2 {
+    height: 0.32rem;
+    width: 0.77rem;
+    background: #f0c310;
+    position: absolute;
+    top: 2.02rem;
+    left: 0.66rem;
+}
+
+#header-banner-decoration3 {
+    height: 0.27rem;
+    width: 0.31rem;
+    background: #f0c310;
+    position: absolute;
+    top: 2rem;
+    left: 0.17rem;
+    opacity: 0.27;
+}
+
+#header-banner-decoration4 {
+    height: 0.6rem;
+    width: 0.57rem;
+    background: #f0c310;
+    position: absolute;
+    top: 2.14rem;
+    left: 0.31rem;
+    opacity: 0.41;
+}
+
+#header-banner-decoration5 {
+    height: 1.42rem;
+    width: 4.04rem;
+    background: #10c8f0;
+    position: absolute;
+    z-index: 2;
+    top: 1.64rem;
+    left: 0.66rem;
+}
+
+#header-banner-decoration5 h2 {
+    font-size: 20px;
+    color: #ffffff;
+    margin: 0.02rem 0 0 0.15rem;
+}
+
+#header-banner-decoration5 h5 {
+    font-size: 12px;
+    color: #ffffff;
+    margin: 0 0 0 0.15rem;
+    font-weight: normal;
+}
+
+.header-banner-item {
+    height: 0.09rem;
+    width: 0.09rem;
+    border-radius: 50%;
+    background: #ffffff;
+    margin: 0.07rem auto;
+}
+
+.header-banner-num {
+    height: 0.18rem;
+    width: 100%;
+    text-align: center;
+    line-height: 10px;
+    font-size: 10px;
+    color: #ffffff;
+}
+
+.header-banner-item .active {
+
+}
+
+/*************************顶部header-banner下的部分************************/
+
+#header-banner-bottom {
+    height: 2.78rem;
+    width: 5.96rem;
+    /*background: #ffffff;
+    border-radius: 0.06rem;*/
+    position: absolute;
+    z-index: 1;
+    top: 2.95rem;
+    left: 0.92rem;
+    background: url("../img/banner-bottom_03.png") no-repeat;
+    background-size: 5.76rem 2.78rem;
+    /*box-shadow: 0 0 0.3rem #2e2f22;*/
+}
+
+
+
+/*-------------------------------------------------------*/
+
+#header-banner-bottom-left {
+    height: 1.9rem;
+    width: 1.9rem;
+    margin-left: 0.4rem;
+    margin-top: 0.4rem;
+    float: left;
+}
+
+#date {
+    height: 0.33rem;
+    width: 1.24rem;
+    border-radius: 0.18rem;
+    background: #07b0d5;
+}
+
+#date h4 {
+    color: #ffffff;
+    text-align: center;
+    line-height: 0.33rem;
+}
+
+#after-date-describe h4 {
+    font-weight: normal;
+}
+
+#header-banner-bottom-right {
+    height: 2rem;
+    width: 2.60rem;
+    margin-left: 0.4rem;
+    margin-top: 0.36rem;
+    float: left;
+}
+
+#header-banner-bottom-divider {
+    height: 1.70rem;
+    position: absolute;
+    left: 2.47rem;
+    top: 0.52rem;
+    border-left: 1px dashed #dcdcdc;
+}
+
+.header-bottom-info {
+    height: 0.6rem;
+    width: 2.62rem;
+    margin-bottom: 0.1rem;
+}
+
+.header-bottom-info .info-num {
+    height: 0.6rem;
+    width: 1.02rem;
+    float: left;
+    margin-right: 0.03rem;
+    line-height: 0.6rem;
+    text-align: center;
+}
+
+.header-bottom-info .info-divider {
+    height: 0.5rem;
+    margin-top: 0.05rem;
+    border-left: 1px dashed #dcdcdc;
+    float: left;
+}
+
+.header-bottom-info .info-words {
+    height: 0.6rem;
+    width: 1.50rem;
+    float: left;
+    margin-left: 0.04rem;
+    line-height: 0.6rem;
+    text-align: center;
+}
+
+/*******************容器内的布局********************/
+#container {
+    width: 100%;
+    height: 21.71rem;
+    background-color: #f4f4f4;
+    padding: 0 0.25rem;
+}
+
+/*******************************底部**************************/
+
+#bottom {
+    width: 100%;
+    height: 5.75rem;
+    background: #2d2d2d;
+    position: relative;
+}
+
+#logo1 {
+    height: 1.5rem;
+    width: 1.5rem;
+    position: absolute;
+    top: 0.4rem;
+    left: 1.8rem;
+    background: url("../img/bottom1_09.png") no-repeat center/100% auto;
+}
+
+#bottom-point1 {
+    height: 3px;
+    width: 3px;
+    border-radius: 50%;
+    border: solid 2px #5a5a5a;
+    position: absolute;
+    left: 3.37rem;
+    top: 0.4rem
+}
+
+#bottom-point2 {
+    height: 3px;
+    width: 3px;
+    border-radius: 50%;
+    border: solid 2px #5a5a5a;
+    position: absolute;
+    left: 3.37rem;
+    top: 1.8rem
+}
+
+#bottom-divider {
+    height: 1.4rem;
+    width: 1px;
+    position: absolute;
+    top: 0.45rem;
+    left: 3.4rem;
+    border-right: dashed 1px #5a5a5a;
+}
+
+#logo2 {
+    width: 1.4rem;
+    height: 1.4rem;
+    background: #25b0ff;
+    position: absolute;
+    top: 0.45rem;
+    right: 1.9rem;
+}
+
+#bottom-two {
+    height: 1.11rem;
+    width: 5rem;
+    position: absolute;
+    top: 2.1rem;
+    left: 1.66rem;
+}
+
+#bottom-two p {
+    width: 1.6rem;
+    float: left;
+    line-height: 19px;
+    font-size: 13px;
+    color: #7b7a7a;
+}
+
+#bottom-three {
+    width: 6rem;
+    height: 2.6rem;
+    position: absolute;
+    bottom: 0;
+    left: 0.8rem;
+}
+
+#bottom-three-word {
+    text-align: center;
+    line-height: 23px;
+    font-size: 13px;
+    color: #7b7a7a;
+    margin-bottom: 0.2rem;
+}
+
+#bottom-three-pic {
+    width: 2.3rem;
+    height: 0.7rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pic-item {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.pic-item:nth-child(1) {
+    background: #5ccc26 url("../img/wechat.png") no-repeat center/90% auto;
+}
+
+.pic-item:nth-child(2) {
+    background: #2a77f6 url("../img/qq.png") no-repeat center/60% auto;
+}
+
+.pic-item:nth-child(3) {
+    background: #f59421 url("../img/weibo.png") no-repeat center/85% auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
