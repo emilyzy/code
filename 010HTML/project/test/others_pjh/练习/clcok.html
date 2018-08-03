@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .clock{
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            /*border:2px #333 solid;*/
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin:  auto;
+            position: relative;
+            background:url("img/5914826_170337153161_2.jpg") no-repeat center center/500px 500px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="clock"></div>
+<script>
+    let clock=document.querySelector(".clock");
+    for(let i=0;i<60;i++){
+    let newDiv=document.createElement("div");
+    clock.appendChild(newDiv);
+    newDiv.style.cssText=`width:4px;height:${i%5===0?40:20}px;position:absolute;left:250px;top:10px;background:black;transform-origin:2px 240px;transform:rotate(${i*6}deg)`
+    }
+    let Div=document.createElement("div");
+    clock.appendChild(Div);
+    Div.style.cssText=`width:20px;height:20px;position:absolute;left:240px;top:240px;background:red;border-radius:50%;z-index:10`;
+    let hourPoint=document.createElement("div");
+    clock.appendChild(hourPoint);
+    hourPoint.style.cssText=`width:80px;height:4px;position:absolute;left:250px;top:250px;background:black;transform-origin:2px 0;`;
+    let minPoint=document.createElement("div");
+    clock.appendChild(minPoint);
+    minPoint.style.cssText=`width:120px;height:4px;position:absolute;left:250px;top:250px;background:black;transform-origin:2px 0`;
+    let sPoint=document.createElement("div");
+    clock.appendChild(sPoint);
+    sPoint.style.cssText=`width:180px;height:2px;position:absolute;left:250px;top:250px;background:red;transform-origin:1px 0`;
+    function setPoint() {
+        let d = new Date();
+        let h = d.getHours();
+        console.log(h);
+        let m = d.getMinutes();
+        let s = d.getSeconds();
+        console.log(hourPoint.style.transform = `rotate(${h * 30 - 90 + 0.5 * m}deg)`);
+
+        minPoint.style.transform = `rotate(${m * 6 - 90}deg)`;
+        sPoint.style.transform = `rotate(${s * 6 - 90}deg)`;
+    }
+    setPoint();
+    setInterval(setPoint,1000);
+</script>
+</body>
+</html>

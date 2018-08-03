@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 320px) {
+    html {
+        font-size: calc(320 / 750 * 100px);
+    }
+}
+
+@media screen and (min-width: 360px) {
+    html {
+        font-size: calc(360 / 750 * 100px);
+    }
+}
+
+@media screen and (min-width: 375px) {
+    html {
+        font-size: calc(375 / 750 * 100px);
+    }
+}
+
+@media screen and (min-width: 414px) {
+    html {
+        font-size: calc(414 / 750 * 100px);
+    }
+}
+
+input:focus{
+    outline: none;
+}
+
+li{
+    list-style: none;
+}
+
+body{
+    background: #f4f4f4;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id="app">
+	<input type="button" value="click" @click="n++">{{n}}
+	<test-comp :n="n" @btn-click="n=$event"></test-comp>
+	<!-- 缩写的方法自己看vue.js -->
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+	<script type="text/javascript">
+		Vue.component("my-btn",{
+			template:"<input type='button' value='click'>",
+			methods:{
+				handleClick:function(){
+					/*this.$emit("btn-click");*/
+				}
+			}
+		})
+		Vue.component("test-comp",{
+			template:"<div style='border:1px sloid red'><input type='button' value='click' @click='handleClick'><span>{{num}}</span></div>",
+			props:["n"],
+			data:function(){
+				return{
+					num:this.n
+				}
+			},
+			methods:{
+				handleClick:function(){
+					this.num++;
+					this.$emit("btn-click",this.num);
+				}
+			}
+		})
+		new Vue({
+			el:"#app",
+			data:{
+				n:1
+			}
+		})
+	</script>
+</body>
+</html>

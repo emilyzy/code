@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id="app">
+	<router-link to="/index">/index</router-link>
+	<router-link to="/news/guonei">domestic news</router-link>
+	<router-link to="/news/guowai">foreign news</router-link>
+	<router-link to="/about">/about us</router-link>
+	<router-view></router-view>
+</div>
+<script src="../vue.js"></script>
+<script src="../router.js"></script>
+<script src="index.js"></script>
+<script src="news.js"></script>
+<script src="about.js"></script>
+<script src="connect.js"></script>
+<script src="introduce.js"></script>
+<script type="text/javascript">
+	let routes=[{
+		path:"/index",
+		component:Index
+	},{
+		path:"/news",
+		component:News
+	},{
+		path:"/about",
+		component:About
+	}];
+	let router=new VueRouter({
+		routes
+	});
+	new Vue({
+		el:"#app",
+		router
+	})
+</script>
+</body>
+</html>

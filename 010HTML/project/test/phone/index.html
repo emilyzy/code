@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/rem.css">
+</head>
+<body>
+<!--语义化标签，头部布局-->
+<header id="header">
+    <div id="header-top">
+        <div class="wrapper">
+            <div id="header-inner">
+                <div id="header-profile">
+                    <img src="img/header.jpg">
+                </div>
+                <div id="header-search">
+                    <form action="">
+                        <div id="header-point"></div>
+                        <input type="text" id="header-input" title="text">
+                        <input type="button" id="header-submit" title="button">
+                        <div id="header-filter">
+                            <label>
+                                <input type="radio" checked="checked" name="filter" value="all" title="radio"/>
+                                <span>全部</span></label>
+                            <label> <input type="radio" checked="checked" name="filter" value="works" title="radio"/>
+                                <span>工作</span></label>
+                            <label> <input type="radio" checked="checked" name="filter" value="article" title="radio"/>
+                                <span>文章</span></label>
+                            <div id="header-divider"></div>
+                            <label> <input type="radio" checked="checked" name="filter" value="business" title="radio"/>
+                                <span>企业</span></label>
+
+                            <label> <input type="radio" checked="checked" name="filter" value="designer" title="radio"/>
+                                <span>设计师</span></label>
+                        </div>
+                    </form>
+                </div>
+                <div id="header-nav">
+                    <ul id="header-nav-list">
+                        <li>
+                            <div class="nav-title-english">Display of works</div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">作品展示</div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                        <li>
+                            <div class="nav-title-english">Display of works</div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">行业新闻</div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                        <li>
+                            <div class="nav-title-english">Display of works</div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">视频介绍</div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                        <li>
+                            <div class="nav-title-english">Display of works</div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">招聘信息</div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="header-banner">
+        <div id="header-banner-bg"></div>
+        <div id="header-banner-fg"></div>
+        <div id="banner-decoration1"></div>
+        <div id="banner-decoration2"></div>
+        <div id="banner-decoration3"></div>
+        <div id="banner-decoration4">
+            <span>NEXT</span>
+            <div id="decoration-circle"></div>
+        </div>
+        <div id="banner-pager">
+            <div class="banner-pager-item"></div>
+            <div class="banner-pager-item"></div>
+            <div class="banner-pager-item"></div>
+            <div class="banner-pager-item active"></div>
+            <div class="banner-pager-num">01/3</div>
+        </div>
+        <div id="banner-title">
+            <div id="banner-title-left">
+                <div class="left-text">PRE-FALL</div>
+                <div class="line"></div>
+                <div class="left-text">COLLECTION</div>
+            </div>
+            <div id="banner-title-center"></div>
+            <div id="banner-title-bottom">扁平化商务数据思维逻辑互联网线扁平化商务<br>数据思维逻辑互联网线</div>
+        </div>
+    </div>
+    <div id="header-bottom">
+        <div id="header-bottom-title">
+            <div id="bottom-left">
+                <div id="time">2016.07.12</div>
+                <div id="adv">无论你是否承认，才子佳人小说其作品数量之多、参与创作人数之众</div>
+            </div>
+            <div id="bottom-center">
+                <h4 class="blue">420</h4>
+                <h4 class="yellow">362</h4>
+                <h4 class="green">258</h4>
+
+            </div>
+            <div id="bottom-right">
+                <div class="works">
+                    <h5>合作企业</h5>
+                    <div id="work1">
+                        <h6>Number&nbspof </h6>
+                        <h1 id="h31">Works</h1>
+                    </div>
+                </div>
+                <div class="works">
+                    <h5>作品数量</h5>
+                    <div id="work2">
+                        <h6>Number&nbspof </h6>
+                        <h1 id="h32">Works</h1>
+                    </div>
+                </div>
+                <div class="works">
+                    <h5>面试成功</h5>
+                    <div id="work3">
+                        <h6>Number&nbspof </h6>
+                        <h1 id="h33">Works</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="banner">
+    <div id="banner-bar">
+        <h3>Display of works</h3>
+    </div>
+    <div id="banner-select">
+        <div class="cal-box">
+            <h5>作品分类</h5>
+        </div>
+        <div class="cal-box">
+            <h5>作品分类</h5>
+        </div>
+        <div class="cal-box">
+            <h5>作品分类</h5>
+        </div>
+    </div>
+    <div id="content-box">
+        <div class="content">
+            <img src="img/content1.png" alt="">
+            <h6>作品名称</h6>
+            <div class="line1"></div>
+            <div class="content-banner">
+                <div><h5>子佳人小说其作品</h5>
+                    <h5>数子佳人小说</h5>
+                </div>
+                <div class="content-pic"></div>
+            </div>
+            <div class="content-bottom"></div>
+        </div>
+        <div class="content">
+            <img src="img/content2.png" alt="">
+            <h6>作品名称</h6>
+            <div class="line1"></div>
+            <div class="content-banner">
+                <div><h5>子佳人小说其作品</h5>
+                    <h5>数子佳人小说</h5>
+                </div>
+                <div class="content-pic"></div>
+            </div>
+            <div class="content-bottom"></div>
+        </div>
+        <div class="content">
+            <img src="img/content3.png" alt="">
+            <h6>作品名称</h6>
+            <div class="line1"></div>
+            <div class="content-banner">
+                <div><h5>子佳人小说其作品</h5>
+                    <h5>数子佳人小说</h5>
+                </div>
+                <div class="content-pic"></div>
+            </div>
+            <div class="content-bottom"></div>
+        </div>
+        <div class="content">
+            <img src="img/content4.png" alt="">
+            <h6>作品名称</h6>
+            <div class="line1"></div>
+            <div class="content-banner">
+                <div><h5>子佳人小说其作品</h5>
+                    <h5>数子佳人小说</h5>
+                </div>
+                <div class="content-pic"></div>
+            </div>
+            <div class="content-bottom"></div>
+        </div>
+        <div id="list">
+            <div class="list1">
+                <div class="list11"></div>
+                <div class="list12">作品分类一</div>
+                <div class="list13">共18291</div>
+            </div>
+            <div class="list1">
+                <div class="list21"></div>
+                <div class="list12">作品分类二</div>
+                <div class="list13">共18291</div>
+            </div>
+            <div class="list1">
+                <div class="list21"></div>
+                <div class="list12">作品分类三</div>
+                <div class="list13">共18291</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="article">
+    <div id="article-bar">
+        <h3>Display of works</h3>
+    </div>
+    <div class="article-select">
+        <div class="article-box">
+            <h5>作品分类</h5>
+        </div>
+        <div class="article-box">
+            <h5>作品分类</h5>
+        </div>
+        <div class="article-box">
+            <h5>作品分类</h5>
+        </div>
+    </div>
+    <div id="article-banner">
+        <div class="article-banner-content">
+            <div class="article-pic"></div>
+            <div class="article-substance">
+                <ul>
+                    <li class="li1">国外品牌VI设计学习分享</li>
+                    <li class="li2">Friskies Step app,website motion on Behan</li>
+                    <li class="li3">随时掌握最新潮、最独家的旅游攻略！<br>别人出国都在玩什么?&nbsp老外的口味真<br>的跟我们不一样吗？</li>
+                </ul>
+                <div class="article-bottom">
+                    <div class="article-bottom-left">
+                        <div class="bottom-left-pic"></div>
+                        <div class="bottom-left-author">
+                            <ul>
+                                <li class="li4">
+                                    作者名称符号
+                                </li>
+                            </ul>
+                            <div class="article-picture">
+                                <div class="find">查看视频</div>
+                                <div class="UI">UI</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-bottom-right"></div>
+                </div>
+            </div>
+        </div>
+        <div class="article-banner-content">
+            <div class="article-pic"></div>
+            <div class="article-substance">
+                <ul>
+                    <li class="li1">国外品牌VI设计学习分享</li>
+                    <li class="li2">Friskies Step app,website motion on Behan</li>
+                    <li class="li3">随时掌握最新潮、最独家的旅游攻略！<br>别人出国都在玩什么?&nbsp老外的口味真<br>的跟我们不一样吗？</li>
+                </ul>
+                <div class="article-bottom">
+                    <div class="article-bottom-left">
+                        <div class="bottom-left-pic"></div>
+                        <div class="bottom-left-author">
+                            <ul>
+                                <li class="li4">
+                                    作者名称符号
+                                </li>
+                            </ul>
+                            <div class="article-picture">
+                                <div class="find">查看视频</div>
+                                <div class="UI">UI</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-bottom-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="designer">
+    <div id="designer-box">
+        <div id="designer-bar">
+            <h3>&nbsp;Display of works</h3>
+        </div>
+        <div class="designer-content-box">
+            <div class="designer-content">
+                <div class="designer-content1">
+                    <div class="designer-head1"></div>
+                    <div class="author"></div>
+                    <div class="author-play">应该就是如楼上所说<br>纪念二战胜利</div>
+                    <div class="designer-line"></div>
+                    <div class="designer-pic"></div>
+                </div>
+                <div class="designer-content1">
+                    <div class="designer-head2"></div>
+                    <div class="author"></div>
+                    <div class="author-play">应该就是如楼上所说<br>纪念二战胜利</div>
+                    <div class="designer-line"></div>
+                    <div class="designer-pic"></div>
+                </div>
+            </div>
+            <div class="designer-content-line"></div>
+            <div class="designer-content">
+                <div class="designer-content1">
+                    <div class="designer-head3"></div>
+                    <div class="author"></div>
+                    <div class="author-play">应该就是如楼上所说<br>纪念二战胜利</div>
+                    <div class="designer-line"></div>
+                    <div class="designer-pic"></div>
+                </div>
+                <div class="designer-content1">
+                    <div class="designer-head4"></div>
+                    <div class="author"></div>
+                    <div class="author-play">应该就是如楼上所说<br>纪念二战胜利</div>
+                    <div class="designer-line"></div>
+                    <div class="designer-pic"></div>
+                </div>
+            </div>
+            <div id="join"></div>
+            <div class="designer-content-line"></div>
+        </div>
+    </div>
+</div>
+<div id="hot">
+    <div id="hot-content">
+        <div id="hot-bar">
+            <h3>&nbsp;The Hot Issue</h3>
+            <div id="hot-decoration"></div>
+        </div>
+        <div id="hot-top">
+            <div id="hot-top1"></div>
+            <div id="hot-top2">
+                <h5>视觉中国官网建设项目整合</h5>
+                <div id="top-line"></div>
+                <h6>页上点击鼠标选择菜单中的查看源文件就可以通<br>过记事网页的实际内容可以看到网...</h6>
+            </div>
+        </div>
+        <div id="hot-banner">
+            <div id="hot-banner-content1">
+                <h5>写给设计初学者的<br>配色指南</h5>
+                <div class="hot-line"></div>
+                <h6>页上点击鼠标选择菜单中的查<br>看源文件就是实际容可以看<br>到网...</h6>
+            </div>
+            <div id="hot-banner-content2">
+                <h5>写给设计初学者的<br>配色指南</h5>
+                <h6>页上点击鼠标选择菜单中的查<br>看就是实际容可以到网...</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="operation">
+    <div id="operation-box">
+        <div id="operation-bar">
+            <h3>&nbsp;Operative Enterprise</h3>
+        </div>
+        <div id="operation-content">
+            <div id="operation-content1"></div>
+            <div id="operation-content2"></div>
+            <div id="operation-content3"></div>
+            <div id="operation-content4"></div>
+            <div id="operation-content5"></div>
+            <div id="operation-content6"></div>
+            <div id="operation-content7"></div>
+            <div id="operation-content8"></div>
+            <div id="operation-content9"></div>
+        </div>
+        <div id="operation-pic"></div>
+    </div>
+</div>
+<div id="bottom">
+    <div id="bottom-box">
+        <div id="bottom-box1">
+            <div id="bottom-pic1"></div>
+            <div id="bottom-pic2">
+                <div id="bottom-pic-content"></div>
+            </div>
+            <div id="bottom-sentence1">商务合作<br>联系我们</div>
+            <div id="bottom-sentence2">意见反馈<br>版权声明</div>
+            <div id="bottom-sentence3">关于我们<br>隐私保护</div>
+        </div>
+        <div id="bottom-box2"></div>
+        <div id="bottom-box3">ICP备14007358号-1 / 京公网安备11010802014号Powered by @ 2008-2006 UI.CN</div>
+        <div id="bottom-box4"></div>
+    </div>
+</div>
+</body>
+</html>

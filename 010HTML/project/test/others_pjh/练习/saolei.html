@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("img/true.jpg") no-repeat center center/100% auto;
+
+        }
+        #scene {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+        }
+
+        .block {
+            width: 49px;
+            height: 49px;
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+            background: #cccccc;
+            float: left
+        }
+
+        .bumb {
+        }
+
+        .show {
+            background: url("img/dilei.jpg") no-repeat center center/49px 49px;
+
+        }
+
+        .number {
+            background-color: white;
+            text-align: center;
+            line-height: 49px;
+        }
+
+        .flag {
+            width: 49px;
+            height: 49px;
+            background: url("img/timg.jpg") no-repeat center center/49px 49px;
+        }
+
+        #mask {
+            width: 100%;
+            height: 100%;
+            background: url("img/85J58PICVZj.jpg") no-repeat center center/100% auto;
+            z-index: 10;
+            position: absolute;
+        }
+
+        #start {
+            width: 200px;
+            height: 100px;
+            border-radius: 30px;
+            background: plum;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+            color: white;
+            line-height: 100px;
+        }
+
+        #mode {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+            position: absolute;
+            font-size: 25px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+            line-height: 60px;
+            display: none;
+            border-radius: 50%;
+        }
+
+        #border {
+            width: 300px;
+            height: 400px;
+            background:url("img/26f479f9dfd69f03-183863c1d47a7ad1-6aefc7df6ee78514ba18844ec4e3f976.jpg") no-repeat center center/300px 400px;
+        ;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: yellow;
+            border-radius: 50px;
+        }
+
+        #border div {
+            width: 300px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 27px;
+
+        }
+
+        #end {
+            width: 250px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            font-size: 25px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+            line-height: 60px;
+            display: none;
+            z-index: 99;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="mask">
+    <div id="start">开始</div>
+    <div id="mode">
+        <div class="easy">容易</div>
+        <div class="middle">中等</div>
+        <div class="hard">困难</div>
+    </div>
+
+</div>
+<div id="end">
+    <div class="message">信息</div>
+    <div class="restart">重新开始</div>
+    <div class="rechoose">重新选择</div>
+</div>
+<div id="border">
+    <div class="choosed">等级</div>
+    <div class="time">时间:0</div>
+    <div class="flag-num">数目</div>
+    <div class="bestsorc">完成的时间</div>
+</div>
+<div id="scene"></div>
+<script src="jQuery.js"></script>
+<script>
+    // let count;
+    // let t;
+    // $("#start").click(function () {
+    //     $(this).hide();
+    //     $("#mode").slideDown();
+    // });
+    // $("#mode div").click(function () {
+    //     if ($(this).hasClass("easy")) {
+    //         count = 10;
+    //         $(".choosed").html("简单");
+    //     }
+    //     else if ($(this).hasClass("middle")) {
+    //         count = 20;
+    //         $(".choosed").html("中等");
+    //
+    //     }
+    //     else if ($(this).hasClass("hard")) {
+    //         count = 30;
+    //         $(".choosed").html("困难");
+    //
+    //     }
+    //     createScene();
+    //     $("#mask").hide();
+    // });
+    //
+    // function createScene() {
+    //     do {
+    //         $("#scene").empty();
+    //         for (let i = 0; i < 10; i++) {
+    //             for (let j = 0; j < 10; j++) {
+    //                 let isBumb;
+    //                 if (count === 10) {
+    //                     isBumb = Math.random() > 0.9;
+    //                 }
+    //                 else if (count === 20) {
+    //                     isBumb = Math.random() > 0.8;
+    //                 }
+    //                 else if (count === 30) {
+    //                     isBumb = Math.random() > 0.7;
+    //                 }
+    //                 $("<div>").attr("id", i + "-" + j).addClass(function () {
+    //                     return 'block ' + (isBumb ? "bumb" : "")//注意类名是一个字符串加引号，添加两个或多个类名需要空格
+    //                 }).appendTo("#scene");
+    //             }
+    //         }
+    //     } while ($(".bumb").length != count)
+    //     $(".flag-num").html(count);
+    // }
+    //
+    // $("#scene").on("click", ".block", clickHeader);
+    // $("#scene").one("click", setTime);
+    // let n = 0;
+    //
+    // function clickHeader() {
+    //     if ($(this).hasClass("bumb")) {
+    //         $(".bumb").addClass("show");
+    //         gameover(false);
+    //         return;
+    //     }
+    //     if ($(this).hasClass("number")) {
+    //         return;
+    //     }
+    //     if ($(this).hasClass("flag")) {
+    //         return;
+    //     }
+    //     $(this).addClass("number");
+    //
+    //     let n = 0;
+    //     let id = $(this).attr("id");
+    //     let x = parseInt(id.charAt(0));
+    //     let y = parseInt(id.charAt(2));
+    //     for (let i = x - 1; i <= x + 1; i++) {
+    //         for (let j = y - 1; j <= y + 1; j++) {
+    //             if ($("#" + i + "-" + j).hasClass("bumb")) {
+    //                 n++;
+    //             }
+    //             $(this).html(n);
+    //         }
+    //     }
+    //     if (n === 0) {
+    //         for (let i = x - 1; i <= x + 1; i++) {
+    //             for (let j = y - 1; j <= y + 1; j++) {
+    //                 let obj = $("#" + i + "-" + j);
+    //                 if (!obj.hasClass("number") && obj.length === 1) {
+    //                     clickHeader.call(obj[0]);
+    //                 }
+    //             }
+    //         }
+    //     }
+    //
+    // }
+    //
+    // $("#scene").on("contextmenu", ".block:not(.number)", function (e) {
+    //     e.preventDefault();
+    //     $(this).toggleClass("flag");
+    //     let flag = $(this).hasClass("flag");
+    //     $(".flag-num").html(function (index,oldval) {
+    //         return flag?oldval-1:parseInt(oldval)+1;
+    //     });
+    //     console.log($(".bumb").filter(".flag").length);
+    //     console.log($(".flag-num").html());
+    //     //&&$(".flag-num")==="0"
+    //     if ($(".bumb").filter(".flag").length === count&&$(".flag-num").html()==="0") {
+    //         console.log("222");
+    //       gameover(true);
+    //
+    //       return ;
+    //     }
+    // })
+    //
+    // function setTime() {
+    //     let time = 0;
+    //    t=  setInterval(function () {
+    //         time++;
+    //         $(".time").html(time)
+    //     }, 1000)
+    // }
+    // function gameover(result){
+    //     $(".time").html();
+    //     $("#mask").show();
+    //     $("#mode").hide();
+    //     $("#end").show();
+    //     $(".message").html(function(){
+    //         return result?"游戏成功":"游戏失败";
+    //     })
+    // }
+    // $(".restart").click(function(){
+    //     $("#mask").hide();
+    //     createScene();
+    //     clearInterval(t);
+    //     $("#scene").on("click", ".block", clickHeader);
+    //     $(".time").html(0);
+    //     $("#scene").one("click", setTime);
+    //
+    //
+    // })
+    // $(".rechoose").click(function(){
+    //     $("#end").hide();
+    //     $("#mode").show();
+    //     clearInterval(t);
+    //     $("#scene").on("click", ".block", clickHeader);
+    //     $(".time").html(0);
+    //     $("#scene").one("click", setTime);
+    // })
+
+
+    class Game {
+        constructor() {
+            this.t = null;
+            this.count = 0;
+            this.choosed = $(".choosed");
+            this.start();
+            this.run();
+            this.evenHandler();
+        }
+
+        start() {
+            $("#start").click(function () {
+                $(this).hide();
+                $("#mode").slideDown();
+            });
+
+
+            let that = this;
+
+            $("#mode div").click(function () {
+                if ($(this).hasClass("easy")) {
+                    that.count = 10;
+                    that.choosed.html("简单");
+                }
+                else if ($(this).hasClass("middle")) {
+                    that.count = 20;
+                    that.choosed.html("中等");
+                }
+                else if ($(this).hasClass("hard")) {
+                    that.count = 30;
+                    that.choosed.html("困难");
+                }
+                that.createScene();
+                $("#mask").hide();
+            });
+        }
+
+        createScene() {
+            $(".flag-num").html(this.count);
+
+            do {
+                $("#scene").empty();
+                for (let i = 0; i < 10; i++) {
+                    for (let j = 0; j < 10; j++) {
+                        let isBumb;
+                        if (this.count === 10) {
+                            console.log(this.count);
+                            isBumb = Math.random() > 0.9;
+                        }
+                        else if (this.count === 20) {
+                            isBumb = Math.random() > 0.8;
+                        }
+                        else if (this.count === 30) {
+                            isBumb = Math.random() > 0.7;
+                        }
+                        $("<div>")
+                            .attr("id", i + "-" + j).addClass(function () {
+                            return 'block ' + (isBumb ? "bumb" : "")//注意类名是一个字符串加引号，添加两个或多个类名需要空格
+                        }).appendTo("#scene");
+                    }
+                }
+            } while($(".bumb").length != this.count);
+        }
+
+        run() {
+
+            $("#scene").one("click", this.setTime.bind(this));
+            $("#scene").on("click", ".block", clickHeader);
+            // $("#scene").one("contextmenu",this.setTime.bind(this));
+
+
+            let that = this;
+
+            function clickHeader() {
+                if ($(this).hasClass("bumb")) {
+                    $(".bumb").addClass("show");
+                    alert("游戏失败");
+                    that.gameover(false);
+                    return;
+                }
+                if ($(this).hasClass("number")) {
+                    return;
+                }
+                if ($(this).hasClass("flag")) {
+                    return;
+                }
+                $(this).addClass("number");
+
+                let n = 0;
+                let id = $(this).attr("id");
+                let x = parseInt(id.charAt(0));
+                let y = parseInt(id.charAt(2));
+                for (let i = x - 1; i <= x + 1; i++) {
+                    for (let j = y - 1; j <= y + 1; j++) {
+                        if ($("#" + i + "-" + j).hasClass("bumb")) {
+                            n++;
+                        }
+                        $(this).html(n);
+                    }
+                }
+                if (n === 0) {
+                    for (let i = x - 1; i <= x + 1; i++) {
+                        for (let j = y - 1; j <= y + 1; j++) {
+                            let obj = $("#" + i + "-" + j);
+                            if (!obj.hasClass("number") && obj.length === 1) {
+                                clickHeader.call(obj[0]);
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            $("#scene").on("contextmenu", ".block:not(.number)", function (e) {
+                e.preventDefault();
+                $(this).toggleClass("flag");
+                let flag = $(this).hasClass("flag");
+                $(".flag-num").html(function (index, oldval) {
+                    return flag ? oldval - 1 : parseInt(oldval) + 1;
+                });
+
+                if ($(".bumb").filter(".flag").length === that.count && $(".flag-num").html() === "0") {
+                    //if ($(".bumb").filter(".flag").length === this.count && $(".flag-num").html() === "0") {
+                    //alert(1);
+                    that.gameover(true);
+                }
+            })
+
+        }
+
+        setTime() {
+            let time = 0;
+            this.t = setInterval(function () {
+                time++;
+                $(".time").html(time)
+            }, 1000)
+        }
+
+        gameover(result) {
+            let time = $(".time").html();
+            //$("#mask").show();
+            $("#mode").hide();
+            $("#end").show();
+            clearInterval(this.t);
+            if(result){
+                let best = $(".bestsorc");
+                if (localStorage.number) {
+                            best.innerHTML = localStorage.number;
+                        }
+                if(localStorage.number>time){
+                    localStorage.number = time;
+                    best.html = localStorage.number;
+                }else{
+                    best.html("完成的时间是" + time+"s");
+                }
+
+            }
+            $(".message").html(function () {
+                return (result ? "<span class='success'>游戏成功</span>" : "<span class='fail'>游戏失败</span>") + "用时" + time + "秒";
+            })
+                // let best = $(".bestsorc");
+                // best.html("最短时间" + time);
+
+            // if (localStorage.number) {
+            //         best.innerHTML = localStorage.number;
+            //     }
+            //
+            //     if (localStorage.number >time) {
+            //         localStorage.number = time;
+            //         best.html("最短时间" + time);
+            //     } else {
+            //         best.html = localStorage.number;
+            //
+            //
+            //     }
+
+
+        }
+
+        evenHandler() {
+            let that = this;
+            $(".restart").click(function () {
+                $("#mask").hide();
+                $("#end").hide();
+                that.createScene();
+                clearInterval(that.t);
+                // $("#scene").on("click", ".block", clickHeader);
+                $(".time").html(0);
+                $("#scene").one("click", that.setTime.bind(that));
+
+
+            });
+            $(".rechoose").click(function () {
+                $("#end").hide();
+                $("#mask").show();
+                $("#mode").slideDown();
+                clearInterval(that.t);
+                // $("#scene").on("click", ".block", clickHeader);
+                $(".time").html(0);
+                $("#scene").one("click", that.setTime.bind(that));
+            })
+        }
+
+
+    }
+
+    new Game();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id="app">
+	<btn></btn>
+</div>
+<div id="app1">
+	<btn1></btn1>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+Vue.component("btn",{
+	template:'<input type="button" value="click me" @click="handleclick">',
+	data:function(){
+		return{
+			message:"hello"
+		}
+	},
+	methods:{
+		handleclick:function(){
+			alert(1);
+		}
+	}
+})
+	new Vue({
+		el:"#app"
+	})
+
+	new Vue({
+		el:"#app1",
+		components:{
+			"btn1":{template:'<div>123</div>'}
+		}
+	})
+</script>
+</body>
+</html>

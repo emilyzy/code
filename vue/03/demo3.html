@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		{{number}}
+		<add-btn :n="number" @addnumber="number++"></add-btn>
+		<add-btn :n="number" @addnumber="number++"></add-btn>
+	</div>
+	<script type="text/javascript" src="../vue.js"></script>
+	<script type="text/javascript">
+		Vue.component("add-btn",{
+			template:"<div><input type='button' value='+1' @click='add'><span>{{num}}</span></div>",
+			props:["n"],
+			data:function(){
+				return{
+					num:this.n
+				}
+			},
+			methods:{
+				add:function(){
+					this.num++;
+					this.$emit("addnumber")
+				}
+			}
+		})
+		new Vue({
+			el:"#app",
+			data:{
+				number:1
+			}
+		})
+	</script>
+
+</body>
+</html>

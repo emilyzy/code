@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    body{
+        position: relative;
+        overflow: hidden;
+        background: #000000;
+    }
+</style>
+</head>
+<body>
+<script>
+    const data = ["a", "b", "c", "d", "e","f","g","h","i","j","k","l","m","n","o","p","q",];
+    let pos = [];
+
+    data.forEach(function (text) {
+        let left;
+        let top;
+        do {
+            left = Math.floor(Math.random() * (window.innerWidth - 100));
+            top = Math.floor(Math.random() * (window.innerHeight - 100));
+        } while (checkPos(left, top));
+
+        let r = Math.floor(Math.random() * 155) + 100;
+        let g = Math.floor(Math.random() * 155) + 100;
+        let b = Math.floor(Math.random() * 155) + 100;
+        let newDiv = document.createElement("div");
+        newDiv.style.cssText = `width:50px;height:50px; border-radius:50%;position:absolute;left:${left}px;top:${top}px;background:rgb(${r},${g},${b});text-align:center;line-height:50px`;
+        newDiv.innerHTML = text;
+        document.body.appendChild(newDiv);
+        pos.push({l: left, t: top, e: newDiv});
+
+            function checkPos(l, t) {
+               for(let i=0;i<pos.length;i++)
+                {
+                    if (l > pos[i].l - 100 && l < pos[i].l + 100 && t > pos[i].t - 30 && t < pos[i].t + 30) {
+                        return true;
+                    }
+
+                }
+                return false;
+            }
+        const maxLeft = window.innerWidth - 100;
+        pos.forEach(function (obj) {
+            let speed = 1;
+            let left = obj.l;
+            setInterval(function () {
+                left += speed;
+                if (left >= maxLeft || left <= 0) {
+                    speed *= -1;
+                }
+                obj.e.style.left = left + "px";
+            }, 20)
+        });
+
+        }
+
+    )
+
+</script>
+</body>
+</html>

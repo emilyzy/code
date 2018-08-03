@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#app{
+			width: 500px;
+			height: 300px;
+			margin: 0 auto;
+		}
+		.message{
+			height: 18px;
+			text-align: center;
+			position: relative;
+		}
+		.message span{
+			position: absolute;
+			right:10px;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<message-box content="1"  color="white"></message-box>
+		<message-box content="2"  color="yellow"></message-box>
+		<message-box content="3"  color="red"></message-box>
+	</div>
+	<script type="text/javascript" src="../vue.js"></script>
+	<script type="text/javascript">
+		Vue.component("message-box",{
+			template:"<div class='message' :style='{background:color}' v-if='show'>{{content}}<span @mousedown.prevent='handlerclick'>X</span></div>",
+			props:["content","color"],
+			data:function(){
+				return{
+					show:true
+				}
+			},
+			methods:{
+				handlerclick:function(){
+					this.show=false;
+				}
+			}
+		});
+		new Vue({
+			el:"#app"
+		})
+	</script>
+</body>
+</html>

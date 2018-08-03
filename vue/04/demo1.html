@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<!-- 具名插槽 -->
+<div id="app">
+	<message-box>
+		<b>123</b>
+		<div>123</div>
+	</message-box>
+	<layout-box>
+		<template slot="header">
+			<div id="nav">{{message}}</div>
+		</template>
+		<template slot="main">
+			<section></section>
+		</template>
+		<ul slot="footer">
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div class="one"></div>
+	</layout-box>
+
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+	<script type="text/javascript">
+	Vue.component("message-box",{
+		template:"<div><slot></slot></div>"
+	})
+	Vue.component("layout-box",{
+		template:`
+		<div>
+		<header><slot name="header"></slot></header>
+		<main><slot name="main"></slot></main>
+		<footer><slot name="footer"></slot></footer>
+		<slot>defalut</slot>
+		</div>`,
+			data:function(){
+				return{
+					message:"hello"
+				}
+			}
+	})
+		new Vue({
+			el:"#app",
+			data:{
+				message:"world"
+			}
+		})
+	</script>
+</body>
+</html>

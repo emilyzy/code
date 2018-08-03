@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<h1>
+			<a name="hello-world" href="#hello-world">
+				Hello world!
+			</a>
+		</h1>
+		<anchored-heading :level="6">Hello world!</anchored-heading>
+	</div>
+	<script type="text/javascript" src="../vue.js"></script>
+	<!-- 普通写法 -->
+	<!-- <script type="text/x-template" id="anchored-heading-template">
+		<h1 v-if="level === 1">
+			<slot></slot>
+		</h1>
+		<h2 v-else-if="level === 2">
+			<slot></slot>
+		</h2>
+		<h3 v-else-if="level === 3">
+			<slot></slot>
+		</h3>
+		<h4 v-else-if="level === 4">
+			<slot></slot>
+		</h4>
+		<h5 v-else-if="level === 5">
+			<slot></slot>
+		</h5>
+		<h6 v-else-if="level === 6">
+			<slot></slot>
+		</h6>
+
+	</script> 
+	<script type="text/javascript">
+		Vue.component('anchored-heading', {
+			template: '#anchored-heading-template',
+			props: {
+				level: {
+					type: Number,
+					required: true
+				}
+			}
+		})
+		new Vue({
+			el:"#app"
+		})
+	</script>-->
+	<!-- 我们来尝试使用 render 函数重写上面的例子 -->
+	<script type="text/javascript">
+		Vue.component('anchored-heading', {
+			render: function (createElement) {
+				return createElement(
+      			'h' + this.level,   // tag name 标签名称
+      			this.$slots.default // 子组件中的阵列
+      			)
+			},
+			props: {
+				level: {
+					type: Number,
+					required: true
+				}
+			}
+		})
+		new Vue({
+			el:"#app"
+		})
+	</script>
+</body>
+</html>

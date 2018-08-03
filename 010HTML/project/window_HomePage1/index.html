@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="app/css/index.css">
+    <link rel="stylesheet" href="app/css/rem.css">
+    <title>project</title>
+</head>
+<body>
+<header id="header">
+    <div id="header-top">
+        <div class="wrapper">
+            <div id="header-inner">
+                <div id="header-profile">
+                    <img src="app/images/header-profile.png" alt="">
+                </div>
+                <div id="header-search">
+                    <form action="">
+                        <div id="header-point"></div>
+                        <input type="text" id="header-input">
+                        <div id="header-filter">
+                            <!--label标签作用是点击文字和点击input效果一样-->
+                            <!--加上name后变成单选-->
+                            <label><input type="radio" name="a">全部</label>
+                            <label><input type="radio" name="a">作品</label>
+                            <label><input type="radio" name="a">文章</label>
+                            <div class="header-divider">
+                            </div>
+                            <label><input type="radio" name="a">企业</label>
+                            <label><input type="radio" name="a">设计师</label>
+                        </div>
+                        <a href="searchall.html"><input type="button" id="header-submit"></a>
+
+                    </form>
+                </div>
+                <div id="header-nav">
+                    <ul id="header-nav-list">
+                        <li>
+                            <div class="nav-title-en">
+                                Display of works
+                            </div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">
+                                作品展示
+                            </div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                        <li>
+                            <div class="nav-title-en">
+                                Display of works
+                            </div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">
+                                行業新闻
+                            </div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                        <li>
+                            <div class="nav-title-en">
+                                Display of works
+                            </div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">
+                                視頻介绍
+                            </div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                        <li>
+                            <div class="nav-title-en">
+                                Display of works
+                            </div>
+                            <div class="nav-divider1"></div>
+                            <div class="nav-title-ch">
+                                招聘信息
+                            </div>
+                            <div class="nav-divider2"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="header-banner">
+        <div id="header-banner-bg"></div>
+        <div id="header-banner-fg"></div>
+        <div id="header-banner-pager">
+            <div class="pager-item"></div>
+            <div class="pager-item"></div>
+            <div class="pager-item"></div>
+            <div class="pager-item active"></div>
+            <div class="pager-num">01/3</div>
+        </div>
+        <div id="decoration"></div>
+        <div id="collection">
+            <div class="collection-one">PRE-FALL</div>
+            <div id="collection-two"></div>
+            <div class="collection-one">COLLECTION</div>
+            <div id="collection-three">扁平化商务数据扁平化商务数据扁平化商务数据扁平化商务数据</div>
+        </div>
+        <div id="yellow1"></div>
+        <div id="yellow2"></div>
+    </div>
+    <div id="tip">
+        <div id="tip-text">
+            <div id="tip-text-left">
+                <div id="text-left-date">2016.7.12</div>
+                <div id="text-left-letter">无论你是否承认，才子佳人小说其作品数量之多、参与创作人数之众</div>
+            </div>
+            <div id="tip-text-center"></div>
+            <div id="tip-text-right">
+                <ul id="text-right-items">
+                    <li class="right-item">
+                        <div class="right-item-one">420</div>
+                        <div class="right-item-two"></div>
+                        <div class="right-item-three">
+                            <div class="item-three-one">合作企业</div>
+                            <div class="item-three-two">Number of</div>
+                            <div class="item-three-three">works</div>
+                        </div>
+                    </li>
+                    <li class="right-item">
+                        <div class="right-item-one">362</div>
+                        <div class="right-item-two"></div>
+                        <div class="right-item-three">
+                            <div class="item-three-one">作品数量</div>
+                            <div class="item-three-two">Number of</div>
+                            <div class="item-three-three">works</div>
+                        </div>
+                    </li>
+                    <li class="right-item">
+                        <div class="right-item-one">258</div>
+                        <div class="right-item-two"></div>
+                        <div class="right-item-three">
+                            <div class="item-three-one">面试成功</div>
+                            <div class="item-three-two">Number of</div>
+                            <div class="item-three-three">works</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="works">
+    <div class="wrapper">
+        <a href="work-list.html"><div class="works-title">
+            <div class="works-title-left">
+                <div class="title-left-point">
+                    <div class="left-point-one"></div>
+                    <div class="left-point-two"></div>
+                </div>
+                推荐
+            </div>
+            <div class="works-title-center">作品</div>
+            <div class="works-title-right">Display of works</div>
+        </div></a>
+        <div class="works-filter">
+            <div class="filter-type">
+                <div class="img">作品展示</div>
+            </div>
+            <div class="filter-type">
+                <div class="img">作品展示</div>
+            </div>
+            <div class="filter-type">
+                <div class="img">作品展示</div>
+            </div>
+        </div>
+        <div id="works-filter-list">
+            <div class="works-filter-line">
+                <div class="works-filter-line1-list1"></div>
+                <div class="works-filter-list2">作品分类</div>
+                <div class="works-filter-list3">共1234</div>
+            </div>
+            <div class="works-filter-divider"></div>
+            <div class="works-filter-line">
+                <div class="works-filter-line2-list1"></div>
+                <div class="works-filter-list2">作品分类</div>
+                <div class="works-filter-list3">共1234</div>
+            </div>
+            <div class="works-filter-divider"></div>
+            <div class="works-filter-line">
+                <div class="works-filter-line2-list1"></div>
+                <div class="works-filter-list2">作品分类</div>
+                <div class="works-filter-list3">共1234</div>
+            </div>
+            <div class="works-filter-divider"></div>
+        </div>
+        <div id="works-list">
+            <div class="works-item">
+                <div class="img"></div>
+                <div class="works-item-left">
+                    <div class="item-left-title">作品名称</div>
+                    <div class="item-left-divider"></div>
+                    <div class="item-left-decoration">才子佳人小说及作品</div>
+                    <div class="item-left-star">
+                        <div class="star1"></div>
+                        <div class="star2">2983</div>
+                        <div class="star3"></div>
+                    </div>
+                </div>
+                <div class="works-item-right"></div>
+            </div>
+            <div class="works-item">
+                <div class="img"></div>
+                <div class="works-item-left">
+                    <div class="item-left-title">作品名称</div>
+                    <div class="item-left-divider"></div>
+                    <div class="item-left-decoration">才子佳人小说及作品</div>
+                    <div class="item-left-star">
+                        <div class="star1"></div>
+                        <div class="star2">2983</div>
+                        <div class="star3"></div>
+                    </div>
+                </div>
+                <div class="works-item-right"></div>
+            </div>
+            <div class="works-item">
+                <div class="img"></div>
+                <div class="works-item-left">
+                    <div class="item-left-title">作品名称</div>
+                    <div class="item-left-divider"></div>
+                    <div class="item-left-decoration">才子佳人小说及作品</div>
+                    <div class="item-left-star">
+                        <div class="star1"></div>
+                        <div class="star2">2983</div>
+                        <div class="star3"></div>
+                    </div>
+                </div>
+                <div class="works-item-right"></div>
+            </div>
+            <div class="works-item">
+                <div class="img"></div>
+                <div class="works-item-left">
+                    <div class="item-left-title">作品名称</div>
+                    <div class="item-left-divider"></div>
+                    <div class="item-left-decoration">才子佳人小说及作品</div>
+                    <div class="item-left-star">
+                        <div class="star1"></div>
+                        <div class="star2">2983</div>
+                        <div class="star3"></div>
+                    </div>
+                </div>
+                <div class="works-item-right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="article">
+    <div class="wrapper">
+        <a href="essayList.html"><div class="works-title">
+            <div class="works-title-left">
+                <div class="title-left-point">
+                    <div class="left-point-one"></div>
+                    <div class="left-point-two"></div>
+                </div>
+                推荐
+            </div>
+            <div class="works-title-center">文章</div>
+            <div class="works-title-right">Display of works</div>
+        </div></a>
+        <div class="works-filter">
+            <div class="filter-type">
+                <div class="img">作品展示</div>
+            </div>
+            <div class="filter-type">
+                <div class="img">作品分类</div>
+            </div>
+            <div class="filter-type">
+                <div class="img">作品分类</div>
+            </div>
+        </div>
+        <div class="article-list">
+            <div class="article-img"></div>
+            <div class="article-text">
+                <div class="article-text-title">国外品牌VI设计学习分享</div>
+                <div class="article-text-en">
+                    Friskies Steps app, website motion on
+                </div>
+                <div class="article-text-decoration">
+                    随时掌握最新潮、最独家的旅游攻略!别人出国都在玩什么? 老外的口味真的跟我们不一样吗?
+                </div>
+                <div class="article-text-design">
+                    <div class="design-pic"></div>
+                    <div class="design-name">
+                        <div class="design-name1">作者名称符号</div>
+                        <div class="design-name2">查看视频</div>
+                        <div class="design-name3">UI</div>
+                    </div>
+                    <div class="design-num">
+                        <div class="design-num-pic"></div>
+                        <div class="design-num-num">收藏4321</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="article-list">
+            <div class="article-img"></div>
+            <div class="article-text">
+                <div class="article-text-title">国外品牌VI设计学习分享</div>
+                <div class="article-text-en">
+                    Friskies Steps app, website motion on
+                </div>
+                <div class="article-text-decoration">
+                    随时掌握最新潮、最独家的旅游攻略!别人出国都在玩什么? 老外的口味真的跟我们不一样吗?
+                </div>
+                <div class="article-text-design">
+                    <div class="design-pic"></div>
+                    <div class="design-name">
+                        <div class="design-name1">作者名称符号</div>
+                        <div class="design-name2">查看视频</div>
+                        <div class="design-name3">UI</div>
+                    </div>
+                    <div class="design-num">
+                        <div class="design-num-pic"></div>
+                        <div class="design-num-num">收藏4321</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="people">
+    <div class="wrapper">
+        <div class="works-title">
+            <div class="works-title-left">
+                <div class="title-left-point">
+                    <div class="left-point-one"></div>
+                    <div class="left-point-two"></div>
+                </div>
+                推荐
+            </div>
+            <div class="works-title-center">设计师</div>
+            <div class="works-title-right">Display of works</div>
+        </div>
+        <div class="people-list">
+            <div class="people-pic1"></div>
+            <div class="people-name">作者姓名</div>
+            <div class="people-decoration">应该就是如楼上所说 纪念二战胜利</div>
+            <div class="people-num">
+                <div class="people-red">2263</div>
+                <div class="people-blue">2263</div>
+                <div class="people-green">2263</div>
+            </div>
+        </div>
+        <div class="people-list">
+            <div class="people-pic2"></div>
+            <div class="people-name">作者姓名</div>
+            <div class="people-decoration">应该就是如楼上所说 纪念二战胜利</div>
+            <div class="people-num">
+                <div class="people-red">2263</div>
+                <div class="people-blue">2263</div>
+                <div class="people-green">2263</div>
+            </div>
+        </div>
+        <div class="people-divider"></div>
+        <div class="people-list">
+            <div class="people-pic3"></div>
+            <div class="people-name">作者姓名</div>
+            <div class="people-decoration">应该就是如楼上所说 纪念二战胜利</div>
+            <div class="people-num">
+                <div class="people-red">2263</div>
+                <div class="people-blue">2263</div>
+                <div class="people-green">2263</div>
+            </div>
+        </div>
+        <div class="people-list">
+            <div class="people-pic4"></div>
+            <div class="people-name">作者姓名</div>
+            <div class="people-decoration">应该就是如楼上所说 纪念二战胜利</div>
+            <div class="people-num">
+                <div class="people-red">2263</div>
+                <div class="people-blue">2263</div>
+                <div class="people-green">2263</div>
+            </div>
+        </div>
+        <div class="people-more"></div>
+        <div class="people-divider"></div>
+    </div>
+</div>
+<div id="tips">
+    <div class="wrapper">
+        <div class="works-title">
+            <div class="works-title-left">
+                <div class="title-left-point">
+                    <div class="left-point-one"></div>
+                    <div class="left-point-two"></div>
+                </div>
+                站内
+            </div>
+            <div class="works-title-center">小贴士</div>
+            <div class="works-title-right">Display of works</div>
+        </div>
+        <div id="tips-picture">
+            <div id="tips-picture-decoration">
+                <div id="tips-picture-text">
+                    <div id="tips-picture-text1">视觉中国官网建设项目整合</div>
+                    <div id="tips-picture-text2"></div>
+                    <div id="tips-picture-text3">页上点击鼠选择菜单中的查看源文件就可以通 过记事网页的实际内容可以看到网</div>
+                </div>
+                <div id="tips-picture-date">
+                    <div id="tips-picture-date1">16.06.02</div>
+                    <div id="tips-picture-date2"></div>
+                    <div id="tips-picture-date3"></div>
+                </div>
+            </div>
+        </div>
+        <div id="block4">
+            <div id="block4-1"></div>
+            <div id="block4-2">
+                <div class="block-text1">写给初学者的配色指南</div>
+                <div class="block-text2">页上点击鼠选择菜单中的查 看源文件就实际内容可以看 到网</div>
+                <div class="block-text3">16.06.02</div>
+            </div>
+            <div id="block4-3">
+                <div class="block-text1">写给初学者的配色指南</div>
+                <div class="block-text2">页上点击鼠选择菜单中的查 看源文件就实际内容可以看 到网</div>
+                <div class="block-text3">16.06.02</div>
+            </div>
+            <div id="block4-4"></div>
+        </div>
+
+    </div>
+
+</div>
+<div id="company">
+    <!--<div class="wrapper">-->
+        <!--<div class="works-title">-->
+            <!--<div class="works-title-left">-->
+                <!--<div class="title-left-point">-->
+                    <!--<div class="left-point-one"></div>-->
+                    <!--<div class="left-point-two"></div>-->
+                <!--</div>-->
+                <!--本站-->
+            <!--</div>-->
+            <!--<div class="works-title-center">合作企业</div>-->
+            <!--<div class="works-title-right">Display of works</div>-->
+        <!--</div>-->
+        <!--<div id="company-list">-->
+            <!--<div class="company-item"></div>-->
+            <!--<div class="company-item"></div>-->
+            <!--<div class="company-item"></div>-->
+            <!--<div class="company-item"></div>-->
+            <!--<div class="company-item"></div>-->
+            <!--<div class="company-item"></div>-->
+            <!--<div class="company-item"></div>-->
+            <!--<div class="company-item"></div>-->
+            <!--<div class="company-item"></div>-->
+        <!--</div>-->
+        <!--<div id="company-more"></div>-->
+    <!--</div>-->
+</div>
+<div id="footer">
+    <div id="footer-picture">
+        <div id="footer-picture-left"></div>
+        <div id="footer-picture-divider"></div>
+        <div id="footer-picture-right"></div>
+
+    </div>
+    <div id="footer-text">
+        <div class="footer-text1">商务合作</div>
+        <div class="footer-text1">意见反馈</div>
+        <div class="footer-text1">关于我们</div>
+        <div class="footer-text1">联系我们</div>
+        <div class="footer-text1">版权声明</div>
+        <div class="footer-text1">隐私保护</div>
+
+    </div>
+    <div id="footer-divider"></div>
+    <div id="footer-decoration">
+        ICP备14007358号-1 / 京公网安备11010802014104号 Powered by © 2008-2016
+    </div>
+    <div id="footer-relate">
+        <div class="footer-relate-item"></div>
+        <div class="footer-relate-item"></div>
+        <div class="footer-relate-item"></div>
+    </div>
+</div>
+</body>
+</html>

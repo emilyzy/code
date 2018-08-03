@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<alert-box>
+			hello
+			<div>
+				<p>123</p><p>456</p>
+			</div>
+		</alert-box>	
+		<input type="button" value="1" @click="compName='comp1'">
+		<input type="button" value="2" @click="compName='comp2'">
+		<input type="button" value="3" @click="compName='comp3'">
+		<component :is="compName"></component>
+	</div>
+	<script type="text/javascript" src="../vue.js"></script>
+	<script type="text/javascript">
+	//插槽
+		Vue.component("alert-box",{
+			template:"<div><slot></slot></div>"
+		})
+		Vue.component("comp1",{
+			template:"<div>1</div>"
+		});
+		Vue.component("comp2",{
+			template:"<div>2</div>"
+		});
+		Vue.component("comp3",{
+			template:"<div>3</div>"
+		});
+		new Vue({
+			el:"#app",
+			data:{
+				compName:"comp1"
+			}
+		})
+	</script>
+</body>
+</html>
