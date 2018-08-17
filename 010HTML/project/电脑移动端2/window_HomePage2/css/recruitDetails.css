@@ -1,0 +1,763 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html {
+    background: #f4f4f4;
+}
+
+ul, li {
+    outline-style: none;
+}
+
+#recruit-banner {
+    width: 100%;
+    height: 476px;
+    background: url("../images/recruit-banner.png") no-repeat left center/100% 100%;
+}
+
+.wrapper {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+}
+
+#recruit-information {
+    width: 100%;
+    height: 444px;
+    background: #fff;
+    position: absolute;
+    top: 122px;
+    left: 0;
+    border-radius: 12px;
+    padding-left: 53px;
+    padding-top: 89px;
+}
+
+#recruit-information-title {
+    position: absolute;
+    top: -11px;
+    left: 42px;
+    background: #1893d1;
+    width: 260px;
+    height: 80px;
+    padding-top: 15px;
+    padding-left: 18px;
+    color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#recruit-information-title p {
+    font-size: 14px;
+}
+
+#recruit-information-title:before {
+    content: "";
+    position: absolute;
+    left: -11px;
+    top: 0;
+    background: url("../images/redruitDetails-before.png");
+    width: 11px;
+    height: 11px;
+}
+
+#recruit-information-title:after {
+    content: "";
+    position: absolute;
+    right: -11px;
+    top: 0;
+    background: url("../images/recruitDetails-after.png");
+    width: 11px;
+    height: 11px;
+}
+
+#information-des {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    position: relative;
+}
+
+#information-left {
+    width: 790px;
+    height: 150px;
+}
+
+#information-company {
+    width: 100%;
+    height: 28px;
+    background: url("../images/recruitDetails-information-company.png") no-repeat left center/24px 24px;
+    padding-left: 36px;
+    color: #555555;
+    line-height: 28px;
+}
+
+.red-font {
+    color: red;
+}
+
+#information-seduction {
+    width: 100%;
+    height: 28px;
+    background: url("../images/recruitDetails-information-seduction.png") no-repeat left center/24px 24px;
+    padding-left: 36px;
+    color: #b4b4b4;
+    line-height: 28px;
+}
+
+#information-release {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 14px;
+    color: #66dda4;
+}
+
+#information-right {
+    width: 196px;
+    height: 144px;
+    position: absolute;
+    top: -40px;
+    right: 167px;
+}
+
+#recruit-num {
+    width: 100%;
+    height: 58px;
+    text-align: center;
+    line-height: 58px;
+    color: #155c85;
+    display: flex;
+    padding-left: 15px;
+}
+
+.size-font {
+    display: block;
+    font-size: 50px;
+    color: #10c8f0;
+    font-weight: bold;
+}
+
+#delivery {
+    margin-top: 10px;
+    width: 195px;
+    height: 61px;
+    background: url("../images/recruitDetails-delivery_03.png");
+    border: none;
+    outline: none;
+}
+
+#information-more-des {
+    width: 1036px;
+    margin-left: 3px;
+    height: 152px;
+    border: 1px dashed #dcdcdc;
+    position: relative;
+    display: flex;
+}
+
+#information-more-des-float {
+    width: 88px;
+    height: 30px;
+    color: #dcdcdc;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    top: -15px;
+    left: 473px;
+    background: white;
+}
+
+#more-des-left {
+    width: 472px;
+    display: flex;
+}
+
+#more-des-left-img {
+    width: 126px;
+    height: 124px;
+    margin-top: 13px;
+    margin-left: 15px;
+    position: relative;
+    padding-left: 8px;
+
+}
+
+#more-des-left-img img {
+    display: block;
+    background: #e46e1b;
+    border: 1px #e46e1b solid;
+    border-radius: 50%;
+    width: 113px;
+    height: 113px;
+    box-sizing: border-box;
+}
+
+#img-mask {
+    width: 126px;
+    height: 124px;
+    background: url("../images/recruitDetails-mor-img.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#more-des-left-name {
+    width: 150px;
+    height: 64px;
+    margin-top: 64px;
+    padding-left: 24px;
+}
+
+#more-des-left-name h3 {
+    color: #333333;
+}
+
+#more-des-left-name p {
+    color: #a7a7a7;
+    font-size: 14px;
+    line-height: 26px;
+}
+
+#more-des-right {
+    width: 560px;
+    padding-top: 40px;
+    display: flex;
+}
+
+#more-des-right-company {
+    width: 270px;
+    height: 70px;
+    padding-top: 26px;
+    color: #a0a0a0;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+#more-des-right-divider {
+    width: 0;
+    height: 67px;
+    border-left: 1px dashed #dcdcdc;
+    position: relative;
+}
+
+#more-des-right-divider:before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    height: 4px;
+    width: 4px;
+    top: -1px;
+    border-radius: 50%;
+    background: #dcdcdc;
+}
+
+#more-des-right-divider:after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    height: 4px;
+    width: 4px;
+    bottom: -1px;
+    border-radius: 50%;
+    background: #dcdcdc;
+}
+
+#private-letter {
+    width: 166px;
+    height: 52px;
+    background: #5bdb9d;
+    color: white;
+    text-align: center;
+    line-height: 52px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid #ebebeb;
+    margin-top: 8px;
+    margin-left: 55px;
+}
+
+#recruit-area {
+    width: 100%;
+    height: 842px;
+    background: #fff;
+    position: absolute;
+    top: 582px;
+    left: 0;
+    border-radius: 12px;
+    padding-top: 45px;
+    padding-left: 56px;
+}
+
+.recruit-title {
+    width: 90px;
+    height: 36px;
+    display: flex;
+}
+
+.recruit-title-font {
+    width: 34px;
+    height: 36px;
+    font-size: 16px;
+    padding-top: 12px;
+    position: relative;
+    color: #575757;
+    font-weight: bold;
+}
+
+.recruit-title-font :before {
+    width: 26px;
+    height: 3px;
+    border-radius: 2px;
+    background: #ebc243;
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 0;
+}
+
+.recruit-title-font :after {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ebc243;
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 28px;
+}
+
+.recruit-title-font-right {
+    height: 32px;
+    width: 56px;
+    font-size: 28px;
+    color: #45b45a;
+}
+
+.position-description {
+    width: 100%;
+    height: 160px;
+    position: relative;
+}
+
+.position-description:before {
+    width: 1202px;
+    height: 1px;
+    background: #e1e1e1;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -56px;
+}
+
+.position-one {
+    display: flex;
+    width: 100%;
+    height: 55px;
+    font-size: 16px;
+    color: #4d4c4c;
+    line-height: 55px;
+}
+
+.position-one h4 {
+    color: #4d4c4c;
+    margin-left: 4px;
+}
+
+.green-font {
+    color: #45b45a;
+}
+
+.position-description p {
+    width: 100%;
+    height: 22px;
+    font-size: 14px;
+    color: #9a9999;
+    line-height: 20px;
+}
+
+.recruit-title-margin-top {
+    height: 19px;
+    width: 100%;
+}
+
+#job-position {
+    width: 100%;
+    height: 375px;
+}
+
+#job-position img {
+    display: block;
+    border: 8px solid #efefef;
+    width: 1032px;
+    height: 282px;
+    margin-top: 15px;
+}
+
+#job-position-des {
+    width: 100%;
+    height: 60px;
+    margin-top: 15px;
+}
+
+#job-position-des p {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #888787;
+}
+
+#recruit-area-float-left {
+    position: absolute;
+    left: -169px;
+    top: 276px;
+    background: url("../images/recruit-area-float-left.png");
+    width: 169px;
+    height: 80px;
+}
+
+#recruit-area-float-right {
+    position: absolute;
+    width: 198px;
+    height: 75px;
+    right: -198px;
+    bottom: 73px;
+    background: url("../images/recruit-area-float-right.png");
+}
+
+#recruit-introduce {
+    width: 100%;
+    height: 1046px;
+    background: #fff;
+    position: absolute;
+    top: 1434px;
+    left: 0;
+    border-radius: 12px;
+    padding-top: 20px;
+    padding-left: 22px;
+}
+
+#enterprise-brief {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    padding-top: 28px;
+    padding-left: 24px;
+    margin-bottom: 37px;
+}
+
+#enterprise-brief p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #abaaaa;
+}
+
+#enterprise-brief:before {
+    width: 858px;
+    height: 1px;
+    background: #e1e1e1;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -23px;
+}
+
+#enterprise-introduce {
+    width: 100%;
+    height: 685px;
+    padding-top: 24px;
+    padding-left: 23px;
+}
+
+#enterprise-introduce p {
+    display: block;
+    margin-bottom: 24px;
+    line-height: 22px;
+    font-size: 14px;
+    color: #9e9d9d;
+}
+
+#enterprise-introduce-img {
+    margin-top: 22px;
+    display: flex;
+    width: 1090px;
+    height: 440px;
+    justify-content: space-between;
+    position: relative;
+}
+
+#enterprise-introduce-img:before {
+    width: 1202px;
+    height: 1px;
+    background: #e1e1e1;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -47px;
+}
+
+#web-position {
+    width: 100%;
+    height: 140px;
+    padding-top: 30px;
+}
+
+#web-position a {
+    display: block;
+    padding-top: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 26px;
+}
+
+#enterprise-introduce-img img {
+    display: block;
+    border: 1px solid #cccccc;
+}
+
+#enterprise-introduce-img img:nth-child(1) {
+    width: 257px;
+    height: 385px;
+    background: #e46e1b;
+}
+
+#enterprise-introduce-img img:nth-child(2) {
+    width: 555px;
+    height: 384px;
+    background: #e46e1b;
+}
+
+#enterprise-introduce-img img:nth-child(3) {
+    width: 257px;
+    height: 385px;
+    background: #e46e1b;
+}
+
+#recruit-company {
+    width: 100%;
+    height: 312px;
+    background: #fff;
+    position: absolute;
+    top: 2490px;
+    left: 0;
+    border-radius: 12px;
+    border-top: 4px solid #10c4eb;
+    padding-top: 24px;
+    padding-left: 19px;
+}
+
+#company-float {
+    position: absolute;
+    bottom: 0;
+    right: -45px;
+    background: url("../images/recruit-company-float.png");
+    width: 369px;
+    height: 308px;
+}
+
+#company-des {
+    width: 100%;
+    height: 106px;
+    display: flex;
+}
+
+#company-des img {
+    display: block;
+    border: 1px solid #efefef;
+    width: 89px;
+    height: 89px;
+}
+
+#company-des-info {
+    width: 600px;
+    height: 100%;
+    padding-left: 17px;
+}
+
+#company-des-info h3 {
+    color: #3f3e3e;
+    margin-top: 12px;
+}
+
+.yellow-font {
+    color: #f7c72d;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-left: 14px;
+}
+
+#company-des-info-one {
+    width: 600px;
+    height: 40px;
+    padding-top: 12px;
+    color: #3f3e3e;
+    font-size: 26px;
+    display: flex;
+}
+
+#company-des-sum {
+    width: 280px;
+    height: auto;
+    display: flex;
+    padding-left: 55px;
+    padding-top: 6px;
+    justify-content: space-between;
+}
+
+#company-des-one {
+    width: 72px;
+    height: 20px;
+    background: #ffc453;
+    color: #55462a;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+#company-des-two {
+    width: 51px;
+    height: 20px;
+    background: #ff6a91;
+    color: #38262b;
+    text-align: center;
+    line-height: 22px;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+#company-des-three {
+    width: 79px;
+    height: 20px;
+    background: #3ce694;
+    color: #244f3a;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+#company-info {
+    width: 100%;
+    height: 125px;
+}
+
+#company-info li {
+    height: 23px;
+    display: flex;
+    margin-bottom: 2px;
+}
+
+#company-info li div {
+    height: 23px;
+    width: 89px;
+    border: 1px solid #eeeeee;
+    padding-left: 6px;
+    text-align: right;
+    color: #6f6e6e;
+    font-size: 14px;
+    display: flex;
+
+}
+#company-info li div img{
+    display: block;
+    width: 14px;
+    height: 13px;
+    margin-top: 4px;
+    margin-right: 6px;
+}
+#company-info li p {
+    display: block;
+    padding-left: 16px;
+    color: #3f3e3e;
+    font-size: 14px;
+}
+
+#recruit-comment {
+    width: 100%;
+    height: 460px;
+    background: #fff;
+    position: absolute;
+    top: 2813px;
+    left: 0;
+    border-radius: 12px;
+    border-top: 4px solid #10c4eb;
+    padding-left: 23px;
+    padding-top: 19px;
+}
+
+#recruit-comment-ul{
+    width: 1130px;
+    height: 365px;
+    position: relative;
+    margin-top: 20px;
+    padding-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#recruit-comment-ul:before{
+    width: 1202px;
+    height: 1px;
+    background: #e1e1e1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -23px;
+}
+#recruit-comment-ul li{
+    width: 565px;
+    height: 80px;
+    display: flex;
+    padding-left: 20px;
+ }
+.recruit-comment-des{
+    width: 542px;
+    border: 1px solid #bfbfbf;
+    background: #fafafa;
+    position: relative;
+    padding-left: 16px;
+    padding-top: 20px;
+}
+.recruit-comment-des h4{
+    color:#00b38a ;
+}
+.recruit-comment-des p{
+    color: #716773;
+    font-size: 15px;
+    margin-top: 2px;
+}
+.recruit-comment-time{
+    width: 155px;
+    height: 22px;
+    position: absolute;
+    right: 10px;
+    top:26px;
+    font-size: 14px;
+    color: #b1b0b0;
+    padding-left: 20px;
+    background: url("../images/recruit-time_07.png") no-repeat left center/15px 15px;
+    line-height: 22px;
+}
+.recruit-comment-des:before{
+    content: "";
+    width: 3px;
+    height: 78px;
+    background: #00b38a;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+#under-margin{
+    width: 100%;
+    height: 2850px;
+}
+ul,li{
+    list-style: none;
+}

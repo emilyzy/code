@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+.content{
+    width: 1920px;
+    height: auto;
+}
+.wrapper{
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+input:focus {
+    outline: none;
+}
+body{
+    font-size: 14px;
+    background: #f4f4f4;
+    overflow-x: hidden;
+}
+.mas{
+    width: 1200px;
+    margin: 0 auto;
+}
+.mix{
+    margin-left: 139px;
+    margin-right: 183px;
+}

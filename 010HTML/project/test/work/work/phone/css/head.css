@@ -1,0 +1,310 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+.head-top {
+    width: 100%;
+    height: 1.09rem;
+    background: #01456a;
+}
+.wrapper {
+    height: auto;
+    width: 7.02rem;
+    margin: 0 auto;
+}
+#inner-box {
+    height: 1.09rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#header-people {
+    height: 0.58rem;
+    width: 0.58rem;
+    background: black;
+    border-radius: 50%;
+    border: 0.04rem solid #f9cd1e;
+}
+#header-search {
+    height: 0.46rem;
+    width: 4.26rem;
+    border-radius: 0.23rem;
+    border: 0.03rem solid #b3c8d4;
+    background: #1c5b7e;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+.search-point{
+    width:0.08rem;
+    height: 0.08rem;
+    border-radius: 0.04rem;
+    background: #f9cd1e;
+}
+#header-search .input{
+    width: 3.04rem;
+    height: 0.46rem;
+    border: none;
+    background: transparent;
+}
+#header-search input:focus+div{
+    display: block;
+}
+.search-forward{
+    width: 0.66rem;
+    height: 0.31rem;
+    border-radius: 0.15rem;
+    border: #ffffff 0.02rem solid;
+    background: #6cce24;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 0.27rem;
+}
+#header-info {
+    width: 0.53rem;
+    height: 100%;
+    background: url(../images/point.png) no-repeat right center/100% auto;
+    background-size: 0.59rem;
+}
+
+
+
+
+.under{
+    width: 100%;
+    height: 5.75rem;
+    background: #2d2d2d;
+    padding-top:0.43rem;
+}
+.under-top{
+    width: 4.12rem;
+    height: 2.43rem;
+    margin: 0 auto;
+}
+.under-top-top{
+    width: 4.12rem;
+    height: 1.4rem;
+    display: flex;
+    justify-content: space-around;
+}
+.under .fiddy{
+    width:1.08rem ;
+    height: 1.41rem;
+    background: url("../images/fiddy_68.png") center center;
+    background-size: cover;
+}
+.under .long{
+    width: 0.01rem;
+    height: 1.4rem;
+    background: #4c4b4b;
+}
+.under .blue{
+    width: 1.4rem;
+    height: 1.4rem;
+    background: #25b0ff;
+}
+.under-top-bottom
+{
+    padding-top: 0.15rem;
+    width: 100%;
+    height: 1.03rem;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+.under-top-bottom li{
+    width: 1.05rem;
+    line-height:0.2rem;
+    font-size: 13px;
+    color: #a7a5a5;
+}
+.under-line{
+    width: 2.5rem;
+    border-bottom: 0.02rem #676666 dashed;
+    margin: 0.1rem auto;
+}
+.under-bottom{
+    margin-top: 0.4rem;
+}
+.under-bottom div{
+    text-align: center;
+    font-size: 12px;
+    color: #8c8c8c;
+}
+.under-bottom-bottom
+{
+    width: 2.11rem;
+    height: 0.58rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem auto;
+}
+.under-left{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #5ccc26 url("../images/weichat.png") no-repeat center center/0.34rem 0.25rem;
+}
+.under-center{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #2a77f6 url("../images/tencent.png") no-repeat center center/0.34rem 0.25rem;
+}
+.under-right{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #f59421 url("../images/weibo.png") no-repeat center center/0.34rem 0.25rem;
+}
+#header-filter {
+    width: 2.65rem;
+    height: 1.28rem;
+    background: #ecf0f2;
+    position: absolute;
+    left: 0.23rem;
+    top: 0.38rem;
+    border-radius: 0.04rem;
+    box-shadow: 0 0 0 1px #bfac2b;
+    opacity: .92;
+    padding-top: 0.26rem;
+    display: none;
+    z-index: 10;
+}
+
+#header-filter::before {
+    content: "";
+    width: 0.08rem;
+    height: 0.08rem;
+    position: absolute;
+    left: 0.16rem;
+    top: -0.04rem;
+    transform: rotate(45deg);
+    box-shadow: -1px -1px 0 #bfac2b;
+    background: #fff;
+}
+
+#header-filter label {
+    float: left;
+    margin-left: 0.07rem;
+    font-size: 12px;
+}
+
+#header-filter input {
+    margin-right: 0.05rem;
+}
+
+#header-divider {
+    width: 2.33rem;
+    height: 1px;
+    background: #d3d3d3;
+    float: left;
+    margin: 0.18rem 0 0.1rem 0.12rem;
+    position: relative;
+}
+
+#header-divider:before {
+    content: "";
+    width: 0.05rem;
+    height: 0.05rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: -0.02rem;
+    background: #585857;
+}
+
+#header-divider:after {
+    content: "";
+    width: 0.05rem;
+    height: 0.05rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: -0.02rem;
+    background: #585857;
+}
+
+
+
+#info-list {
+    width: 1.72rem;
+    height: 3.25rem;
+    position: absolute;
+    right: 0;
+    top: 0.9rem;
+    background: rgba(12, 42, 54, 0.7);
+    border-radius: 0.07rem;
+    z-index: 10;
+    display: none;
+}
+
+#info-list:before {
+    content: "";
+    width: 0.1rem;
+    height: 0.1rem;
+    position: absolute;
+    right: 0.16rem;
+    top: -0.04rem;
+    transform: rotate(45deg);
+    background: rgba(12, 42, 54, 0.7);
+}
+
+#info-list li {
+    width: 1.45rem;
+    height: 0.62rem;
+    margin: 0.15rem auto 0 auto;
+}
+
+.info-english {
+    font-size: 10px;
+    height: 0.2rem;
+    line-height: 0.2rem;
+    color: #bdbebe;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.header-divider1 {
+    width: 0.8rem;
+    height: 1px;
+    margin-left: 0.65rem;
+    margin-top: 0.1rem;
+    background: #707577;
+}
+
+.header-divider1:before {
+    content: "";
+    width: 0.12rem;
+    height: 1px;
+    float: right;
+    background: #f2c119;
+}
+
+.info-china {
+    font-size: 10px;
+    height: 0.18rem;
+    line-height: 0.18rem;
+    color: #ffffff;
+    margin: 0.06rem 0 0.12rem 0.49rem;
+}
+
+.header-divider2 {
+    width: 1.23rem;
+    height: 0;
+    border: 1px dashed #aaaaaa;
+    margin-left: 0.22rem;
+}

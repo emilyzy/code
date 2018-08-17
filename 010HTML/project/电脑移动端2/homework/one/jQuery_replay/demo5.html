@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="demo5.css">
+
+</head>
+<body>
+<div id="banner-paper">
+    <div class="images active1"></div>
+    <div class="images"></div>
+    <div class="images"></div>
+    <div class="images"></div>
+    <div id="banner-pager">
+        <div class="pager-item active"></div>
+        <div class="pager-item"></div>
+        <div class="pager-item"></div>
+        <div class="pager-item"></div>
+    </div>
+</div>
+<script src="jQuery.js"></script>
+<script>
+    let btn=$(".pager-item");
+    let img=$(".images");
+    btn.click(function () {
+        btn.removeClass("active").filter(this).addClass("active");
+        let index=$(this).index();
+        /*console.log(index);*/
+        img.removeClass("active1").eq(index).addClass("active1");
+    });
+    let t=setInterval(move,3000);
+    let n=0;
+    function move() {
+        n++;
+        if(n===btn.length){
+            n=0;
+        }
+        btn.removeClass("active").eq(n).addClass("active");
+        img.removeClass("active1").eq(n).addClass("active1");
+    }
+    $("#banner-paper").hover(function () {
+       clearInterval(t);
+    });
+</script>
+<!--<script src="demo5.js"></script>-->
+</body>
+</html>

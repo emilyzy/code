@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人信息上传</title>
+    <link rel="stylesheet" href="css/header1.css">
+    <link rel="stylesheet" href="css/uploadPersonalInformation.css">
+    <link rel="stylesheet" href="css/under1.css">
+</head>
+<body>
+<!--头部-->
+<header id="headerThree">
+    <div class="wrapping">
+        <div id="header-top">
+            <ul id="header-nav">
+                <li>
+                    <div class="header-nav-inner">
+                        <div class="header-nav-font1">Display of works</div>
+                        <div class="header-nav-divider1"></div>
+                        <div class="header-nav-font2">作品展示</div>
+                    </div>
+                    <div class="header-nav-divider"></div>
+                </li>
+                <li>
+                    <div class="header-nav-inner">
+                        <div class="header-nav-font1">Display of works</div>
+                        <div class="header-nav-divider1"></div>
+                        <div class="header-nav-font2">行业新闻</div>
+                    </div>
+                    <div class="header-nav-divider"></div>
+                </li>
+                <li>
+                    <div class="header-nav-inner">
+                        <div class="header-nav-font1">Display of works</div>
+                        <div class="header-nav-divider1"></div>
+                        <div class="header-nav-font2">视频介绍</div>
+                    </div>
+                    <div class="header-nav-divider"></div>
+                </li>
+                <li>
+                    <div class="header-nav-inner">
+                        <div class="header-nav-font1">Display of works</div>
+                        <div class="header-nav-divider1"></div>
+                        <div class="header-nav-font2">招聘信息</div>
+                    </div>
+                </li>
+            </ul>
+            <div id="header-search">
+                <form action="#">
+                    <div id="header-search-point"></div>
+                    <input type="text" id="header-search-input" title="">
+                    <input type="button" id="header-search-go" onclick="window.location.href='search.html'">
+                </form>
+                <div id="header-filter">
+                    <label><input type="radio" name="type">全部</label>
+                    <label><input type="radio" name="type">作品</label>
+                    <label><input type="radio" name="type">文章</label>
+                    <div id="header-divider"></div>
+                    <label><input type="radio" name="type">企业</label>
+                    <label><input type="radio" name="type">设计者</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="uploadPersonalInformation">
+    <div class="wrapping">
+        <div id="information-inner-margin-top"></div>
+        <div id="information-inner">
+            <div id="position-header">
+                <p>个人头像：</p>
+                <img src="images/header-art.png" alt="">
+            </div>
+            <div id="position-information">
+                <p>昵称：</p>
+                <input type="text" id="information-name" title="">
+                <p>性别：</p>
+                <select name="sex" id="information-sex" title="">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+                <p>年龄：</p>
+                <select name="sex" id="information-age" title="">
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                </select>
+            </div>
+            <div id="position-autograph">
+                <p>签名：</p>
+                <textarea name="autograph-text" id="autograph-text" title="">
+
+                </textarea>
+            </div>
+            <div id="position-more-information-one">
+                <p> 真实姓名：</p>
+                <input type="text" id="information-true-name" title="">
+                <p>身份状态：</p>
+                <select name="status" id="information-status" title="">
+                    <option value="离职、寻找机会">离职、寻找机会</option>
+                    <option value="在职">在职</option>
+                </select>
+            </div>
+            <div id="position-more-information-two">
+                <p>求职意向：</p>
+                <select name="job-intention" id="information-job-intention" title="">
+                    <option value="">交互设计师</option>
+                    <option value="">交互设计师</option>
+                </select>
+                <p>求职城市：</p>
+                <select name="job-province" id="information-job-province" title="">
+                    <option value="">山西省</option>
+                    <option value="">山西省</option>
+                </select>
+                <select name="job-city" id="information-job-city" title="">
+                    <option value="">太原市</option>
+                    <option value="">太原市</option>
+                </select>
+            </div>
+            <div class="position-more-information-three">
+                <p>目标薪资：</p>
+                <select name="aim-salary" id="information-aim-salary" title="">
+                    <option value="">3k-5k</option>
+                    <option value="">3k-5k</option>
+                </select>
+            </div>
+            <div class="position-more-information-three">
+                <p>手机号码：</p>
+                <input type="text" id="information-phone" title="">
+                <input type="button" id="change-phone" value="修改手机">
+            </div>
+            <div class="position-more-information-three">
+                <p>邮箱：</p>
+                <input type="text" id="information-email" title="">
+                <input type="button" id="change-email" value="修改邮箱">
+            </div>
+            <div id="position-information-four">
+                <div class="information-school">
+                    <p>毕业院校：</p>
+                    <input type="text" id="information-school-graduation" title="">
+                    <p>专业名称：</p>
+                    <input type="text" id="information-major-name" title="">
+                </div>
+                <div class="information-school">
+                    <p>毕业时间：</p>
+                    <select name="graduation-time" id="information-time-graduation" title="">
+                        <option value="">2012</option>
+                    </select>
+                    <p>学历：</p>
+                    <select name="education" id="information-education" title="">
+                        <option value="">高中</option>
+                    </select>
+                </div>
+                <div class="information-school">
+                    <p>工作经验：</p>
+                    <select name="experience" id="information-job-experience" title="">
+                        <option value="">应届生</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="button-inner">
+            <div id="information-change-button">
+                <div id="information-change-password">修改密码</div>
+                <div id="information-save-change">保存修改</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div id="under-bottom-last">
+    <div class="under">
+        <img class="under-left" src="images/under-left.png" alt="">
+        <div class="line"></div>
+        <div class="under-center">
+            <ul class="center-top">
+                <li>商务合作</li>
+                <li>意见反馈</li>
+                <li>关于我们</li>
+                <li>联系我们</li>
+                <li>版权声明</li>
+                <li>隐私保护</li>
+            </ul>
+            <div class="center-line"></div>
+            <ul>
+                <li class="longli">ICP备14007358号-1/京公网安备11010802014104号/Powerd by@2008-2016 UI.CN</li>
+            </ul>
+            <img src="images/chat.png" alt="">
+            <img src="images/qq.png" alt="">
+            <img src="images/weibo.png" alt="">
+        </div>
+        <img class="blue-right" src="images/blue.png" alt="">
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 0 auto;
+            border-collapse: collapse;
+
+        }
+
+        th, td {
+            border: 1px solid #000000;
+            text-align: center;
+        }
+
+        td {
+            height: 26px;
+            width: 50px;
+        }
+
+        .textarea {
+            width: 500px;
+            height: 2px;
+            display: flex;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 32px;
+            margin: auto;
+        }
+
+        .textarea input {
+            width: 121px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <table>
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in date">
+            <td @dblclick="input(item)">{{item.name}}</td>
+            <td @dblclick="input(item)">{{item.sex}}</td>
+            <td @dblclick="input(item)">{{item.age}}</td>
+            <td @mousedown="del(item)">删除</td>
+        </tr>
+        </tbody>
+        <div class="textarea" :style="{marginTop:29*index+'px'}" v-if="showbox">
+            <input type="text" v-model="name">
+            <input type="text" v-model="sex">
+            <input type="text" v-model="age">
+            <input type="button" style="height: 30px" value="修改" @click="update">
+            <input type="button" style="height: 30px" value="返回" @click="showbox=false">
+        </div>
+        <tfoot>
+        <tr>
+            <td colspan="4" @click="add()">+</td>
+        </tr>
+        </tfoot>
+    </table>
+
+</div>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            showbox: false,
+            name: "",
+            sex: "",
+            age: "",
+            index: "",
+            date: [{name: "张三", sex: "男", age: "13"},
+                {name: "李四", sex: "男", age: "14"},
+                {name: "王五", sex: "男", age: "15"}]
+        },
+        methods: {
+            add: function () {
+                this.date.push({name: "", sex: "", age: ""})
+            },
+            del: function (obj) {
+                let index = this.date.indexOf(obj)
+                this.date.splice(index, 1)
+            },
+            input: function (obj) {
+                this.showbox = true
+                this.name = obj.name
+                this.sex = obj.sex;
+                this.age = obj.age;
+                this.index = this.date.indexOf(obj)
+            },
+            update: function () {
+                this.date[this.index].name = this.name;
+                this.date[this.index].sex = this.sex;
+                this.date[this.index].age = this.age;
+                this.showbox = false
+                localStorage.data3 = JSON.stringify(this.date)
+            },
+
+        },
+        mounted: function () {
+            if (localStorage.data3) {
+                this.date = JSON.parse(localStorage.data3)
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+
+.bottom-box {
+    width: 1200px;
+    height: 496px;
+    margin: 47px auto 0;
+}
+/*-----------------------------*/
+#screen-top{
+    width: 100%;
+    height: 66px;
+    display: flex;
+    justify-content: space-between;
+}
+#screen-top-left{
+    width: 300px;
+    height: 100%;
+    display: flex;
+}
+#screen-top-left-pic{
+    width: 148px;
+    height: 100%;
+    background: url("../images/screen-top_03.png") no-repeat;
+    background-size: 100% auto;
+}
+#screen-top-left-text{
+ line-height: 40px;
+    padding-left:10px ;
+    color: #959595;
+}
+#screen-top-right{
+    width:65px;
+    background: url("../images/adddddddd_03.png") no-repeat;
+    background-size: 100% auto;
+}
+/*------------------------------------------*/
+
+.bottom {
+    width: 100%;
+}
+
+.pic-one {
+    width: 100%;
+    height: 102px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #f2f2f2;
+}
+
+.pic-two {
+    width: 100%;
+    height: 102px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-button {
+    width: 315px;
+    height: 99px;
+    margin: 41px auto 66px;
+    background: url("../images/button_40.png");
+}
+#under-bottom-last{
+    background: #2d2d2d;
+}
+.under{
+    padding-top: 69px;
+    width: 1200px;
+    margin: 0 auto;
+    height: 303px;
+    display: flex;
+    justify-content: space-between;
+    background: #2d2d2d;
+}
+.under .under-left{
+    width: 194px;
+    height: 145px;
+}
+.under .line{
+    border-right: #4c4b4b 2px solid;
+    height:145px;
+    position: relative;
+}
+.under .line:before{
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #acacac;
+    position: absolute;
+    top: 0;
+    left: -2px;
+}
+.under .line:after{
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #acacac;
+    position: absolute;
+    bottom: 0;
+    left: -2px;
+}
+.under-center{
+    width: 863px;
+    height: 145px;
+    padding-left: 41px;
+}
+.under .blue-right{
+    width: 142px;
+    height: 145px;
+}
+.center-top{
+    width: 665px;
+    height: 33px;
+    line-height: 25px;
+    display: flex;
+    justify-content: space-between;
+    color: #888787;
+}
+.center-line{
+    width: 250px;
+    border-bottom: 1px #676666 dashed;
+}
+.under-center .longli{
+    height: 50px;
+    line-height: 40px;
+    color:#888787 ;
+}
+.under-center img{
+    width: 57px;
+    height: 55px;
+}

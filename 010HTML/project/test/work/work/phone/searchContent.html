@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SearchContent</title>
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/rem.css">
+</head>
+<body>
+<div id="bg">
+    <div class="wrapper">
+        <div id="input">
+            <div id="left">输入文字 按回车</div>
+            <div id="right">×</div>
+        </div>
+        <div id="music">音乐 <span>×</span></div>
+        <div id="item-one">
+            <div class="writing1">作品</div>
+            <div class="article1">文章</div>
+            <div class="writing1">作品</div>
+            <div class="article1">文章</div>
+        </div>
+        <div id="item-two">
+            <div class="writing2">作品</div>
+            <div class="article2">文章</div>
+            <div class="writing2">作品</div>
+            <div class="article2">文章</div>
+        </div>
+    </div>
+</div>
+<script>
+    let item = document.querySelectorAll("#item-one div,#item-two div");
+    for (let i = 0; i < item.length; i++) {
+        item[i].style.cssText = "position:relative";
+        for (let j = 0; j < 6; j++) {
+            let point = document.createElement("div");
+            point.className = `point${j}`;
+            point.style.cssText = `width:0.04rem;height:0.04rem;background:white;
+    border-radius:0.02rem; position:absolute`;
+            item[i].appendChild(point)
+        }
+    }
+
+    let point0 = document.querySelectorAll(".point0");
+    let point1 = document.querySelectorAll(".point1");
+    let point2 = document.querySelectorAll(".point2");
+    let point3 = document.querySelectorAll(".point3");
+    let point4 = document.querySelectorAll(".point4");
+    let point5 = document.querySelectorAll(".point5");
+    for (let i = 0; i < item.length; i++) {
+        point0[i].classList.add("active0")
+    }
+    for (let i = 0; i < item.length; i++) {
+        point1[i].classList.add("active1")
+    }
+    for (let i = 0; i < item.length; i++) {
+        point2[i].classList.add("active2")
+    }
+    for (let i = 0; i < item.length; i++) {
+        point3[i].classList.add("active3")
+    }
+    for (let i = 0; i < item.length; i++) {
+        point4[i].classList.add("active4")
+    }
+    for (let i = 0; i < item.length; i++) {
+        point5[i].classList.add("active5")
+    }
+
+
+</script>
+</body>
+</html>

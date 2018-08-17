@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        table tr th, table tr td {
+            border: 1px solid #0094ff;
+        }
+
+        td {
+            height: 20px;
+            width: 50px;
+            text-align: center;
+        }
+
+        td > input {
+            width: 100%;
+            height: 100%;
+        }
+
+        .delete {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>张三</td>
+        <td>男</td>
+        <td>23</td>
+        <td class="delete">删除</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td class="add" colspan="4">+</td>
+    </tr>
+    </tfoot>
+</table>
+<script>
+    let tbody = document.querySelector("tbody");
+    let add = document.querySelector(".add")
+    let date = [
+        {name: "张三", sex: "男", age: 13},
+        {name: "李四", sex: "男", age: 14},
+        {name: "小红", sex: "女", age: 12}
+    ];
+
+    function render() {
+        let str = "";
+        if (localStorage.data1) {
+            date = JSON.parse(localStorage.data1)
+        }
+            date.forEach(function (obj, index) {
+                str += `<tr id="${index}">
+        <td class="name">${obj.name}</td>
+        <td class="sex">${obj.sex}</td>
+        <td class="age">${obj.age}</td>
+        <td class="delete">删除</td>
+</tr>`;
+
+            });
+            tbody.innerHTML = str;
+
+    }
+
+    render();
+    add.onclick = function (e) {
+        date.push({name: "", sex: "", age: ""});
+        localStorage.data1 = JSON.stringify(date);
+        render();
+
+    };
+
+    tbody.onclick = function (e) {
+        let {target} = e;
+        if (target.className === "delete") {
+            let pos = target.parentNode.id;
+            date.splice(pos, 1);
+            localStorage.data1 = JSON.stringify(date);
+            render();
+        }
+    }
+    tbody.ondblclick = function (e) {
+        let {target} = e;
+        if (target.className !== "delete") {
+            let text = target.innerHTML;
+            target.innerHTML = "";
+            let input = document.createElement("input");
+            input.value = text;
+            target.appendChild(input);
+            input.focus();
+            input.onblur = function () {
+                let pos = target.parentNode.id;
+                let attr = target.className;
+                let val = input.value;
+                date[pos][attr] = val;
+                localStorage.data1 = JSON.stringify(date);
+                render();
+            }
+        }
+    }
+</script>
+</body>
+</html>

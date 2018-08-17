@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#my-resume {
+    width: 100%;
+    height: 4800px;
+    background: url("../images/resume-background.png");
+    position: relative;
+}
+
+#my-resume-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    left: 0;
+    top: 0;
+    padding-top: 556px;
+}
+
+.resume {
+    width: 950px;
+    height: 639px;
+    background: rgba(255, 255, 255, 0.92);
+    margin: 0 auto;
+    position: relative;
+    padding-top: 124px;
+    z-index: 1;
+    border-bottom: 1px solid #07b0d5;
+}
+.resume-two{
+    width: 950px;
+    height: 562px;
+    background: rgba(255, 255, 255, 0.92);
+    margin: 0 auto;
+    position: relative;
+    padding-top: 124px;
+    z-index: 1;
+}
+
+#resume-float-one {
+    width: 317px;
+    height: 189px;
+    background: #07b0d5;
+    position: absolute;
+    left: 323px;
+    top: -105px;
+}
+
+#resume-float-one img {
+    display: block;
+    margin-left: 189px;
+    margin-top: 23px;
+    background: white;
+    width: 65px;
+    height: 65px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+#resume-float-one-mask {
+    position: absolute;
+    width: 317px;
+    height: 189px;
+    background: url("../images/resume-float-one-mask_03.png") no-repeat center/100% auto;
+    left: 0;
+    top: 0;
+}
+
+.resume-inner {
+    width: 855px;
+    height: 415px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    list-style: none;
+}
+.resume-inner-two{
+    width: 855px;
+    height: 322px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    list-style: none;
+}
+.resume-inner-two li{
+    list-style: none;
+    width: 267px;
+    height: 100%;
+    background: #2298f3;
+}
+.resume-inner li {
+    list-style: none;
+    width: 267px;
+    height: 100%;
+}
+
+.resume-inner-img {
+    width: 100%;
+    height: 322px;
+    background: #10c8f0;
+    position: relative;
+}
+
+.resume-inner-add {
+    width: 100%;
+    height: 322px;
+    background: #10c8f0;
+    text-align: center;
+    line-height: 300px;
+    color: white;
+    font-size: 200px;
+}
+#resume-inner-add-two{
+    width: 100%;
+    height: 322px;
+    background: #2298f3;
+    text-align: center;
+    line-height: 300px;
+    color: white;
+    font-size: 200px;
+    position: relative;
+    z-index: 2;
+}
+#resume-inner-li-float{
+    position: absolute;
+    width:128px;
+    height:173px;
+    background:url("../images/resume-inner-li-float.png");
+    top: -42px;
+    left:-122px ;
+}
+.resume-inner-img img {
+    width: 100%;
+    height: 322px;
+    display: block;
+
+}
+#resume-inner-add-btn{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    font-size: 15px;
+    line-height: 70px;
+    letter-spacing: 2px;
+}
+.img-del {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url("../images/resume-img-del.png");
+    left: -16px;
+    top: -19px;
+}
+
+.resume-inner-img-show {
+    width: 266px;
+    height: 56px;
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    text-align: center;
+    line-height: 56px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.78);
+    font-size: 16px;
+}
+
+.resume-inner-img-btn {
+    width: 145px;
+    height: 42px;
+    margin: 26px auto 0;
+    background: url("../images/resume-inner-img-btn_03.png");
+    position: relative;
+}
+
+.button-inner {
+    width: 135px;
+    height: 34px;
+    background: #10c8f0;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: none;
+    outline: none;
+    padding-left: 21px;
+    color: white;
+    font-size: 18px;
+
+}
+
+.button-inner-div {
+    width: 135px;
+    height: 34px;
+    background: #10c8f0;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.button-inner.active {
+    background: #b0ebf8;
+}
+
+.resume-inner-button {
+    width: 246px;
+    height: 54px;
+    background: url("../images/resume-inner-button.png");
+    margin: auto;
+    text-align: center;
+    line-height: 54px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.resume-page-margin {
+    display: flex;
+    height: auto;
+    width: 737px;
+    margin: -25px auto 0;
+}
+
+.resume-page {
+    width: 431px;
+    height: 79px;
+    background: rgba(29, 212, 115, 0.33);
+    position: relative;
+}
+.resume-page-ul{
+    width: 97px;
+    height: 15px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom:17px ;
+    right:95px ;
+    list-style: none;
+}
+.resume-page-li{
+    width: 15px;
+    height: 15px;
+    background: white;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+.resume-page-li.active{
+    background: #f0c310;
+}
+.resume-page-other {
+    width: 306px;
+    height: 108px;
+    background: url("../images/resume-page-other.png");
+    position: relative;
+}
+.resume-page-other-des{
+    width: 168px;
+    height: 37px;
+    position: absolute;
+    left: 0;
+    bottom: 11px;
+    padding-left: 20px;
+    display: flex;
+}
+.resume-page-other-left,.resume-page-other-right{
+    width: 22px;
+    line-height:37px;
+    color: #f0c310;;
+    height: 37px;
+    background: transparent;
+    font-size: 26px;
+    text-align: center;
+}
+.resume-page-other-con{
+    width: 100px;
+    height: 37px;
+    padding-left: 27px;
+    display: flex;
+    color: white;
+    line-height: 40px;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.font-size{
+    display: block;
+    font-size: 24px;
+    color: white;
+    line-height: 37px;
+}
+#resume-margin{
+    width: 100%;
+    height: 144px;
+}
+#resume-float-two{
+    width: 182px;
+    height: 168px;
+    background: url("../images/resume-float-two.png");
+    position: absolute;
+    left: 385px;
+    top: -94px;
+}
+#resume-inner-button-margin{
+    width: 100%;
+    height: 30px;
+}

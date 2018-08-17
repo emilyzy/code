@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1440px;
+    	    height: 600px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            transition: all 1s;
+        }
+
+        .box img {
+            display: block;
+            width: 1440px;
+ 	        height: 600px;
+            position: absolute;
+        }
+
+        .submit {
+            width: 300px;
+            height: 30px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+
+        .point {
+            width: 20px;
+            height: 20px;
+	        border:2px solid black;
+            background: yellow;
+	        border-radius:10px;
+        }
+
+        .move-leave-active, .move-enter-active {
+            transition: all 1s;
+        }
+
+        .move-enter {
+            transform: translateX(1440px);
+        }
+
+        .move-leave-to {
+            transform: translateX(-1440px);
+        }
+        .active{
+            background: #00aa00;
+        }
+    </style>
+</head>
+<body>
+<div id="app" @mouseenter="stop()" @mouseleave="start">
+    <div class="box">
+        <transition-group name="move" tag="p" mode="out-in">
+            <img :src="item.url" v-if="n===item.id" v-for="item in box" class="img" :key="item.id"/>
+        </transition-group>
+    </div>
+    <div class="submit">
+        <div class="point" @click="move(item)" v-for="item in box"></div>
+    </div>
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        t: "",
+        el: "#app",
+        data: {
+            n: 1,
+            box: [
+                {url: ('front_03.jpg'), id: 1},
+                {url: ('img1.jpg'), id: 2},
+                {url: ('img2.jpg'), id: 3},
+                {url: ('img3.jpg'), id: 4},
+	            {url: ('front_03.jpg'), id: 5},
+            ]
+        },
+        methods: {
+            move: function (obj) {
+                this.n = obj.id;
+            },
+            stop: function () {
+                clearInterval(this.t)
+            },
+            start: function () {
+                let index = this.n;
+                this.t = setInterval(() => {
+                    if (index === 5) {
+                        index = 0
+                    }
+                    index++;
+                    this.n = index
+                }, 3000)
+            }
+        },
+        mounted: function change() {
+            let index = 0;
+            this.t = setInterval(() => {
+                if (index === 5) {
+                    index = 0
+                }
+                index++;
+                this.n = index
+            }, 3000)
+
+        },
+
+
+    })
+
+
+</script>
+</body>
+</html>

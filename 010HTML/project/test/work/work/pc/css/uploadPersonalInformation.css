@@ -1,0 +1,340 @@
+#uploadPersonalInformation {
+    width: 100%;
+    height: 1055px;
+    background: #f4f4f4;
+
+}
+
+p {
+    width: auto;
+    height: 20px;
+    line-height: 28px;
+    font-size: 12px;
+}
+
+input {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    padding-left: 4px;
+}
+
+select {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    padding-left: 4px;
+    margin: 0 25px;
+    text-align: center;
+    color: #606060;
+}
+
+#information-inner-margin-top {
+    width: 100%;
+    height: 10px;
+}
+
+#information-inner {
+    width: 100%;
+    height: 795px;
+    background: white;
+    padding-left: 180px;
+    color: #9c9c9c;
+}
+
+#position-header {
+    width: 400px;
+    height: 152px;
+    display: flex;
+    padding-top: 65px;
+}
+
+#position-header img {
+    height: 86px;
+    width: 86px;
+    display: block;
+    margin-left: 40px;
+    border-radius: 5px;
+}
+
+#position-header p {
+    width: auto;
+    height: 20px;
+    line-height: 46px;
+    font-size: 12px;
+}
+
+#position-information {
+    height: 55px;
+    width: 100%;
+    display: flex;
+    padding-top: 24px;
+}
+
+#position-information p {
+    width: auto;
+    height: 20px;
+    line-height: 28px;
+    font-size: 12px;
+}
+
+#information-name {
+    width: 182px;
+    height: 31px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    padding-left: 4px;
+    margin: 0 40px;
+}
+
+#information-sex {
+    width: 61px;
+    height: 31px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    padding-left: 4px;
+    margin: 0 40px;
+    text-align: center;
+    color: #606060;
+}
+
+#information-age {
+    width: 61px;
+    height: 31px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    padding-left: 4px;
+    margin: 0 40px;
+    text-align: center;
+    color: #606060;
+}
+
+#position-autograph {
+    width: 100%;
+    height: 110px;
+    padding-top: 35px;
+    display: flex;
+}
+
+#position-autograph p {
+    width: auto;
+    height: 20px;
+    line-height: 28px;
+    font-size: 12px;
+}
+
+#autograph-text {
+    width: 424px;
+    height: 75px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-left: 40px;
+}
+
+#position-more-information-one {
+    width: 100%;
+    height: 98px;
+    padding-top: 64px;
+    display: flex;
+}
+
+#position-more-information-one p {
+    width: auto;
+    height: 20px;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+#information-true-name {
+    width: 182px;
+    height: 34px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    padding-left: 4px;
+    margin: 0 22px 0 15px;
+}
+
+#information-status {
+    width: 370px;
+    height: 34px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    padding-left: 4px;
+    margin: 0 25px;
+    text-align: center;
+    color: #606060;
+}
+
+#position-more-information-two {
+    width: 100%;
+    height: 58px;
+    padding-top: 20px;
+    display: flex;
+}
+
+#information-job-intention {
+    height: 32px;
+    width: 134px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    padding-left: 4px;
+    margin: 0 25px 0 15px;
+    text-align: center;
+    color: #606060;
+}
+
+#information-job-province {
+    width: 92px;
+    height: 32px;
+}
+
+#information-job-city {
+    width: 92px;
+    height: 32px;
+}
+
+.position-more-information-three {
+    width: 100%;
+    height: 41px;
+    padding-top: 10px;
+    display: flex;
+}
+
+#information-aim-salary {
+    width: 180px;
+    height: 31px;
+    margin-left: 15px;
+}
+
+#information-phone {
+    width: 180px;
+    height: 31px;
+    margin-left: 15px;
+}
+
+#information-email {
+    width: 180px;
+    height: 31px;
+    margin-left: 40px;
+}
+
+#change-phone {
+    width: 98px;
+    height: 28px;
+    background: url(../images/button-green_03.png) no-repeat center /98px auto;
+    border-radius: 24px;
+    border: none;
+    margin-left: 40px;
+    text-align: left;
+    color: white;
+    line-height: 30px;
+    padding-left: 13px;
+}
+
+#change-email {
+    width: 98px;
+    height: 28px;
+    background: url(../images/button-green_03.png) no-repeat center /98px auto;
+    border-radius: 24px;
+    border: none;
+    margin-left: 40px;
+    text-align: left;
+    color: white;
+    line-height: 30px;
+    padding-left: 13px;
+}
+
+#position-information-four {
+    width: 100%;
+    height: 188px;
+    padding-top: 63px;
+}
+
+.information-school {
+    padding-top: 15px;
+    display: flex;
+    height: 45px;
+    width: 100%;
+}
+
+#information-school-graduation {
+    width: 182px;
+    height: 30px;
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+#information-major-name {
+    width: 182px;
+    height: 30px;
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+#information-time-graduation {
+    width: 182px;
+    height: 30px;
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+#information-education {
+    width: 122px;
+    height: 30px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+#information-job-experience {
+    width: 122px;
+    height: 30px;
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+#information-change-button {
+    width: 378px;
+    height: 42px;
+    margin: 0 auto;
+}
+
+#button-inner {
+    width: 100%;
+    height: 250px;
+    padding-top: 83px;
+    background: white;
+}
+
+#information-change-password {
+    width: 146px;
+    height: 42px;
+    float: left;
+    background: url(../images/button-blue.png) no-repeat center/100% auto;
+    color: white;
+    padding-left: 30px;
+    line-height: 42px;
+}
+
+#information-save-change {
+    width: 146px;
+    height: 42px;
+    float: right;
+    background: url(../images/button-yellow.png) no-repeat center/100% auto;
+    color: white;
+    padding-left: 30px;
+    line-height: 42px;
+}

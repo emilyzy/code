@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" required pattern="\d">
+<input type="submit">
+<script>
+    let reg1=/\d/;
+    let reg2=/\s$/;
+    let reg3=/^uek$/;
+    console.log(reg3.test("uek"));
+    let str="   he   l l  o  ";
+    //str=str.replace(/^\s*/,"a");
+    // str=str.replace(/\s+$/,"a");
+    // str=str.replace(/\s+$/g,"a");
+    str=str.replace(/^\s+|\s+$/g,"a");
+    console.log(str);
+
+    {
+        let reg=/[a-z$]/;
+        console.log(reg.test("m33lko"));
+    }
+    {
+        let reg=/[sdfghj]/;
+        console.log(reg.test("jo"));
+    }
+    {
+        let reg=/^[1-9]\d{5,10}$/;
+        console.clear();
+        console.log(reg.test("12345678"))
+    }
+    {
+        let reg=/uek\d/g;
+        console.log(reg.exec("asuek1asuek2asuek3"));
+        console.log(reg.exec("asuek1asuek2asuek3"));
+        console.log(reg.exec("asuek1asuek2asuek3"));
+    }
+    {
+        let reg=/uek(?=\d)/g;
+        console.clear();
+        console.log("auek1auek2auek3".match(reg));
+    }
+    {
+        let str="hello world hello world";
+        str=str.split(/\B/);
+        console.log(str)
+    }
+    {
+        function parseURL(url) {
+            let obj={};
+
+            let reg1=/https?/;
+            obj.protocol=reg1.exec(url)[0];
+
+            let reg2=/(?<=\/\/)[a-z\.0-9\-]+/;
+            obj.host=reg2.exec(url)[0];
+
+            let reg3=/(?<=:)\d+/;
+            obj.port=reg3.exec(url)[0];
+
+            let reg4=/\b(\/\w+)+/;
+            obj.path=reg4.exec(url)[0];
+
+            let reg5=/(?<=\?)[^#]+/;
+            obj.search=reg5.exec(url)[0];
+
+            let reg6=/(?<=#).*/;
+            obj.hash=reg6.exec(url)[0];
+            return obj;
+        }
+        console.clear();
+        console.log(parseURL("https://www.new.baidu.com:80/aa/bb/cc?s=123&t=456&c=aaa#top"));
+        console.log(parseURL("https://www.baidu.com/"))
+    }
+</script>
+</body>
+</html>

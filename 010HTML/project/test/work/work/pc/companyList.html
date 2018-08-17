@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公司列表</title>
+    <link rel="stylesheet" href="css/companyList.css">
+    <link rel="stylesheet" href="css/under1.css">
+    <link rel="stylesheet" href="css/header1.css">
+</head>
+<body>
+<!--头部-->
+<div id="header">
+    <div id="header1">
+        <div id="header-top1">
+            <div class="wrapping">
+                <div id="header-top">
+                    <ul id="header-nav">
+                        <li>
+                            <div class="header-nav-inner">
+                                <div class="header-nav-font1">Display of works</div>
+                                <div class="header-nav-divider1"></div>
+                                <div class="header-nav-font2">作品展示</div>
+                            </div>
+                            <div class="header-nav-divider"></div>
+                        </li>
+                        <li>
+                            <div class="header-nav-inner">
+                                <div class="header-nav-font1">Display of works</div>
+                                <div class="header-nav-divider1"></div>
+                                <div class="header-nav-font2">行业新闻</div>
+                            </div>
+                            <div class="header-nav-divider"></div>
+                        </li>
+                        <li>
+                            <div class="header-nav-inner">
+                                <div class="header-nav-font1">Display of works</div>
+                                <div class="header-nav-divider1"></div>
+                                <div class="header-nav-font2">视频介绍</div>
+                            </div>
+                            <div class="header-nav-divider"></div>
+                        </li>
+                        <li>
+                            <div class="header-nav-inner">
+                                <div class="header-nav-font1">Display of works</div>
+                                <div class="header-nav-divider1"></div>
+                                <div class="header-nav-font2">招聘信息</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div id="header-search">
+                        <form action="#">
+                            <div id="header-search-point"></div>
+                            <input type="text" id="header-search-input" title="">
+                            <input type="button" id="header-search-go" onclick="window.location.href='search.html'">
+                        </form>
+                        <div id="header-filter">
+                            <label><input type="radio" name="type">全部</label>
+                            <label><input type="radio" name="type">作品</label>
+                            <label><input type="radio" name="type">文章</label>
+                            <div id="header-divider"></div>
+                            <label><input type="radio" name="type">企业</label>
+                            <label><input type="radio" name="type">设计者</label>
+                        </div>
+                    </div>
+                    <div id="header-banner-company">
+                        <div id="banner-inner">
+                            <div class="banner-pic"><img src="images/background_03.png" alt=""></div>
+                            <div class="banner-pic"><img src="images/big-pic2.png" alt=""></div>
+                            <div class="banner-pic"><img src="images/background_03.png" alt=""></div>
+                            <div class="banner-pic"><img src="images/big-pic2.png" alt=""></div>
+                        </div>
+                        <div id="banner-pic-pages">
+                            <div class="banner-pic-point active"></div>
+                            <div class="banner-pic-point"></div>
+                            <div class="banner-pic-point"></div>
+                            <div class="banner-pic-point"></div>
+                        </div>
+                        <div id="header-banner-decoration1-company"></div>
+                        <div id="header-banner-decoration2-company"></div>
+                        <div id="header-banner-decoration3"></div>
+                        <div id="header-banner-pages">
+                            <div class="header-banner-pages-list"></div>
+                            <div class="header-banner-pages-list"></div>
+                            <div class="header-banner-pages-list"></div>
+                            <div class="header-banner-pages-list active"></div>
+                            <div id="header-banner-pages-title"><span class="size">01</span>/3</div>
+                            <div id="header-banner-paging"></div>
+                        </div>
+
+                    </div>
+                    <div id="header-count-company">
+                        <div id="company-search">
+                            <div id="company-search-left"></div>
+                            <div id="company-search-right">
+                                <div id="company-input">
+                                    <input type="text" id="company-input-con" placeholder="公司名称、职位、薪资快速搜索职位">
+                                    <input type="button" id="company-input-go">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--公司列表-->
+<div id="company-list">
+    <div class="wrapper">
+        <div id="company-banner">
+            <div class="company-banner-inner">
+                <div class="company-title">
+                    <div class="company-title-font1"><p><span class="white-font">推荐</span></p></div>
+                    <div class="company-title-font-right"><span class="white-font">城市</span></div>
+                    <div class="company-title-inner"><p><span class="white-font">Display of works</span></p></div>
+                </div>
+                <div class="company-banner-con">
+                    <p>北京</p>
+                    <p>上海</p>
+                    <p>深圳</p>
+                    <p>广州</p>
+                    <p>杭州</p>
+                    <p>西安</p>
+                    <p>成都</p>
+                    <p>太原</p>
+
+                </div>
+            </div>
+            <div class="company-banner-inner">
+                <div class="company-title">
+                    <div class="company-title-font"><p><span class="white-font">推荐</span></p></div>
+                    <div class="company-title-font-right"><span class="white-font">城市</span></div>
+                    <div class="company-title-inner"><p><span class="white-font">Display of works</span></p></div>
+                </div>
+                <div class="company-banner-con">
+                    <p>北京</p>
+                    <p>上海</p>
+                    <p>深圳</p>
+                    <p>广州</p>
+                    <p>杭州</p>
+                    <p>西安</p>
+                    <p>成都</p>
+                    <p>太原</p>
+
+                </div>
+            </div>
+        </div>
+        <ul id="company-list-des">
+            <li>
+                <div class="company-list-des-left">
+                    <div class="company-list-header"><img src="images/company-list-header.png" alt=""></div>
+                    <div class="company-list-description">
+                        <p>TUBAL-北京</p>
+                        <p>UI设计总监<span class="font-size-company">6K-10K</span></p>
+                        <p>设计/图形处理/管理 规模：100-200人</p>
+                    </div>
+                </div>
+                <div class="company-list-des-right">
+                    <div class="company-list-header2"><img src="images/company-list-header2.png" alt=""></div>
+                    <p>陈鹏 ● CEO</p>
+                    <div class="company-list-btn active">领导直聊</div>
+                </div>
+            </li>
+            <li>
+                <div class="company-list-des-left">
+                    <div class="company-list-header"><img src="images/company-list-header.png" alt=""></div>
+                    <div class="company-list-description">
+                        <p>TUBAL-北京</p>
+                        <p>UI设计总监<span class="font-size-company active">6K-10K</span></p>
+                        <p>设计/图形处理/管理 规模：100-200人</p>
+                    </div>
+                </div>
+                <div class="company-list-des-right">
+                    <div class="company-list-header2"><img src="images/company-list-header2.png" alt=""></div>
+                    <p>陈鹏 ● CEO</p>
+                    <div class="company-list-btn">领导直聊</div>
+                </div>
+            </li>
+            <li>
+                <div class="company-list-des-left">
+                    <div class="company-list-header"><img src="images/company-list-header.png" alt=""></div>
+                    <div class="company-list-description">
+                        <p>TUBAL-北京</p>
+                        <p>UI设计总监<span class="font-size-company">6K-10K</span></p>
+                        <p>设计/图形处理/管理 规模：100-200人</p>
+                    </div>
+                </div>
+                <div class="company-list-des-right">
+                    <div class="company-list-header2"><img src="images/company-list-header2.png" alt=""></div>
+                    <p>陈鹏 ● CEO</p>
+                    <div class="company-list-btn">领导直聊</div>
+                </div>
+            </li>
+        </ul>
+        <div id="company-page">
+            <div class="company-button-one">FIRST</div>
+            <div class="company-button-one">LAST</div>
+            <div class="margin-left"></div>
+            <div class="company-button-one">PREV</div>
+            <div class="company-button-two">1</div>
+            <div class="company-button-two active">2</div>
+            <div class="company-button-two">3</div>
+            <div class="company-button-two">4</div>
+            <div class="company-button-two">...</div>
+            <div class="margin-left"></div>
+            <div class="company-button-one">NEXT</div>
+            <div class="margin-left"></div>
+            <div class="company-button-one">0 2</div>
+            <div class="company-button-go">Go</div>
+        </div>
+        <div id="company-recommend">
+            <div class="company-title">
+                <div class="company-title-font1"><p>推荐</p></div>
+                <div class="company-title-font-right">企业</div>
+                <div class="company-title-inner"><p>Display of works</p></div>
+                <div class="company-sum-button">
+                    <div class="company-sum-button1">公司分类</div>
+                    <div class="company-sum-button2">公司分类</div>
+                    <div class="company-sum-button3">公司分类</div>
+                </div>
+            </div>
+            <ul id="company-recommend-inner">
+                <li><img src="images/company-recommend-inner.png" alt="">
+                <div class="company-recommend-inner-des">
+                        <div class="company-recommend-inner-left">
+                            <h4>山西科技有限公司</h4>
+                            <div class="company-divider"></div>
+                            <p>字符需要作出限制，超过后省略显示 显示，不能孤儿寡母...</p>
+                        </div>
+                        <div class="company-recommend-inner-right">
+                            <img src="images/company-recommend-inner-right1.png" alt="">
+                        </div>
+                </div></li>
+                <li><img src="images/company-recommend-inner.png" alt="">
+                    <div class="company-recommend-inner-des">
+                        <div class="company-recommend-inner-left">
+                            <h4>山西科技有限公司</h4>
+                            <div class="company-divider"></div>
+                            <p>字符需要作出限制，超过后省略显示 显示，不能孤儿寡母...</p>
+                        </div>
+                        <div class="company-recommend-inner-right">
+                            <img src="images/company-recommend-inner-right1.png" alt="">
+                        </div>
+                    </div></li>
+                <li><img src="images/company-recommend-inner.png" alt="">
+                    <div class="company-recommend-inner-des">
+                        <div class="company-recommend-inner-left">
+                            <h4>山西科技有限公司</h4>
+                            <div class="company-divider"></div>
+                            <p>字符需要作出限制，超过后省略显示 显示，不能孤儿寡母...</p>
+                        </div>
+                        <div class="company-recommend-inner-right">
+                            <img src="images/company-recommend-inner-right1.png" alt="">
+                        </div>
+                    </div></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div id="under-bottom-last">
+    <div class="under">
+        <img class="under-left" src="images/under-left.png" alt="">
+        <div class="line"></div>
+        <div class="under-center">
+            <ul class="center-top">
+                <li>商务合作</li>
+                <li>意见反馈</li>
+                <li>关于我们</li>
+                <li>联系我们</li>
+                <li>版权声明</li>
+                <li>隐私保护</li>
+            </ul>
+            <div class="center-line"></div>
+            <ul>
+                <li class="longli">ICP备14007358号-1/京公网安备11010802014104号/Powerd by@2008-2016 UI.CN</li>
+            </ul>
+            <img src="images/chat.png" alt="">
+            <img src="images/qq.png" alt="">
+            <img src="images/weibo.png" alt="">
+        </div>
+        <img class="blue-right" src="images/blue.png" alt="">
+    </div>
+</div>
+<script>
+    let pic = document.querySelectorAll(".banner-pic");
+    let point = document.querySelectorAll(".banner-pic-point");
+    let box = document.querySelector("#banner-inner");
+    let z = 10;
+    let n = 0;
+    let flag = true;
+    for (let i = 0; i < point.length; i++) {
+        point[i].onclick = function () {
+            if (!flag) return;
+            flag = false;
+            for (let j = 0; j < point.length; j++) {
+                point[j].classList.remove("active");
+            }
+            point[i].classList.add("active");
+            if (n < i) {
+                pic[n].classList.add("leftOut");
+                pic[i].classList.add("leftIn");
+            } else if (n > i) {
+                pic[i].classList.add("rightIn");
+                pic[n].classList.add("rightOut");
+            }
+            n = i;
+            pic[n].style.zIndex = z++;
+        };
+        pic[i].addEventListener("animationend", function () {
+            pic[i].className = "banner-pic";
+            flag = true;
+        });
+    }
+    let t;
+    let next;
+    t = setInterval(move, 3000);
+
+    function move() {
+        next = n + 1;
+        if (next === pic.length) {
+            next = 0
+        }
+        for (let i = 0; i < point.length; i++) {
+            point[i].classList.remove("active")
+        }
+        point[next].classList.add("active");
+        pic[next].classList.add("leftIn");
+        pic[n].classList.add("leftOut");
+        pic[next].style.zIndex = z++;
+        n = next;
+    }
+
+    box.onmouseenter = function () {
+        clearInterval(t);
+    };
+    box.onmouseleave = function () {
+        t = setInterval(move, 3000)
+    };
+
+
+</script>
+</body>
+</html>

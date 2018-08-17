@@ -1,0 +1,129 @@
+#searchPage {
+    height: 32.27rem;
+}
+
+#searchPage-top {
+    height: 2.37rem;
+    display: flex;
+}
+
+#searchPage-top-left {
+    height: 0.43rem;
+    width: 0.43rem;
+    background: url("../images/searchPage1.png") no-repeat;
+    background-size: 100% auto;
+}
+
+#searchPage-top-center {
+    color: #3f3f3f;
+    height: 0.4rem;
+    font-size: 12px;
+    line-height: 0.4rem;
+    margin-left: 0.28rem;
+}
+
+#searchPage-top-right {
+    margin-left: 1.95rem;
+    width: 2.13rem;
+    height: 1.92rem;
+    background: url("../images/searchPage2.png") no-repeat;
+    background-size: 100% auto;
+}
+
+#searchPage-center {
+    margin-bottom: 0.9rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+#searchPage-center1 {
+    width: 1.28rem;
+    height: 0.45rem;
+    border-radius: 0.22rem;
+    border: 0.01rem solid #f0b526;
+    background: #f0c310;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 0.45rem;
+}
+
+#searchPage-center2 {
+    width: 1.28rem;
+    height: 0.45rem;
+    border-radius: 0.22rem;
+    border: 0.01rem solid #10c8f0;
+    color: #10c8f0;
+    font-size: 12px;
+    text-align: center;
+    line-height: 0.45rem;
+}
+
+#searchPage-center3 {
+    width: 1.28rem;
+    height: 0.45rem;
+    border-radius: 0.22rem;
+    border: 0.01rem solid #5bdb9d;
+    color: #5bdb9d;
+    font-size: 12px;
+    text-align: center;
+    line-height: 0.45rem;
+}
+
+#searchPage-bottom li {
+    position: relative;
+    height: 9.47rem;
+}
+
+.searchPage-article {
+    width: 1.22rem;
+    height: 0.62rem;
+    background: #f0c310;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 0.62rem;
+    position: absolute;
+    top: -0.27rem;
+    right: 0.19rem;
+}
+
+.searchPage-pic {
+    width: 6.4rem;
+    height: 3.7rem;
+    background: url("../images/searchPage3.png");
+    background-size: 100% auto;
+}
+
+.searchPage-title {
+    color: #3f3f3f;
+    font-size: 15px;
+    height: 0.27rem;
+    line-height: 0.27rem;
+    margin: 0.32rem 0 0.12rem 0;
+}
+
+.color7 {
+    color: #f0c310;
+}
+
+.searchPage-divider {
+    width: 1.48rem;
+    border: 0.02rem dashed #cfcfcf;
+    margin-bottom: 0.1rem;
+}
+
+.searchPage-writing {
+    height: 3.42rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    line-height: 0.4rem;
+    color: #838383;
+}
+.searchPage-view{
+    width: 1.95rem;
+    height: 0.42rem;
+    background: url("../images/searchPage5.png");
+    background-size: 100% auto;
+    margin-top: 0.25rem;
+}

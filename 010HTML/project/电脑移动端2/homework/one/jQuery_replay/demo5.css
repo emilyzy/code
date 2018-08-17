@@ -1,0 +1,111 @@
+/*第二种方法-前提,给图片设置定位,在同一个地方,设置层级*/
+
+#banner-paper{
+    width: 1440px;
+    height: 600px;
+    background: #6f006f;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.images{
+    width: 1440px;
+    height: 600px;
+    position: absolute;
+}
+.images:nth-child(1){
+    background-size: cover;
+    background-image: url("img1.jpg");
+}
+.images:nth-child(2){
+    background-size: cover;
+    background-image: url("img2.jpg");
+}
+.images:nth-child(3){
+    background-size: cover;
+    background-image: url("img3.jpg");
+}
+.images:nth-child(4){
+    background-size: cover;
+    background-image: url("front_03.jpg");
+}
+#banner-pager{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    bottom: 50px;
+    left: 600px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 999999;
+}
+.active1{
+    z-index: 9;
+}
+.pager-item{
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    border: 5px solid black;
+    box-shadow:0 2px white ;
+}
+#banner-pager .active {
+    background:yellow;
+}
+
+/*
+@keyframes leftIn {
+    0% {
+        left: 1440px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.leftIn {
+    animation: leftIn 1s linear;
+}
+
+!*动画*!
+@keyframes leftOut {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -1440px;
+    }
+}
+
+.leftOut {
+    animation: leftOut 1s linear;
+}
+
+@keyframes rightIn {
+    0% {
+        left: -1440px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.rightIn {
+    animation: rightIn 1s linear;
+}
+
+!*动画*!
+
+@keyframes rightOut {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 1440px;
+    }
+}
+
+.rightOut {
+    animation: rightOut 1s linear;
+}
+*/

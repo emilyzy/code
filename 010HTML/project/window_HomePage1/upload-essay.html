@@ -5,219 +5,244 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>upload-essay</title>
     <link rel="stylesheet" href="css/upload-essay.css">
-    <link rel="stylesheet" href="css/rem.css">
 </head>
 <body>
-<header id="header">
-    <div id="header-top">
-        <div class="wrapper">
-            <div id="header-inner">
-                <div id="header-profile">
-                    <img src="images/header-profile.png" alt="">
-                </div>
-                <div id="header-search">
-                    <form action="">
-                        <div id="header-point"></div>
-                        <input type="text" id="header-input">
-                        <div id="header-filter">
-                            <!--label标签作用是点击文字和点击input效果一样-->
-                            <!--加上name后变成单选-->
-                            <label><input type="radio" name="a">全部</label>
-                            <label><input type="radio" name="a">作品</label>
-                            <label><input type="radio" name="a">文章</label>
-                            <div class="header-divider">
-                            </div>
-                            <label><input type="radio" name="a">企业</label>
-                            <label><input type="radio" name="a">设计师</label>
-                        </div>
-                        <input type="button" id="header-submit">
+<div id="header">
+    <div class="header-box">
+        <div class="header-box-float">
+            <div class="header-top">
 
-                    </form>
+                <div class="header-inner">
+                    <div class="header-logo"></div>
+                    <div class="header-text">
+                        <div class="header-text-item">
+                            <div class="header-item-en">Display of works</div>
+                            <div class="header-item-divided"></div>
+                            <div class="header-item-ch">作品展示</div>
+                            <div class="header-item-pic"></div>
+                        </div>
+                        <div class="header-text-divided"></div>
+                        <div class="header-text-item">
+                            <div class="header-item-en">Display of works</div>
+                            <div class="header-item-divided"></div>
+                            <div class="header-item-ch">行业新闻</div>
+                            <div class="header-item-pic"></div>
+                        </div>
+                        <div class="header-text-divided"></div>
+                        <div class="header-text-item">
+                            <div class="header-item-en">Display of works</div>
+                            <div class="header-item-divided"></div>
+                            <div class="header-item-ch">视频介绍</div>
+                            <div class="header-item-pic"></div>
+                        </div>
+                        <div class="header-text-divided"></div>
+                        <div class="header-text-item">
+                            <div class="header-item-en">Display of works</div>
+                            <div class="header-item-divided"></div>
+                            <div class="header-item-ch">招聘信息</div>
+                            <div class="header-item-pic"></div>
+                        </div>
+                    </div>
+                    <div class="header-search">
+                        <div class="header-search-point"></div>
+                        <form action="#">
+                            <input type="text" class="header-search-input"/>
+                        </form>
+                        <div class="header-filter">
+                            <label><input type="radio" name="type">全部</label>
+                            <label><input type="radio" name="type">作品</label>
+                            <label><input type="radio" name="type">文章</label>
+                            <label><input type="radio" name="type">企业</label>
+                            <div class="header-filter-divided"></div>
+                            <label><input type="radio" name="type">设计师</label>
+                        </div>
+                        <input type="button" class="header-search-button">
+                    </div>
                 </div>
-                <div id="header-nav">
-                    <ul id="header-nav-list">
-                        <li>
-                            <div class="nav-title-en">
-                                Display of works
-                            </div>
-                            <div class="nav-divider1"></div>
-                            <div class="nav-title-ch">
-                                作品展示
-                            </div>
-                            <div class="nav-divider2"></div>
-                        </li>
-                        <li>
-                            <div class="nav-title-en">
-                                Display of works
-                            </div>
-                            <div class="nav-divider1"></div>
-                            <div class="nav-title-ch">
-                                行業新闻
-                            </div>
-                            <div class="nav-divider2"></div>
-                        </li>
-                        <li>
-                            <div class="nav-title-en">
-                                Display of works
-                            </div>
-                            <div class="nav-divider1"></div>
-                            <div class="nav-title-ch">
-                                視頻介绍
-                            </div>
-                            <div class="nav-divider2"></div>
-                        </li>
-                        <li>
-                            <div class="nav-title-en">
-                                Display of works
-                            </div>
-                            <div class="nav-divider1"></div>
-                            <div class="nav-title-ch">
-                                招聘信息
-                            </div>
-                            <div class="nav-divider2"></div>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </div>
-    </div>
-    <div id="header-banner">
-        <div id="header-banner-bg"></div>
-        <div id="header-banner-pager">
-            <div class="pager-item"></div>
-            <div class="pager-item"></div>
-            <div class="pager-item"></div>
-            <div class="pager-item active"></div>
-            <div class="pager-num">01/3</div>
-        </div>
-        <div id="decoration"></div>
-        <div id="collection">
-            <div class="collection-one">PRE-FALL</div>
-            <div id="collection-two"></div>
-            <div class="collection-one">COLLECTION</div>
-            <div id="collection-three">扁平化商务数据扁平化商务数据扁平化商务数据扁平化商务数据</div>
-        </div>
-        <div id="yellow1"></div>
-        <div id="yellow2"></div>
-    </div>
-    <div id="tip">
-        <div id="tip-text">
-            <div id="tip-text-left">
-                <div id="text-left-date">2016.7.12</div>
-                <div id="text-left-letter">无论你是否承认，才子佳人小说其作品数量之多、参与创作人数之众</div>
-            </div>
-            <div id="tip-text-center"></div>
-            <div id="tip-text-right">
-                <ul id="text-right-items">
-                    <li class="right-item">
-                        <div class="right-item-one">420</div>
-                        <div class="right-item-two"></div>
-                        <div class="right-item-three">
-                            <div class="item-three-one">合作企业</div>
-                            <div class="item-three-two">Number of</div>
-                            <div class="item-three-three">works</div>
+            <div class="header-banner">
+                <div class="header-banner-box">
+                    <div class="header-banner-pic">
+                        <div class="header-banner-image">
+                            <img src="image/header-pic.png" alt="">
                         </div>
-                    </li>
-                    <li class="right-item">
-                        <div class="right-item-one">362</div>
-                        <div class="right-item-two"></div>
-                        <div class="right-item-three">
-                            <div class="item-three-one">作品数量</div>
-                            <div class="item-three-two">Number of</div>
-                            <div class="item-three-three">works</div>
+                        <div class="header-banner-image">
+                            <img src="image/header-pic2.png" alt="">
                         </div>
-                    </li>
-                    <li class="right-item">
-                        <div class="right-item-one">258</div>
-                        <div class="right-item-two"></div>
-                        <div class="right-item-three">
-                            <div class="item-three-one">面试成功</div>
-                            <div class="item-three-two">Number of</div>
-                            <div class="item-three-three">works</div>
+                        <div class="header-banner-image">
+                            <img src="image/header-pic.png" alt="">
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
-<div class="wrapper">
-    <div id="article-cover">
-        <div class="cover-box">
-            <div class="cover-add">编辑封面</div>
-            <div class="cover-add-more">
-                <div class="cover-add-more-line">尺寸：320*248</div>
-                <div class="cover-add-more-line">格式：JPG/PNG</div>
-                <div class="cover-add-more-line">大小：小于xxMB</div>
+                        <div class="header-banner-image">
+                            <img src="image/header-pic2.png" alt="">
+                        </div>
+                        <div class="header-banner-image">
+                            <img src="image/header-pic.png" alt="">
+                        </div>
+                        <div class="header-banner-decoration1"></div>
+                        <div class="header-banner-decoration2"></div>
+                        <div class="header-banner-decoration3"></div>
 
+
+                    </div>
+                    <div class="header-banner-pager">
+                        <div class="banner-pager-item active"></div>
+                        <div class="banner-pager-item"></div>
+                        <div class="banner-pager-item"></div>
+                        <div class="banner-pager-item"></div>
+                    </div>
+                </div>
+                <div class="header-banner-white">
+                    <div class="banner-show-inner">
+                        <div class="banner-show-top">
+                            <div class="show-top-item">
+                                <div class="top-item-pic1"></div>
+                                <div class="top-item-num">420</div>
+                                <div class="top-item-divided"></div>
+                                <div class="top-item-text">
+                                    <div class="top-item-text-ch">合作企业</div>
+                                    <div class="top-item-text-en">Number of works</div>
+                                </div>
+                            </div>
+                            <div class="show-top-item">
+                                <div class="top-item-pic2"></div>
+                                <div class="top-item-num">362</div>
+                                <div class="top-item-divided"></div>
+                                <div class="top-item-text">
+                                    <div class="top-item-text-ch">作品数量</div>
+                                    <div class="top-item-text-en">Number of works</div>
+                                </div>
+                            </div>
+                            <div class="show-top-item">
+                                <div class="top-item-pic3"></div>
+                                <div class="top-item-num">258</div>
+                                <div class="top-item-divided"></div>
+                                <div class="top-item-text">
+                                    <div class="top-item-text-ch">面试成功</div>
+                                    <div class="top-item-text-en">Number of works</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-show-divided"></div>
+                        <div class="banner-show-bottom">
+                            <div class="show-bottom-pic"></div>
+                            <div class="show-bottom-text">无论你是否承认，才子佳人小说其作品数量之多、参与创作人数之众、拥有读者子佳人小说</div>
+                            <div class="show-bottom-time">2016.07.12</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="movie-name">
-        <div class="movie-text">
-            <div class="text-left">作品名称</div>
-            <div class="text-right">40字以内</div>
-        </div>
-        <div class="movie-input">
-            <input type="text">
-        </div>
-    </div>
-    <div id="movie-classify">
-        <div class="movie-text">作品分类</div>
-        <div class="movie-input">
-            <input type="text" placeholder="请选择分类">
-        </div>
-    </div>
-    <div id="upload-movie">
-        <div class="movie-text">文章摘要</div>
-        <div class="upload-block">
-            <textarea name="" cols="30" rows="10" placeholder="简单介绍，方便大家了解你的文章内容"></textarea>
-        </div>
-        <div class="white"></div>
-        <div class="movie-text">文章正文</div>
-        <div class="upload-block2">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-        </div>
-    </div>
-    <div id="mode">
-        <div class="movie-text">上传视频</div>
-        <div class="mode-input">
-            <div class="mode-input-line">
-                <input type="text" placeholder="请输入验证码">
-            </div>
-            <div class="mode-pic">PMMN</div>
-        </div>
-        <div class="mode-button"></div>
     </div>
 </div>
-<div id="footer">
-    <div id="footer-picture">
-        <div id="footer-picture-left"></div>
-        <div id="footer-picture-divider"></div>
-        <div id="footer-picture-right"></div>
+<div class="write"></div>
+<div id="essay">
+    <div class="wrapper">
+        <div class="essay-look">
+            <div class="essay-look-block1">
+                <div class="block1-text">尺寸：320*248</div>
+                <div class="block1-text">格式：PNG</div>
+                <div class="block1-text">大小：小于20M</div>
+            </div>
+            <div class="essay-look-block2">
+                <div class="block2-line">
+                    <div class="block2-line-line1">
+                        <div class="line1-left">作品名称</div>
+                        <div class="line1-right">40字以内</div>
+                    </div>
+                    <div class="block2-line-line2">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="block2-line">
+                    <div class="block2-line-line1">
+                        <div class="line1-left">作品分类</div>
 
-    </div>
-    <div id="footer-text">
-        <div class="footer-text1">商务合作</div>
-        <div class="footer-text1">意见反馈</div>
-        <div class="footer-text1">关于我们</div>
-        <div class="footer-text1">联系我们</div>
-        <div class="footer-text1">版权声明</div>
-        <div class="footer-text1">隐私保护</div>
+                    </div>
+                    <div class="block2-line-line2">
+                        <input type="text" placeholder="请选择分类">
+                    </div>
+                </div>
 
-    </div>
-    <div id="footer-divider"></div>
-    <div id="footer-decoration">
-        ICP备14007358号-1 / 京公网安备11010802014104号 Powered by © 2008-2016
-    </div>
-    <div id="footer-relate">
-        <div class="footer-relate-item"></div>
-        <div class="footer-relate-item"></div>
-        <div class="footer-relate-item"></div>
+            </div>
+        </div>
+        <div class="essay-tip">
+            <div class="tip-text">文章摘要</div>
+            <div class="tip-main">
+                <textarea placeholder="简单介绍，方便大家了解你的文章内容"></textarea>
+            </div>
+        </div>
+        <div class="essay-text">
+            <div class="essay-text-top">文章正文</div>
+            <div class="essay-text-main">
+                <textarea></textarea>
+            </div>
+        </div>
+        <div id="mode">
+            <div class="movie-text">
+                <div class="movie-text-left">验证码</div>
+            </div>
+            <div class="mode-input-button">
+                <div class="mode-input"><input type="text"></div>
+                <div class="mode-button">PMMN</div>
+            </div>
+            <div class="mode-sure"></div>
+        </div>
     </div>
 </div>
+<div id="column">
+    <div class="column1">
+        <img src="image/works-right.png" alt="">
+    </div>
+    <div class="column2"></div>
+    <div class="column3"><img src="image/column3-1.png" alt=""></div>
+    <div class="column3"><img src="image/column3-2.png" alt=""></div>
+    <div class="column3"><img src="image/column3-3.png" alt=""></div>
+    <div class="column3"><img src="image/column3-4.png" alt=""></div>
+    <div class="column3"><img src="image/column3-5.png" alt=""></div>
+    <div class="column4"></div>
+    <div class="column5"></div>
+</div>
+<script src="jquery.js"></script>
+<script>
+    let box = $(".header-banner-box");
+    //header-banner-banner
+    //header-banner-img
+    let page = $(".banner-pager-item");
+    let img = $(".header-banner-pic");
 
+    let n = 0;
+    let t = setInterval(move, 3000);
+
+    function move() {
+        n++;
+        page.removeClass("active").eq(n).addClass("active");
+        if (n === 4) {
+            page.eq(0).addClass("active");
+        }
+        img.animate({left: -n * 1440}, 500, function () {
+            if (n === page.length) {
+                img.css("left", 0);
+                n = 0;
+            }
+        })
+    }
+
+    box.mouseenter(function () {
+        clearInterval(t);
+    });
+
+    box.mouseleave(function () {
+        t = setInterval(move, 3000);
+    });
+
+    page.click(function () {
+        page.removeClass("active").filter(this).addClass("active");
+        let index = $(this).index();
+        img.animate({left: -index * 1440}, 500);
+    })
+
+</script>
 </body>
 </html>

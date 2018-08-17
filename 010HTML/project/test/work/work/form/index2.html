@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        td,th {
+            border: 1px solid #ccc;
+            width: 150px;
+            height: 30px;
+            text-align: center;
+        }
+        .del{
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+</head>
+
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>成绩</th>
+        <th>排名</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="5" class="add">+</td>
+    </tr>
+    </tfoot>
+</table>
+<script src="../jquery.js"></script>
+<script>
+    function getdata() {
+        if (localStorage.data) {
+            return JSON.parse(localStorage.data)
+        }
+        else {
+            return [];
+        }
+    }
+
+    function setdata(data) {
+        localStorage.data = JSON.stringify(data);
+    }
+
+    render();
+    $(".add").on("click", add);
+    function add() {
+        let data = getdata();
+        data.push({name: "", grade: "", time: "", paiming: ""})
+        setdata(data);
+        render();
+    }
+
+    $("tbody").on("click", ".delete", delet)
+              .on("dblclick","td",inpu)
+    function inpu() {
+        let text=$(this).html();
+        $(this).html("");
+        let input=$("<input>").val(text).appendTo(this);
+        input[0].focus();
+        input.blur(function () {
+            let pos=$(this).parent().parent().attr("id");
+            let attr=$(this).parent().attr("class");
+            let val=$(this).val();
+            let data=getdata()
+            data[pos][attr]=val;
+            setdata(data);
+            render();
+            console.log(pos,attr)
+        })
+    }
+    function delet() {
+        let data = getdata();
+        let pos = $(this).parent().attr("id")
+        data.splice(pos,1)
+        setdata(data);
+        render();
+    }
+    function render() {
+        let data = getdata()
+        let str = "";
+        data.forEach(function (value, index) {
+            str += `<tr id="${index}">
+                <td class="name">${value.name}</td>
+                <td class="grade">${value.grade}</td>
+                <td class="time">${value.time}</td>
+                <td class="paiming">${value.paiming}</td>
+                <td class="delete">删除</td>
+                </tr>`
+        })
+        $("tbody").html(str);
+    }
+</script>
+</body>
+</html>
