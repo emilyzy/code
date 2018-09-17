@@ -259,7 +259,6 @@
     left: 6.74rem;
     background: url("../img/banner-pager.png") no-repeat center center/100% auto;
 }
-
 #banner-decoration1 {
     width: 0.32rem;
     height: 1.98rem;
@@ -267,7 +266,7 @@
     position: absolute;
     left: 6.76rem;
     top: 1.24rem;
-    opacity: 32%;
+    opacity: 32;
 }
 
 #banner-decoration2 {

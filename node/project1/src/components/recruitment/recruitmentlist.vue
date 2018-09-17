@@ -52,12 +52,23 @@
                     width="200"
                     label="操作">
                 <template slot-scope="scope">
-                    <el-button type="success" v-if="scope.row.state==='通过'" plain ><a href="#" target="_blank"></a>查看信息</el-button>
+                    <el-button type="success" v-if="scope.row.state==='通过'" plain @click="show(scope.row)">查看信息</el-button>
                     <el-button type="primary" v-else-if="scope.row.state==='未审核'" @click="audit(scope.row)" plain>点击审核</el-button>
                     <el-button type="warning" v-else="scope.row.state==='未通过'" @click="audit(scope.row)" plain>重新审核</el-button>
                 </template>
             </el-table-column>
         </el-table>
+        <el-row type="flex" justify="center" style="margin-top:30px">
+            <el-pagination
+                    background
+                    layout="prev, pager, next"
+                    :total="total"
+                    :current-page.sync="now"
+                    @current-change="change"
+                    :page-size="2"
+            >
+            </el-pagination>
+        </el-row>
         <el-dialog
                 title="提示"
                 :visible.sync="dialogVisible"
@@ -76,7 +87,18 @@
             </el-select>
             <span slot="footer" class="dialog-footer">
     <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="submit">确 定</el-button>
+    <el-button type="primary" @click="changeState">确 定</el-button>
+  </span>
+        </el-dialog>
+        <el-dialog
+                title="查看信息"
+                :visible.sync="showRecruitment"
+                width="50%">
+            <div>
+                <div class="description">{{obj.description}}</div>
+            </div>
+            <span slot="footer" class="dialog-footer">
+    <el-button type="primary" @click="showRecruitment = false">确 定</el-button>
   </span>
         </el-dialog>
     </basic-layout>
@@ -99,14 +121,14 @@
                     value: 'pass',
                     label: '通过'
                 }, {
-                    value: 'failed',
+                    value: 'fail',
                     label: '未通过'
                 }],
                 value: "",
-                showArticle:false,
-                title:"",
-                type:"",
-                author:"",
+                showRecruitment:false,
+                description:"",
+                now:1,
+                total:0
             }
         },
         methods:{
@@ -114,58 +136,77 @@
               this.obj=obj;
               this.dialogVisible=true;
           },
-            submit(){
-                this.dialogVisible=false;
-                if(this.value==="pass"){
-                    this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/auditingRecruitment/pass").then(res=>{
-                        if(res.body.state==="ok"){
+            changeState: function () {
+                this.dialogVisible = false;
+                if (this.value === "pass") {
+                    this.$http.get("admin/auditingRecruitment?state=pass&rid=" + this.obj.rid).then(res => {
+                        if (res.data.data.message === "ok") {
                             this.$message({
-                                type:"success",
-                                message:"修改成功"
+                                type: "success",
+                                message: "修改成功"
                             });
-                            this.obj.state="通过";
+                            this.obj.state = "通过"
                         }
                     })
-                }else if(this.value==="failed"){
-                    this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/auditingRecruitment/fail").then(res=>{
-                        if(res.body.state==="ok"){
+                } else if (this.value === "fail") {
+                    this.$http.get("admin/auditingRecruitment/?state=fail&rid=" + this.obj.rid).then(res => {
+                        if (res.data.data.message === "ok") {
                             this.$message({
-                                type:"success",
-                                message:"修改成功"
+                                type: "success",
+                                message: "修改成功"
                             });
-                            this.obj.state="未通过";
+                            this.obj.state = "未通过"
                         }
                     })
                 }
-                /*this.obj.state=this.value;*/
-            }
+                this.auditState = "";
+            },
+            show: function (obj) {
+                this.showRecruitment = true;
+                this.obj = obj;
+            },
+            change: function (page) {
+                this.$http.get(`admin/getRecruitment?p=${page}`).then(res => {
+                 let data = res.data.data.map(v => {
+                 if (v.state === "pass") {
+                 v.state = "通过"
+                 } else if (v.state === "fail") {
+                 v.state = "未通过"
+                 } else if (v.state === "Unaudited") {
+                 v.state = "未审核"
+                 }
+                 return v;
+                 });
+
+                 this.tableData = data;
+                 this.$message({
+                 type: "success",
+                 message: "查询成功"
+                 })
+
+                 });
+            },
         },
 
-        mounted() {
-            this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/getRecruitment").then(res=> {
-                if (res.status === 200) {
-                    let data = res.data.data.map(v => {
-                        if (v.state === "pass") {
-                            v.state = "通过"
-                        } else if (v.state === "failed") {
-                            v.state = "未通过"
-                        } else if (v.state === "unaudited") {
-                            v.state = "未审核"
-                        }
-                        return v;
-                    });
-                    /*this.tableData = data;*/
-                    this.tableData = res.body.data;
-                    this.$message({
-                        message: "查询成功",
-                        type: "success"
-                    })
-                } else {
-                    this.$message({
-                        message: "查询失败",
-                        type: "error"
-                    })
-                }
+        mounted:function (){
+            this.$http.get('admin/getRecruitment').then(res => {
+                this.total = res.body.total;
+                let data = res.data.data.map(v => {
+
+                    if (v.state === "pass") {
+                        v.state = "通过"
+                    } else if (v.state === "fail") {
+                        v.state = "未通过"
+                    } else if (v.state == "Unaudited") {
+                        v.state = "未审核"
+                    }
+                    return v;
+                });
+                this.tableData = data;
+                this.$message({
+                    type: "success",
+                    message: "查询成功"
+                })
             })
         }
     }

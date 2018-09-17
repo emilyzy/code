@@ -5,7 +5,7 @@
         <div>{{obj.nickName}}</div>
         <div>{{obj.sex}}</div>
         <div>{{obj.age}}</div>
-        <div>{{obj.avatar}}</div>
+        <div><img :src="obj.avatar" alt="" style="height: 50px; width: 50px; border-radius: 50%; background:no-repeat center/100% auto"></div>
         <div>{{obj.workState}}</div>
         <div>{{obj.realmame}}</div>
         <div>{{obj.targetPosition}}</div>
@@ -41,7 +41,7 @@
         },*/
         mounted() {
             let id=this.$route.params.id;
-            this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/getUser?uid="+id).then(res=>{
+            this.$http.get("admin/getUser?uid="+id).then(res=>{
                 if (res.status === 200) {
                     this.$message({
                         message: "获取成功",

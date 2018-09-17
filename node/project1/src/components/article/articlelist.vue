@@ -1,16 +1,13 @@
 <template>
     <basic-layout index="articlelist">
-        <el-form :inline="true"  class="demo-form-inline">
-            <el-form-item label="标题">
-                <el-input v-model="title" placeholder="请输入标题"></el-input>
+        <el-form :inline="true" class="demo-form-inline" ref="search" :model="form" :rules="rules">
+            <el-form-item label="标题" prop="title">
+                <el-input v-model="form.title" placeholder="请输入标题"></el-input>
             </el-form-item>
-            <el-form-item label="作者">
-                <el-input v-model="author" placeholder="请输入作者"></el-input>
-            </el-form-item>
-            <el-form-item label="">
-                <el-select v-model="type" placeholder="类型">
+            <el-form-item label="选择类型" prop="type">
+                <el-select v-model="form.type" placeholder="类型">
                     <el-option label="UI" value="UI"></el-option>
-                    <el-option label="全栈" value="fullStack"></el-option>
+                    <el-option label="全栈" value="WEB"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item>
@@ -57,34 +54,35 @@
                     width="180">
             </el-table-column>
             <el-table-column
-
                     label="操作"
-                    width="120">
+            >
                 <template slot-scope="scope">
                     <el-button type="primary" plain v-if="scope.row.state==='未审核'" @click="auditarticle(scope.row)">
                         点击审核
                     </el-button>
-                    <el-button type="success" plain v-if="scope.row.state==='通过'" @click="show(scope.row)">查看文章</el-button>
+                    <el-button type="success" plain v-if="scope.row.state==='通过'" @click="show(scope.row)">查看文章
+                    </el-button>
                     <el-button type="warning" plain v-if="scope.row.state==='未通过'" @click="auditarticle(scope.row)">
                         重新审核
                     </el-button>
                 </template>
             </el-table-column>
         </el-table>
-
         <el-row type="flex" justify="center" style="margin-top:30px">
             <el-pagination
                     background
                     layout="prev, pager, next"
-                    :total="100">
+                    :total="total"
+                    :current-page.sync="now"
+                    @current-change="change"
+                    :page-size="2"
+            >
             </el-pagination>
         </el-row>
         <el-dialog
                 title="审核文章"
                 :visible.sync="dialogVisible"
-                width="50%"
-
-        >
+                width="50%">
             <div>
                 <div class="title">{{obj.title}}</div>
                 <div class="content">{{obj.content}}</div>
@@ -98,27 +96,23 @@
                             :value="item.value">
                     </el-option>
                 </el-select>
-
             </div>
-
             <span slot="footer" class="dialog-footer">
     <el-button @click="dialogVisible = false">取 消</el-button>
     <el-button type="primary" @click="changeState">确 定</el-button>
   </span>
         </el-dialog>
-
         <el-dialog
                 title="查看文章"
                 :visible.sync="showArticle"
-                width="50%"
-        >
+                width="50%">
             <div>
                 <div class="title">{{obj.title}}</div>
                 <div class="content">{{obj.content}}</div>
             </div>
 
             <span slot="footer" class="dialog-footer">
-    <el-button type="primary"  @click="showArticle = false">确 定</el-button>
+    <el-button type="primary" @click="showArticle = false">确 定</el-button>
   </span>
         </el-dialog>
     </basic-layout>
@@ -135,7 +129,7 @@
         data() {
             return {
                 tableData: [],
-                obj: "",
+                obj: {},
                 dialogVisible: false,
                 options: [{
                     value: 'pass',
@@ -145,10 +139,22 @@
                     label: '未通过'
                 }],
                 value: "",
-                showArticle:false,
-                title:"",
-                type:"",
-                author:"",
+                showArticle: false,
+                author: "",
+                total: 0,
+                form: {
+                    title: "",
+                    type: ""
+                },
+                rules: {
+                    title: [
+                        {required: true, message: "请输入作品名称", trigger: "blur"},
+                    ],
+                    type: [
+                        {required: true, message: "请选择作品类型", trigger: "blur"},
+                    ]
+                },
+                now: 1
             }
         },
         methods: {
@@ -156,42 +162,40 @@
                 this.dialogVisible = true;
                 this.obj = obj;
             },
-            changeState:function () {
-                this.dialogVisible=false;
-                if(this.value==="pass"){
-                    this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/auditingwork/pass?aid="+this.obj.wid).then(res=>{
-                        if(res.data.data.message==="ok"){
+            changeState: function () {
+                this.dialogVisible = false;
+                if (this.value === "pass") {
+                    this.$http.get("admin/auditingArticle?state=pass&aid=" + this.obj.aid).then(res => {
+                        if (res.data.data.message === "ok") {
                             this.$message({
-                                type:"success",
-                                message:"修改成功"
-                            })
+                                type: "success",
+                                message: "修改成功"
+                            });
+                            this.obj.state = "通过"
                         }
                     })
-                }else if(this.value==="fail"){
-                    this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/auditingwork/fail?wid="+this.obj.wid).then(res=>{
-                        if(res.data.data.message==="ok"){
+                } else if (this.value === "fail") {
+                    this.$http.get("admin/auditingArticle/?state=fail&aid=" + this.obj.aid).then(res => {
+                        if (res.data.data.message === "ok") {
                             this.$message({
-                                type:"success",
-                                message:"修改成功"
-                            })
+                                type: "success",
+                                message: "修改成功"
+                            });
+                            this.obj.state = "未通过"
                         }
                     })
                 }
-                this.auditState="";
+                this.auditState = "";
             },
-            show:function (obj) {
-                this.showArticle= true;
+            show: function (obj) {
+                this.showArticle = true;
                 this.obj = obj;
             },
-            submit:function () {
-                
-            }
-    
-        },
-        mounted: function () {
-            this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/getArticles").then(res => {
-                if (res.body.state === "ok") {
-                    let data = res.body.data.map(v => {
+            getData: function (page = 1) {
+                this.$http.get(`admin/getArticles?title=${this.form.title}&type=${this.form.type}&p=${page}`).then(res => {
+                    /*if (res.body.state === "ok") {*/
+                    this.total = res.body.total;
+                    let data = res.data.data.map(v => {
                         if (v.title.length > 10) {
                             v.title = v.title.slice(0, 10);
                             v.title += "..."
@@ -202,25 +206,43 @@
                         }
                         if (v.state === "pass") {
                             v.state = "通过"
-                        } else if (v.state === "failed") {
+                        } else if (v.state === "fail") {
                             v.state = "未通过"
-                        } else {
+                        } else if (v.state == "Unaudited") {
                             v.state = "未审核"
                         }
                         return v;
                     });
+                    this.loading = false;
                     this.tableData = data;
                     this.$message({
                         type: "success",
                         message: "查询成功"
                     })
-                } else {
-                    this.$message({
-                        type: "error",
-                        message: "查询失败"
-                    })
-                }
-            })
+                    /*} else {
+                     this.$message({
+                     type: "error",
+                     message: "查询失败"
+                     })
+                     }*/
+                })
+            },
+            change: function (page) {
+                this.getData(page);
+            },
+            submit: function () {
+                this.$refs.search.validate((valid) => {
+                    if (valid) {
+                        this.now = 1;
+                        this.getData();
+                    } else {
+                        return false;
+                    }
+                });
+            }
+        },
+        mounted: function () {
+            this.getData();
         }
     }
 </script>

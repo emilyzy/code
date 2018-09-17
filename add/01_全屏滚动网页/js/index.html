@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #container{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        #inner{
+            width: 100%;
+            height: auto;
+            transition: all 1s;
+            background: #ccc;
+        }
+        .session{
+            width: 100%;
+            font-size: 100px;
+            text-align: center;
+            line-height: 100vh;
+        }
+        #pager{
+            width: 30px;
+            height: 150px;
+            position: fixed;
+            right: 20px;
+            top: calc(50% - 75px);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: space-around;
+        }
+        .dots{
+            width: 20px;
+            height: 20px;
+            background: grey;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+        #pager .active{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="inner">
+        <div class="session">1</div>
+        <div class="session">2</div>
+        <div class="session">3</div>
+        <div class="session">4</div>
+        <div class="session">5</div>
+    </div>
+    <div id="pager">
+        <a href="#page1" class="dots active"></a>
+        <a href="#page2" class="dots"></a>
+        <a href="#page3" class="dots"></a>
+        <a href="#page4" class="dots"></a>
+        <a href="#page5" class="dots"></a>
+    </div>
+</div>
+</body>
+<script>
+    let sessions=document.querySelectorAll(".session");
+    let inner=document.querySelector("#inner");
+    let dots=document.querySelectorAll(".dots");
+    let wHeight=window.innerHeight;
+    let page=0;
+    let now=dots[0];
+    let n=dots.length;
+    let flag=true;
+    {
+        function resize() {
+            sessions.forEach(function (ele,index) {
+                ele.style.height=window.innerHeight+"px";
+            });
+        }
+        resize();
+        window.onresize=function () {
+            resize();
+            wHeight=window.innerHeight;
+        };
+    }
+    {
+        /*dots.forEach(function (ele,index) {
+            ele.onclick=function () {
+                now.classList.remove("active");
+                this.classList.add("active");
+                now=this;
+                inner.style.marginTop=-index*wHeight+"px";
+                page=index;
+            }
+        })*/
+        window.onhashchange=function () {
+            let index=location.hash.charAt(location.hash.length-1)-1;
+            now.classList.remove("active");
+            dots[index].classList.add("active");
+            now=dots[index];
+            inner.style.marginTop=-index*wHeight+"px";
+            page=index;
+        }
+    }
+    {
+        window.onload=function () {
+            let index=location.hash.charAt(location.hash.length-1)-1;
+            index=index===-1?0:index;
+            now.classList.remove("active");
+            dots[index].classList.add("active");
+            now=dots[index];
+            inner.style.marginTop=-index*wHeight+"px";
+            page=index;
+        }
+    }
+    {
+        inner.onwheel=function (e) {
+            if(flag){
+                if(e.deltaY>0){
+                    if(page===n-1){
+                        return;
+                    }
+                    page++;
+                }else{
+                    if(page===0){
+                        return;
+                    }
+                    page--;
+                }
+                flag=false;
+                now.classList.remove("active");
+                dots[page].classList.add("active");
+                now=dots[page];
+                inner.style.marginTop=-page*wHeight+"px";
+                location.hash="#page"+(page+1);
+            }
+            inner.addEventListener("transitionend",function () {
+                flag=true;
+            });
+        }
+    }
+</script>
+</html>

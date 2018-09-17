@@ -35,15 +35,21 @@
                             <span>面试管理</span>
                         </template>
                         <el-menu-item index="interviewlist" :route="{path:'/interviewlist'}">面试状态查看</el-menu-item>
-                        <el-menu-item index="2-2">企业资质认证</el-menu-item>
                     </el-submenu>
                     <el-submenu index="4">
                         <template slot="title">
                             <i class="el-icon-star-on"></i>
                             <span>试题管理</span>
                         </template>
-                        <el-menu-item index="2-1">个人信息管理</el-menu-item>
-                        <el-menu-item index="2-2">企业资质认证</el-menu-item>
+                        <el-menu-item index="testQuestion" :route="{path:'/testQuestion'}">测试题目管理</el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="5">
+                        <template slot="title">
+                            <i class="el-icon-star-on"></i>
+                            <span>公告管理</span>
+                        </template>
+                        <el-menu-item index="noticeList" :route="{path:'/noticeList'}">公告查看</el-menu-item>
+                        <el-menu-item index="noticeAdd" :route="{path:'/noticeAdd'}">公告添加</el-menu-item>
                     </el-submenu>
                 </el-menu>
             </el-aside>

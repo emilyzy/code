@@ -1,16 +1,16 @@
 <template>
     <basic-layout index="workslist">
-        <el-form :inline="true"  class="demo-form-inline">
-            <el-form-item label="标题">
-                <el-input v-model="title" placeholder="请输入标题"></el-input>
+        <el-form :inline="true" class="demo-form-inline" :model="form" :rules="rules" ref="search">
+            <el-form-item label="标题" prop="workName">
+                <el-input v-model="form.workName" placeholder="请输入作品名称"></el-input>
             </el-form-item>
-            <el-form-item label="作者">
+            <!--<el-form-item label="作者">
                 <el-input v-model="author" placeholder="请输入作者"></el-input>
-            </el-form-item>
-            <el-form-item label="">
-                <el-select v-model="type" placeholder="类型">
+            </el-form-item>-->
+            <el-form-item label="查询类型" prop="type">
+                <el-select v-model="form.type" placeholder="类型">
                     <el-option label="UI" value="UI"></el-option>
-                    <el-option label="全栈" value="fullStack"></el-option>
+                    <el-option label="全栈" value="WEB"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item>
@@ -29,7 +29,7 @@
             </el-table-column>
             <el-table-column
                     sortable
-                    prop="author"
+                    prop="realname"
                     label="作者"
                     width="180">
             </el-table-column>
@@ -58,7 +58,8 @@
                     </el-button>
                     <el-button type="success" plain v-if="scope.row.state==='通过'">
                         <a :href="scope.row.src" target="_blank">查看作品</a></el-button>
-                    <el-button type="warning" plain v-if="scope.row.state==='未通过'" @click="auditwork(scope.row)">重新审核</el-button>
+                    <el-button type="warning" plain v-if="scope.row.state==='未通过'" @click="auditwork(scope.row)">重新审核
+                    </el-button>
                 </template>
             </el-table-column>
 
@@ -67,7 +68,11 @@
             <el-pagination
                     background
                     layout="prev, pager, next"
-                    :total="100">
+                    :total="total"
+                    :page-size="2"
+                    :current-page.sync="now"
+                    @current-change="change"
+            >
             </el-pagination>
         </el-row>
         <el-dialog
@@ -118,10 +123,21 @@
                     label: '未通过'
                 }],
                 value: "",
-                title:"",
-                type:"",
-                author:"",
-
+                author: "",
+                total: 0,
+                form: {
+                    workName: "",
+                    type: ""
+                },
+                rules: {
+                    workName: [
+                        {required: true, message: "请输入作品名称", trigger: "blur"},
+                    ],
+                    type: [
+                        {required: true, message: "请选择作品类型", trigger: "blur"},
+                    ]
+                },
+                now: 1
             }
         },
         methods: {
@@ -129,56 +145,134 @@
                 this.obj = obj;
                 this.dialogVisible = true;
             },
-
-            changeState:function () {
-                this.dialogVisible=false;
-                if(this.value==="pass"){
-                    this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/auditingwork/pass?wid="+this.obj.wid).then(res=>{
-                        if(res.data.data.message==="ok"){
+            changeState: function () {
+                this.dialogVisible = false;
+                if (this.value === "pass") {
+                    this.$http.get("admin/auditingwork?state=pass&id=" + this.obj.id).then(res => {
+                        if (res.data.data.message === "ok") {
                             this.$message({
-                                type:"success",
-                                message:"修改成功"
-                            })
+                                type: "success",
+                                message: "修改成功"
+                            });
+                            this.obj.state = "通过"
                         }
                     })
-                }else if(this.value==="fail"){
-                    this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/auditingwork/fail?wid="+this.obj.wid).then(res=>{
-                        if(res.data.data.message==="ok"){
+                } else if (this.value === "fail") {
+                    this.$http.get("admin/auditingwork?state=fail&id=" + this.obj.id).then(res => {
+                        if (res.data.data.message === "ok") {
                             this.$message({
-                                type:"success",
-                                message:"修改成功"
-                            })
+                                type: "success",
+                                message: "修改成功"
+                            });
+                            this.obj.state = "未通过"
                         }
                     })
                 }
-                this.auditState="";
+                this.auditState = "";
             },
-            submit:function () {
+            getData: function (page = 1) {
+                this.$http.get(`admin/getWorks?workName=${this.form.workName}&type=${this.form.type}&p=${page}`).then(res => {
+                    this.total = res.body.total;
+                    let data = res.data.data.map(v => {
+                        if (v.state === "pass") {
+                            v.state = "通过"
+                        } else if (v.state === "fail") {
+                            v.state = "未通过"
+                        } else if (v.state === "Unaudited") {
+                            v.state = "未审核"
+                        }
+                        return v;
+                    });
+                    this.loading = false;
+                    this.tableData = data;
+                    this.$message({
+                        type: "success",
+                        message: "查询成功"
+                    })
 
-            }
+                });
+            },
+            submit: function () {
+                /*this.$refs.search.validate((valid)=>{
+                 if(valid){
+                 this.$http.get(`admin/getWorks?workName=${this.form.woekName}&type=${this.form.type}`).then(res => {
+                 this.total=res.body.total;
+                 let data = res.data.data.map(v => {
+                 if (v.state === "pass") {
+                 v.state = "通过"
+                 } else if (v.state === "fail") {
+                 v.state = "未通过"
+                 } else if (v.state === "Unaudited") {
+                 v.state = "未审核"
+                 }
+                 return v;
+                 });
 
-        },
-        mounted: function () {
-            this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/getWorks").then(res => {
-                let data = res.data.data.map(v => {
-                    if (v.state === "pass") {
-                        v.state = "通过"
-                    } else if (v.state === "failed") {
-                        v.state = "未通过"
-                    } else if (v.state === "Unaudited") {
-                        v.state = "未审核"
+                 this.tableData = data;
+                 this.$message({
+                 type: "success",
+                 message: "查询成功"
+                 })
+                 })
+                 }else{
+                 return false;
+                 }
+                 })*/
+                this.$refs.search.validate((valid) => {
+                    if (valid) {
+                        this.now = 1;
+                        this.getData();
+                    } else {
+                        return false;
                     }
-                    return v;
                 });
 
-                this.tableData = data;
+            },
+            change: function (page) {
+                /*this.$http.get(`admin/getWorks?workName=${this.form.workName}&type=${this.form.type}&p=${page}`).then(res => {
+                 let data = res.data.data.map(v => {
+                 if (v.state === "pass") {
+                 v.state = "通过"
+                 } else if (v.state === "fail") {
+                 v.state = "未通过"
+                 } else if (v.state === "Unaudited") {
+                 v.state = "未审核"
+                 }
+                 return v;
+                 });
 
+                 this.tableData = data;
+                 this.$message({
+                 type: "success",
+                 message: "查询成功"
+                 })
 
-            });
-            this.$message({
-                type: "success",
-                message: "查询成功"
-            })
+                 });*/
+                this.getData(page);
+            }
+        },
+        mounted: function () {
+            /*this.$http.get("admin/getWorks").then(res => {
+             this.total=res.body.total;
+             let data = res.data.data.map(v => {
+             if (v.state === "pass") {
+             v.state = "通过"
+             } else if (v.state === "fail") {
+             v.state = "未通过"
+             } else if (v.state === "Unaudited") {
+             v.state = "未审核"
+             }
+             return v;
+             });
+
+             this.tableData = data;
+             this.$message({
+             type: "success",
+             message: "查询成功"
+             })
+
+             });*/
+            this.getData();
         }
 
     }

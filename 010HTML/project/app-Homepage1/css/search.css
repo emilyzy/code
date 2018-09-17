@@ -106,3 +106,6 @@
     font-size: 13px;
     color: #9e8117 ;
 }
+input:focus { /*消除input点击弹出框*/
+    outline: none;
+}

@@ -8,8 +8,8 @@
                 style="width: 100%">
             <el-table-column
                     align="center"
-                    prop="nickName"
-                    label="昵称"
+                    prop="realName"
+                    label="姓名"
                     >
             </el-table-column>
             <el-table-column
@@ -20,12 +20,6 @@
                 <template slot-scope="scope">
                     <img :src="scope.row.avatar" alt="" style="height: 50px; width: 50px; border-radius: 50%; background:no-repeat center/100% auto">
                 </template>
-            </el-table-column>
-            <el-table-column
-                    align="center"
-                    prop="realmame"
-                    label="真实姓名"
-            >
             </el-table-column>
             <el-table-column
                     align="center"
@@ -62,6 +56,17 @@
                 </template>
             </el-table-column>
         </el-table>
+        <el-row type="flex" justify="center" style="margin-top:30px">
+        <el-pagination
+                background
+                layout="prev, pager, next"
+                :total="total"
+                :current-page.sync="now"
+                @current-change="change"
+                :page-size="2"
+        >
+        </el-pagination>
+        </el-row>
     </basic-layout>
 
 </template>
@@ -107,24 +112,27 @@
                         });
                     });
                     })
-                }
+                },
+            getData:function (page=1) {
+                this.$http.get("admin/getUsers?page="+page).then(res=> {
+                    if (res.status === 200) {
+                        this.tableData = res.body.data;
+                        this.$message({
+                            message: "查询成功",
+                            type: "success"
+                        });
+                        this.loading=false;
+                    } else {
+                        this.$message({
+                            message: "查询失败",
+                            type: "error"
+                        })
+                    }
+                });
+            }
         },
         mounted() {
-            this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/getUsers").then(res=> {
-                if (res.status === 200) {
-                    this.tableData = res.body.data;
-                    this.$message({
-                        message: "查询成功",
-                        type: "success"
-                    });
-                    this.loading=false;
-                } else {
-                    this.$message({
-                        message: "查询失败",
-                        type: "error"
-                    })
-                }
-            })
+            this.getData();
         }
     }
 </script>

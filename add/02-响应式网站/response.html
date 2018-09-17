@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 1500px;
+            height: 100px;
+            background: red;
+            margin: 0 auto;
+        }
+        /*媒体查询,自动判断获取当前屏幕的分辨率,通过我们的设置让不同的css代码起作用*/
+        /*当分辨率小于1080时,当前代码块才会起作用*/
+        /*sass less 预编译器,基于node的自动化工具,用于快速生成css*/
+        /*bootstrap*/
+        @media screen and (max-width:1080px) {
+            .box{
+                width: 600px;
+            }
+        }
+        @media screen and (max-width:900px) {
+            .box{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

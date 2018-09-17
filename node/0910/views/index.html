@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+<!--name=asdada&pass=asda application/x-www-form-urlencoded-->
+<!--二进制 multipart/form-data-->
+<img src="" alt="" id="uploadimg">
+<h1>网站首页</h1>
+<!--<form action="/upload" method="post" enctype="multipart/form-data">-->
+<input type="file" id="file" multiple>
+<input type="button" value="预览" id="preview">
+<input type="button" value="上传" id="upload">
+<div id="progress">
+    <div id="inner"></div>
+</div>
+<div id="container">
+</div>
+
+<!--</form>-->
+</body>
+<script src="static/js/jQuery.js"></script>
+<script>
+    /*
+     let preview=document.querySelector("#preview");
+     let file=document.querySelector("#file");
+     let con=document.querySelector("#container");
+     let inner=document.querySelector("#inner");
+     let upload=document.querySelector("#upload");
+     let uploadimg=document.querySelector("#uploadimg");
+     preview.onclick=function(){
+     let nowFile=file.files[0];
+     //File Reader  H5 新增API
+     let fr=new FileReader();
+     fr.readAsDataURL(nowFile);  //异步操作
+     fr.onload=function(){
+     let img=document.createElement("img");
+     img.src=fr.result;
+     con.appendChild(img);
+     upload.style.display="block";
+     };
+     fr.onprogress=function(e){
+     let p=e.loaded/e.total*100+"%";
+     inner.style.width=p;
+     };
+     };
+     upload.onclick=function(){
+     let fr=file.files[0];
+     // FormData() H5 新增
+     let fd=new FormData();
+     fd.append("f",fr);
+     let xhr=new XMLHttpRequest();
+     xhr.open("post","/upload");
+     xhr.send(fd);
+     xhr.onload=function(){
+     let r=xhr.response;
+     uploadimg.src=r;
+     };
+     xhr.upload.onprogress=function(e){
+     let p=e.loaded/e.total*100+"%";
+     inner.style.width=p;
+     };
+     }
+     */
+    $("#preview").click(function(){
+        let files=$("#file")[0].files;
+        $("#container").empty();
+        for(let i=0;i<files.length;i++){
+            let fr=new FileReader();
+            fr.readAsDataURL(files[i]);
+            fr.onload=function(){
+                $("<img>").attr("src",fr.result).appendTo("#container");
+                $("#upload").show();
+            };
+            fr.onprogress=function(e){
+                let p=e.loaded/e.total*100+"%";
+                $("#inner").css("width",p);
+            }
+        }
+    });
+    $("#upload").click(function(){
+        let files=$("#file")[0].files;
+        let fd=new FormData();
+        for(let i=0;i<files.length;i++){
+            fd.append("f",files[i]);
+        }
+        $.ajax({
+            url:"/upload",
+            type:"post",
+            data:fd,
+            contentType:false,
+            processData:false,
+            success:function(r){
+                console.log(r);
+            }
+        })
+    })
+</script>
+</html>

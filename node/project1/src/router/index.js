@@ -12,6 +12,11 @@ import CompanyRealShow from '@/components/company/companyRealshow'
 import RecruitmentList from '@/components/recruitment/recruitmentlist'
 import InterviewList from '@/components/interview/interviewlist'
 import InterviewShow from '@/components/interview/interviewshow'
+import TestQuestion from '@/components/question/testQuestion'
+import TestQuestionShow from '@/components/question/testQuestionShow'
+import NoticeList from '@/components/notice/noticeList'
+import NoticeAdd from '@/components/notice/noticeAdd'
+import NoticeUpdate from '@/components/notice/noticeUpdate'
 import Test from "@/demo/test"
 Vue.use(Router);
 
@@ -69,10 +74,27 @@ export default new Router({
             path:"/interviewshow/:id",
             name:'interviewshow',
             component:InterviewShow
+        },{
+            path:"/testQuestion",
+            name:'testQuestion',
+            component:TestQuestion
+        },{
+            path:"/testQuestionShow/:id",
+            name:'testQuestionShow',
+            component:TestQuestionShow
+        },{
+            path:"/noticeList",
+            name:'noticeList',
+            component:NoticeList
+        },{
+            path:"/noticeAdd",
+            name:'noticeAdd',
+            component:NoticeAdd
+        },{
+            path:"/noticeUpdate/:id",
+            name:'noticeUpdate',
+            component:NoticeUpdate
         }
-
-
-
 
 
         ,{

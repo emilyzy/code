@@ -1,0 +1,22 @@
+{
+  "name": "0911",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "array-flatten": "^2.1.1",
+    "body-parser": "^1.18.3",
+    "express-session": "^1.15.6",
+    "finalhandler": "^1.1.1",
+    "merge-descriptors": "^1.0.1",
+    "methods": "^1.1.2",
+    "mysql": "^2.16.0",
+    "path-to-regexp": "^2.4.0",
+    "safe-buffer": "^5.1.2"
+  }
+}
