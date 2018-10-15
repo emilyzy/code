@@ -1,139 +1,136 @@
 <template>
     <basic-layout index="userlist">
         <el-table
-                :data="tableData"
-                :stripe="true"
-                :border="true"
-                v-loading="loading"
-                style="width: 100%">
+                :data="data"
+                style="width:100%"
+        >
             <el-table-column
-                    align="center"
                     prop="realName"
-                    label="姓名"
-                    >
+                    label="真实姓名"
+                    align="center">
             </el-table-column>
             <el-table-column
+                    prop="sex"
                     align="center"
-                    label="头像"
+                    label="性别">
+            </el-table-column>
+            <el-table-column
+                    sortable
+                    prop="age"
+                    align="center"
+                    label="年龄">
+            </el-table-column>
+            <el-table-column
                     prop="avatar"
-                    >
+                    label="头像"
+                    align="center"
+                    width="180">
                 <template slot-scope="scope">
-                    <img :src="scope.row.avatar" alt="" style="height: 50px; width: 50px; border-radius: 50%; background:no-repeat center/100% auto">
+                    <img :src="scope.row.avatar" alt="" style="with:50px;height:50px;border-radius:50%;">
                 </template>
             </el-table-column>
             <el-table-column
-                    align="center"
-                    prop="age"
-                    label="年龄"
-            >
-            </el-table-column>
-            <el-table-column
-                    align="center"
-                    prop="workState"
-                    label="求职状态"
-                    width="200"
-                    >
-            </el-table-column>
-            <el-table-column
-                    align="center"
-                    prop="targetPosition"
-                    label="目标职位"
-                    >
-            </el-table-column>
-            <el-table-column
-                    align="center"
+                    sortable
                     prop="targetSalary"
-                    label="目标薪资"
-            >
+                    label="目标薪资">
             </el-table-column>
             <el-table-column
-                    width="200"
+                    sortable
                     align="center"
-                    label="操作">
+                    prop="experience"
+                    label="工作经验">
+            </el-table-column>
+
+            <el-table-column
+                    label="操作"
+                    width="200">
                 <template slot-scope="scope">
-                    <el-button type="primary"  plain ><router-link :to="{path:'/usershow/'+scope.row.uid}">查看</router-link></el-button>
-                    <el-button type="danger"  plain @click="del(scope.row.uid)">删除</el-button>
+                    <el-button type="success" :plain="true"><router-link :to="{path:'/usershow/'+scope.row.uid}">查看</router-link></el-button>
+                    <el-button type="warning" :plain="true" @click="del(scope.row.uid)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
-        <el-row type="flex" justify="center" style="margin-top:30px">
-        <el-pagination
-                background
-                layout="prev, pager, next"
-                :total="total"
-                :current-page.sync="now"
-                @current-change="change"
-                :page-size="2"
-        >
-        </el-pagination>
+        <el-row type="flex" justify="center" style="margin-top: 30px">
+            <el-pagination
+                    background
+                    layout="prev, pager, next"
+                    :page-size="2"
+                    :total="total"
+                    @current-change="change"
+            >
+            </el-pagination>
         </el-row>
     </basic-layout>
-
 </template>
 
 <script>
-    import basicLayout from "../basicLayout";
+    import Layout from '../basicLayout'
     export default {
         name: "userlist",
-        components:{
-            "basic-layout":basicLayout
+        components: {
+            "basic-layout": Layout
         },
-        data() {
-            return {
-                tableData: [],
-                loading:true
+        data(){
+            return{
+                data:[],
+                loading:true,
+                total:0
             }
         },
         methods:{
             del(id){
-
-                    this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
-                        confirmButtonText: '确定',
-                        cancelButtonText: '取消',
-                        type: 'warning'
-                    }).then(() => {
-                        this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/delUser?id="+id).then(res=>{
-                       if(res.body.data.state==="success"){
-                           this.$message({
-                               type: 'success',
-                               message: '删除成功!'
-                           });
-                           this.tableData=this.tableData.filter(ele=>ele.uid!==id);
-                       }else{
-                           this.$message({
-                               type: 'error',
-                               message: '删除失败'
-                           });
-                       }
-                    }).catch(() => {
-                        this.$message({
-                            type: 'info',
-                            message: '已取消删除'
-                        });
-                    });
+                this.$confirm('确定删除当前用户吗?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$http.get("admin/delUser?uid="+id).then(res=>{
+                        if(res.body.data.state==="success"){
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功！'
+                            });
+                            this.data=this.data.filter(ele=>ele.uid!==id);
+                        }else{
+                            this.$message({
+                                type: 'error',
+                                message: '删除失败'
+                            });
+                        }
                     })
-                },
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+            },
             getData:function (page=1) {
-                this.$http.get("admin/getUsers?page="+page).then(res=> {
-                    if (res.status === 200) {
-                        this.tableData = res.body.data;
+                this.$http.get("admin/getUsers?p="+page).then(res=>{
+                    if(res.status===200){
+                        this.total=res.body.total;
+                        this.data=res.body.data;
                         this.$message({
-                            message: "查询成功",
-                            type: "success"
+                            type: "success",
+                            message: "获取成功"
                         });
                         this.loading=false;
-                    } else {
+                    }else{
                         this.$message({
-                            message: "查询失败",
-                            type: "error"
-                        })
+                            type: "error",
+                            message: "查询失败"
+                        });
                     }
-                });
+                })
+            },
+            change:function (page) {
+                this.getData(page);
             }
         },
-        mounted() {
+        mounted(){
             this.getData();
         }
+
     }
 </script>
 

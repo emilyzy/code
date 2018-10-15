@@ -289,50 +289,69 @@ router.get("/delUser",(req,res)=>{
     })
 });
 
-router.get("/notices", (req, res) => {
-    let p = req.query.p - 1;
-    con.query(`SELECT * FROM notice  ORDER BY sort LIMIT ${p * 2},2;SELECT COUNT(*) as total FROM notice`, (err, data) => {
-        if (!err) {
+router.get("/notices",(req,res)=>{
+    let p=req.query.p-1;
+    con.query(`SELECT * FROM notice ORDER BY sort LIMIT ${p * 2},2;SELECT COUNT(*) AS total FROM notice`,(err,data)=>{
+        if(!err){
             res.send({
-                data: data[0],
-                total: data[1][0].total
+                data:data[0],
+                total:data[1][0].total
             })
-        } else {
+        }else{
             throw err;
         }
-
     })
 });
-router.delete("/notice/:id", (req, res) => {
-    let id = req.params.id;
-
-    con.query("DELETE FROM notice WHERE id=" + id, (err, data) => {
-        if (!err) {
-
-            if (data.affectedRows === 1) {
+router.delete("/notices/:id",(req,res)=>{
+    let id=req.params.id;
+    con.query("DELETE FROM notice WHERE id="+id,(err,data)=>{
+        if(!err){
+            if(data.affectedRows===1){
                 res.send("ok");
-            } else {
-                res.send("err");
+            }else{
+                res.send("err")
             }
-        } else {
+        }else{
             throw err;
         }
     })
 });
-router.post("/notices", (req, res) => {
-    let {content, date, sort} = req.body;
-    con.query("INSERT INTO notice(content,date,sort) VALUES(?,?,?)", [content, date, sort], (err, data) => {
-        if (!err) {
-            if(data.affectedRows === 1){
-                res.send();
-            }else {
-                res.send("err");
+router.post("/notices",(req,res)=>{
+    let {content,date,sort}=req.body;
+    con.query("INSERT INTO notice(content,date,sort)VALUES(?,?,?)",[content,date,sort],(err,data)=>{
+        if(!err){
+            if(data.affectedRows===1){
+                res.send("ok");
+            }else{
+                res.send("err")
             }
-
-        } else {
+        }else{
             throw err;
         }
     })
 });
-
+router.get("/notices/:id",(req,res)=>{
+    let id=req.params.id;
+    con.query("SELECT * FROM notice WHERE id="+id,(err,data)=>{
+        if(!err){
+            res.send(data[0])
+        }else{
+            throw err;
+        }
+    })
+});
+router.put("/notices",(req,res)=>{
+    let {id,content,sort,date}=req.body;
+    con.query("UPDATE notice SET content=?,sort=?,date=? WHERE id=?",[content,sort,date,id],(err,data)=>{
+        if(!err){
+            if(data.affectedRows===1){
+                res.send("ok");
+            }else{
+                res.send("error")
+            }
+        }else{
+            throw err;
+        }
+    })
+});
 module.exports = router;

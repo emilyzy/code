@@ -29,7 +29,7 @@
             </el-table-column>
             <el-table-column
                     sortable
-                    prop="realname"
+                    prop="author"
                     label="作者"
                     width="180">
             </el-table-column>

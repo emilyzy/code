@@ -1,5 +1,5 @@
 <template>
-    <basic-layout index="noticelist">
+    <basic-layout index="noticeUpdate">
         <el-col :span="12">
             <el-form ref="form" :model="form" label-width="80px" :rules="rules">
                 <el-form-item label="内容" prop="content">
@@ -80,13 +80,18 @@
                 this.$refs.form.validate((valid)=>{
                     if(valid){
                         this.form.id=this.$route.params.id;
-                        this.$http.post("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/updateNotice",this.form).then(res => {
-                            if(res.body.data.message==="ok") {
+                        this.$http.put("admin/notices",this.form).then(res => {
+                            if(res.body==="ok") {
                                 this.$message({
                                     type: 'success',
                                     message: '修改成功!'
                                 });
-                                this.$router.push({path:'/noticeList'})
+                                this.$router.push({path:'/noticelist'})
+                            }else{
+                                this.$message({
+                                    type: 'error',
+                                    message: '修改失败!'
+                                });
                             }
                         })
                     }else{
@@ -101,9 +106,9 @@
         },
         mounted(){
             let id=this.$route.params.id;
-            this.$http.get("https://www.easy-mock.com/mock/5b18ad9ec6b9b923a614ec23/project/getNotice?id="+id).then(res => {
-                res.body.data.sort=parseInt(res.body.data.sort);
-                this.form=res.body.data;
+            this.$http.get("admin/notices/"+id).then(res => {
+                res.body.sort=parseInt(res.body.sort);
+                this.form=res.body;
             })
         }
     }
